@@ -5,6 +5,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Simple Landing Page</title>
 	<style>
+	
+/*
+	Canva color palette "Foil Covered Sneakers"
+	https://www.canva.com/colors/color-palettes/foil-covered-sneakers/
+	
+	#90ADC6		Blue Gray	#2A547E
+	#E9EAEC		Pewter
+	#FAD02C		Yellow		#757500
+	#333652		Dark Blue	#00008B
+ */
+
 		body {
 			font-family: "Lato", sans-serif;
 			padding: 20px;
@@ -15,19 +26,29 @@
 			flex-direction: column;
 			height: 100vh;
 			text-align: center;
-			background-color: #708090; /* SLATE gray background */
+			background-color: #E9EAEC; /* PEWTER background */
 		}
 		
 		h1 {
-			color: #030a17; /*Black pearl heading */
-			font-weight: 700;
+			color: #00008B; /* Dark Blue heading */
+			font-family: "Hind Siliguri", sans-serif;
+			font-weight: 600;
 			font-style: normal;
 		}
 
 		p {
-			color: #F0F0F0; /* Off-white text */
-			font-weight: 300;
+			color: #2A547E; /* Blue Gray text */
+			font-weight: 400;
 			font-style: normal;
+		}
+
+		a.email-link {
+			text-decoration: none; /* Removes the underline from the link */
+			color: #2A547E; /* Sets the initial color of the link */	
+		}
+ 
+		a.email-link:hover {
+			color: #757500; /* Darkens the link color on hover */
 		}
 
 		@media (max-width: 600px) {
@@ -41,14 +62,15 @@
 -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
-
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+	
 </head>
 <body>
 
 	<h1>DataWorks</h1>
-	<p>Reliable data, indicators, and analytics tools in one place.</p>
-	<p>Coming real soon.</p>
+	<p>A centralized service architecture for validated data and indicators. Accessible everywhere.</p>
+	<p><a href="mailto:info@thedataworks.org" class="email-link">Click to get in touch.</a></p>
 
 </body>
 </html>
