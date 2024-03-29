@@ -38,6 +38,13 @@
 			background-color: #FDFFFC; /* Baby Powder */
 		}
 		
+		img.logo {
+			max-width: 100%;
+			height: auto;
+			width: auto; /* Respect aspect ratio */
+			max-height: 120px; /* Maximum logo height */
+		}
+
 		h1 {
 			color: #326186; /* Lapis Lazuli */
 		/*	font-family: "Hind Siliguri", sans-serif;
@@ -81,7 +88,8 @@
 </head>
 <body>
 
-	<h1>DataWorks</h1>
+	<img src="logo-graph.svg" alt="Logo" class="logo">
+<!--	<h1>DataWorks</h1> -->
 	<p>A centralized service architecture for validated data and indicators. Accessible everywhere.</p>
 	<p><a href="mailto:info@thedataworks.org" class="email-link">Click to get in touch.</a></p>
 
