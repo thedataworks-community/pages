@@ -3,97 +3,147 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Simple Landing Page</title>
+	<title>Your Website Title</title>
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Custom CSS -->
 	<style>
-	
-/*
-	Canva color palette "Foil Covered Sneakers"
-	https://www.canva.com/colors/color-palettes/foil-covered-sneakers/
-	
-	#90ADC6		Blue Gray	#2A547E
-	#E9EAEC		Pewter
-	#FAD02C		Yellow		#757500
-	#333652		Dark Blue	#00008B
-	
-	Coolors palette
-	https://coolors.co/fdfffc-326186-2b4150-dc7f2e-c2beae
-	
-	#FDFFFC		Baby Powder
-	#326186		Lapis Lazuli
-	#2B4150		Charcoal
-	#DC7F2E		Bronze			#8C4E18		Brown
-	#C2BEAE		DUN
- */
-
-		body {
+		body, html {
+			height: 100%;
+			margin: 0;
+			background-color: #000; /* Black background for the whole page */
+			color: #fff; /* White text color for better readability */
 			font-family: "Lato", sans-serif;
 			padding: 20px;
-			margin: 0;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-direction: column;
-			height: 100vh;
 			text-align: center;
-			background-color: #FDFFFC; /* Baby Powder */
 		}
-		
+		#main {
+			flex: 1;
+		}
 		img.logo {
 			max-width: 100%;
 			height: auto;
 			width: auto; /* Respect aspect ratio */
 			max-height: 120px; /* Maximum logo height */
 		}
-
 		h1 {
 			color: #326186; /* Lapis Lazuli */
-		/*	font-family: "Hind Siliguri", sans-serif;
-			font-weight: 600; */
 			font-family: "Reddit Mono", monospace;
 			font-optical-sizing: auto;
 			font-weight: 700;
 			font-style: normal;
 		}
-
 		p {
-			color: #2B4150; /* Charcoal text */
+			color: #fff; 
 			font-weight: 400;
 			font-style: normal;
 		}
-
 		a.email-link {
 			text-decoration: none; /* Removes the underline from the link */
 			color: #DC7F2E; /* Sets the initial color of the link */	
 		}
- 
 		a.email-link:hover {
 			color: #8C4E18; /* Darkens the link color on hover */
 		}
-
-		@media (max-width: 600px) {
-			body {
-				padding: 10px;
-			}
+		.footer {
+			background-color: #000; /* Matching black footer background */
+			color: #fff; /* Maintain white text for the footer */
+			border-top: 1px solid #666; /* Slightly lighter border for some contrast */
+			text-align: center;
+			padding: 10px;
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			width: 100%;
 		}
 	</style>
-<!--
-	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
--->
+
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!--
-	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
--->
 	<link href="https://fonts.googleapis.com/css2?\family=Lato:wght@300;400;700&family=Reddit+Mono:wght@200..900&display=swap" rel="stylesheet">
-	
-</head>
-<body>
 
-	<img src="logo-graph-bigorange.svg" alt="Logo" class="logo">
-<!--	<h1>DataWorks</h1> -->
-	<p>A centralized service architecture for validated data and indicators. Accessible everywhere.</p>
-	<p><a href="mailto:info@thedataworks.org" class="email-link">Click to connect with us.</a></p>
+</head>
+<body class="d-flex flex-column min-vh-100">
+	<header>
+		<!-- Dark mode sticky header -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top">
+			<div class="container-fluid">
+			<!--
+				<a class="navbar-brand" href="#">Brand Name</a>
+			-->
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item">
+							<a class="nav-link active" id="homeLink" aria-current="page" href="#">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="contactLink" href="#">Contact Us</a>
+						</li>
+<!--
+						<li class="nav-item">
+							<a class="nav-link" href="#">Pricing</a>
+						</li>
+-->
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<!-- Main Content -->
+	<main id="main" class="container-fluid py-4">
+		<!-- Content goes here -->
+		<div class="row align-items-center justify-content-center" style="height: 100%;">
+			<div class="col-auto text-center">
+				<img src="logo-graph-bigorange.svg" alt="Logo" class="mb-3">
+				<p>A centralized service architecture for validated data and indicators. Accessible everywhere.</p>
+			</div>
+		</div>
+	</main>
+
+	<!-- Dark Sticky Footer -->
+	<footer class="footer">
+		© 2024 DataWorks LLC. All rights reserved.
+	</footer>
+
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			var originalContent = `
+				<div class="row align-items-center justify-content-center" style="height: 100%;">
+					<div class="col-auto text-center">
+						<img src="logo-graph-bigorange.svg" alt="Logo" class="mb-3">
+						<p>A centralized service architecture for validated data and indicators. Accessible everywhere.</p>
+					</div>
+				</div>
+			`;
+
+		document.getElementById("homeLink").addEventListener("click", function(e) {
+			e.preventDefault(); // Prevent the link from causing a page reload
+	
+			var mainContent = document.getElementById("main");
+			mainContent.innerHTML = originalContent;
+		});
+		document.getElementById("contactLink").addEventListener("click", function(e) {
+			e.preventDefault(); // Prevent the link from causing a page reload
+
+			var mainContent = document.getElementById("main");
+			mainContent.innerHTML = `
+				<div class="row align-items-center justify-content-center" style="height: 100%;">
+					<div class="col-auto text-center">
+						<h1>Contact Us</h1>
+						<p><a href="mailto:info@thedataworks.org" class="email-link">Click to connect with us.</a></p>
+					</div>
+				</div>
+			`;
+		});
+	});
+</script>
 
 </body>
 </html>
