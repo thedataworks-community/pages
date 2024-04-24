@@ -53,24 +53,39 @@
 			const messageText = inputField.value.trim();
 
 			if (messageText !== '') {
-				const newMessage = document.createElement('p');
-				newMessage.textContent = messageText; // Ensure text content is correctly set
-				messagesContainer.insertBefore(newMessage, messagesContainer.firstChild); // Ensure the message is added to the top correctly
-				inputField.value = ''; // Clear the input field
+				// Display user's query in the messages container
+				displayMessage(messageText, 'user');
+
+				// Send the query to the API and handle the response
+				fetch('https://x5lkd8ippi.execute-api.us-east-2.amazonaws.com/test/simpletest', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({ query: messageText })
+				})
+				.then(response => response.json())
+				.then(data => {
+					// Display API's response in the messages container
+					displayMessage(data.reply, 'api');
+				})
+				.catch(error => {
+					// Handle any errors
+					displayMessage('Failed to get response from the server.', 'error');
+				});
+
+				inputField.value = '';
 			}
 
-			inputField.focus(); // Keep focus in the input field after submitting
+			inputField.focus(); // Maintain focus after submission
 		});
 
-		inputField.addEventListener('keydown', function(event) {
-		//	if (event.key === 'Enter' && !event.shiftKey) {
-			if (event.key === 'Enter' && event.shiftKey) {
-				event.preventDefault(); // Prevent default action of the Enter key
-				if (!event.shiftKey) {
-					chatForm.submit(); // Manually trigger form submission
-				}
-			}	
-		});
+		function displayMessage(message, sender) {
+			const messageElement = document.createElement('p');
+			messageElement.textContent = message;
+			messageElement.style.color = sender === 'user' ? 'blue' : 'green';
+			messagesContainer.insertBefore(messageElement, messagesContainer.firstChild);
+		}
 	</script>
 </body>
 </html>
