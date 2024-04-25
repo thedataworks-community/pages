@@ -55,6 +55,7 @@
 			if (messageText !== '') {
 				// Display user's query in the messages container
 				displayMessage(messageText, 'user');
+				displayMessage(JSON.stringify({ query: messageText }), 'user');
 
 				// Send the query to the API and handle the response
 				fetch('https://x5lkd8ippi.execute-api.us-east-2.amazonaws.com/test/simpletest', {
