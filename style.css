@@ -1,0 +1,175 @@
+body, html {
+	height: 100%;
+	margin: 0;
+	background-color: #f8f9fa; /* Light background */
+	color: #212529; /*Dark text for readability */
+	font-family: "Lato", sans-serif;
+	padding: 20px;
+	text-align: center;
+}
+#main {
+	flex: 1;
+}
+
+.navbar {
+	background-color: #ffffff !important; /* Light navbar background */
+	border-bottom: 1px solid #ddd; /* Light separator */
+	padding: 0;
+}
+.navbar .container-fluid {
+	padding: 0 15px; /* touches top, left, and right edges */
+}
+.navbar-brand img {
+	height: 52px; /* Adjust as needed */
+}
+/* Navbar Toggler (Hamburger Icon) * /
+.navbar-toggler {
+	border-color: rgba(0, 0, 0, 0.5);
+} */
+.navbar-toggler-icon {
+	filter: invert(1);
+}
+.navbar-nav .nav-link {
+	color: #326186 !important; /* Lapis Lazuli for menu links */
+	font-weight: 500;
+	transition: all 0.2s ease-in-out;
+}
+.navbar-nav .nav-link:hover {
+	color: #27496d !important; /* Darker blue on hover */
+	font-weight: 700;
+}
+/* Align the dropdown menu to the right in hamburger mode */
+@media (max-width: 768px) {
+	.navbar-collapse {
+		text-align: right;
+	}
+	.navbar-nav {
+		width: 100%;
+		text-align: right;
+	}
+	.commons-section {
+		flex-direction: column;
+		text-align: center;
+	}
+	.commons-image img {
+		width: 100%; /* Full width on small screens */
+		max-width: 300px; /* Prevents it from being too large */
+		margin-bottom: 10px;
+	}
+	.commons-text {
+		margin-left: 0;
+	}
+}
+/* Ensure the menu collapses when a menu item is selected */
+.navbar-collapse.show {
+	display: block;
+}
+
+.content {
+	display: none;
+	padding: 20px;
+	text-align: center;
+}
+.content.active {
+	display: block;
+}
+
+h1 {
+	color: #326186; /* Lapis Lazuli */
+	font-family: "Reddit Mono", monospace;
+	font-optical-sizing: auto;
+	font-weight: 700;
+	font-style: normal;
+	font-size: 1.8rem;
+}
+p {
+	color: #212529; /* Darker text for readability */ 
+	font-weight: 400;
+	font-style: normal;
+	text-align: left;
+}
+a.email-link {
+	text-decoration: none; /* Removes the underline from the link */
+	color: #DC7F2E; /* Sets the initial color of the link */	
+}
+a.email-link:hover {
+	color: #8C4E18; /* Darkens the link color on hover */
+}
+
+/* COMMONS PAGE STYLES */
+.commons-section {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	margin: 20px 0;
+	padding: 20px;
+	text-align: left;
+}
+/* IMAGE STYLES */
+.commons-image img {
+	width: 200px; /* Adjust size as needed */
+	height: auto;
+	border-radius: 8px;
+	object-fit: cover;
+}
+/* TEXT SECTION */
+.commons-text {
+	flex: 1;
+	margin-left: 20px;
+	margin-top: 24px;
+}
+/* HEADINGS */
+.commons-text h2 {
+	font-size: 1.5rem;
+	color: #326186;
+}
+/* INLINE LINKS */
+.commons-text a {
+	color: #DC7F2E;
+	text-decoration: none;
+	font-weight: 600;
+}
+.commons-text a:hover {
+	color: #8C4E18;
+	text-decoration: underline;
+}
+
+.chart-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: 700px;
+	margin: auto;
+}
+datacommons-line::part(container) {
+	max-width: 600px !important;
+	max-height: 500px !important;
+	width: 100% !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+datacommons-line::part(header) {
+	font-family: 'Garamond', sans-serif !important;
+	font-size: 20px !important;
+	font-weight: bold !important;
+	color: #333 !important;
+}
+
+/* SEPARATORS */
+hr {
+	border: none;
+	border-top: 1px solid #ddd;
+	margin: 20px 0;
+}
+
+.footer {
+	background-color: #ffffff; /* Light background */
+	color: #212529; /* Dark text */
+	border-top: 1px solid #ddd; /* Slightly lighter border for some contrast */
+	text-align: center;
+	padding: 10px;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
