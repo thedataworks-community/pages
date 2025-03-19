@@ -7,8 +7,14 @@ body, html {
 	padding: 20px;
 	text-align: center;
 }
+/* Ensure #main takes up the remaining space between header and footer */
 #main {
-	flex: 1;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1; /* Pushes content down if needed */
+	justify-content: center; /* Centers vertically */
+	align-items: center; /* Centers horizontally */
+	padding: 20px;
 }
 
 .navbar {
@@ -94,6 +100,42 @@ a.email-link {
 }
 a.email-link:hover {
 	color: #8C4E18; /* Darkens the link color on hover */
+}
+
+#home {
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	max-width: 800px;
+	margin: auto;
+}
+/* Apply display: flex when #home is active */
+#home.active {
+	display: flex;
+}
+.home-intro {
+	font-size: 1.2rem; /* Slightly larger than normal text */
+	font-weight: 400; /* Bold text */
+	max-width: 800px; /* Keep it readable */
+	margin: 0 auto 30px auto; /* Centered block with spacing */
+	text-align: left; /* Align left */
+}
+/* BUTTON STYLES */
+.home-button {
+	margin-top: 30px;
+	background-color: #326186; /* Lapis Lazuli */
+	color: white;
+	font-size: 1rem;
+	font-weight: 600;
+	border: none;
+	padding: 12px 20px;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: background-color 0.2s ease-in-out;
+}
+.home-button:hover {
+	background-color: #27496d; /* Darker blue on hover */
 }
 
 /* COMMONS PAGE STYLES */

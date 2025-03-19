@@ -1,11 +1,16 @@
+
 document.addEventListener("DOMContentLoaded", function() {
+	
 	const sections = {
 		home: document.getElementById("home"),
 		commons: document.getElementById("commons"),
 		contact: document.getElementById("contact")
 	};
-
-	function showSection(section) {
+	
+	window.showSection = function (section) {
+		
+		console.log("SHOW SECTION",section);
+		
 		Object.values(sections).forEach(div => div.classList.remove("active"));
 		sections[section].classList.add("active");
 	
@@ -16,12 +21,18 @@ document.addEventListener("DOMContentLoaded", function() {
 			navbarToggler.click(); // Simulate a click to close the menu
 		}
 	}
-
+	
 	document.getElementById("homeNav").addEventListener("click", () => showSection("home"));
 	document.getElementById("commonsNav").addEventListener("click", () => showSection("commons"));
 	document.getElementById("contactNav").addEventListener("click", () => showSection("contact"));
 	
+	const homeButton = document.querySelector(".home-button");
+	if (homeButton) {
+		homeButton.addEventListener("click", () => showSection("commons"));
+	}
+	
 	document.querySelectorAll("datacommons-line").forEach((chart) => {
+	
 		const shadowRoot = chart.shadowRoot;
 	
 		if (shadowRoot) {
@@ -71,3 +82,5 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	});
 });
+
+
