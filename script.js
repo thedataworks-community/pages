@@ -7,13 +7,18 @@ document.addEventListener("DOMContentLoaded", function() {
 		contact: document.getElementById("contact")
 	};
 	
-	window.showSection = function (section) {
+	window.showSection = function (section, updateURL = true) {
 		
 		console.log("SHOW SECTION",section);
 		
 		Object.values(sections).forEach(div => div.classList.remove("active"));
 		sections[section].classList.add("active");
 	
+		// Update the URL with the new hash, if needed
+		if (updateURL) {
+			history.pushState(null, "", `#${section}`);
+		}
+		
 		// Collapse the navbar in mobile view
 		const navbarToggler = document.querySelector(".navbar-toggler");
 		const navbarCollapse = document.querySelector(".navbar-collapse");
@@ -21,15 +26,41 @@ document.addEventListener("DOMContentLoaded", function() {
 			navbarToggler.click(); // Simulate a click to close the menu
 		}
 	}
+
+	const initialSection = window.location.hash.replace("#", "") || "home";
 	
-	document.getElementById("homeNav").addEventListener("click", () => showSection("home"));
-	document.getElementById("commonsNav").addEventListener("click", () => showSection("commons"));
-	document.getElementById("contactNav").addEventListener("click", () => showSection("contact"));
-	
-	const homeButton = document.querySelector(".home-button");
-	if (homeButton) {
-		homeButton.addEventListener("click", () => showSection("commons"));
+	// Ensure we only update if a valid section exists
+	if (Object.keys(sections).includes(initialSection)) {
+		showSection(initialSection, false);
 	}
+		
+	// Handle back/forward navigation
+	window.addEventListener("popstate", function () {
+		const section = window.location.hash.replace("#", "") || "home";
+		showSection(section, false); // Don't update URL when navigating via history
+	});
+	
+	document.getElementById("homeNav").addEventListener("click", (event) => {
+		event.preventDefault();
+		showSection("home");
+	});
+	document.getElementById("commonsNav").addEventListener("click", (event) => {
+		event.preventDefault();
+		showSection("commons");
+	});
+	document.getElementById("contactNav").addEventListener("click", (event) => {
+		event.preventDefault();
+		showSection("contact");
+	});
+	document.getElementById("commonsLink").addEventListener("click", (event) => {
+		event.preventDefault();
+		showSection("commons");
+	});
+
+	// const homeButton = document.querySelector(".home-button");
+	// if (homeButton) {
+	// 	homeButton.addEventListener("click", () => showSection("commons"));
+	// }
 	
 	document.querySelectorAll("datacommons-line").forEach((chart) => {
 	

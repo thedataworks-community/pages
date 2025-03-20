@@ -121,6 +121,15 @@ a.email-link:hover {
 	margin: 0 auto 30px auto; /* Centered block with spacing */
 	text-align: left; /* Align left */
 }
+.home-intro a {
+	color: #DC7F2E;
+	text-decoration: none;
+	font-weight: 600;	
+}
+.home-intro a:hover {
+	color: #8C4E18;
+	text-decoration: underline;
+}
 /* BUTTON STYLES */
 .home-button {
 	margin-top: 30px;
