@@ -172,6 +172,33 @@
 					modifySourceText();
 				});
 				observer.observe(shadowRoot, { childList: true, subtree: true });
+
+				
+				// Function to update scatter plot colors
+				const updateScatterPlotColors = () => {
+				    document.querySelectorAll("datacommons-scatter").forEach((chart) => {
+				        const shadowRoot = chart.shadowRoot;
+				        if (shadowRoot) {
+				            const circles = shadowRoot.querySelectorAll("svg circle");
+				            if (circles.length > 0) {
+				                console.log("🎨 Updating scatter plot colors...");
+				                const colors = ["#3d5a78"]; // Define your custom color palette
+				
+				                circles.forEach((circle, index) => {
+				                    circle.style.fill = colors[index % colors.length]; // Cycle through colors
+				                    circle.style.stroke = "black"; // Optional: Add border for better visibility
+				                });
+				            }
+				        }
+				    });
+				};
+				  
+				  // Run once after the page loads
+				setTimeout(updateScatterPlotColors, 1);
+				
+				// Reapply colors every second to persist changes
+				setInterval(updateScatterPlotColors, 1);
+
 				
 				// 🔟 Inject CSS to Ensure Custom Styles Persist
 				const style = document.createElement("style");
