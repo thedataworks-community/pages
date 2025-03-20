@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="https://data-dev-datacommons-web-service-a6wrkh5rha-uc.a.run.app/datacommons.js"></script>
+	<style>
+		.map-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			max-width: 700px;
+			margin: auto;
+		}
+		datacommons-map::part(container) {
+			max-width: 600px !important;
+			max-height: 500px !important;
+			width: 100% !important;
+			height: auto !important;
+			overflow: hidden !important;
+		}
+		datacommons-map::part(header) {
+			font-family: 'Garamond', sans-serif !important;
+			font-size: 18px !important;
+			font-weight: bold !important;
+			color: #333 !important;
+		}
+		datacommons-map::part(place-path) {
+			stroke: #444 !important;
+			stroke-width: 1px !important;
+		}
+	</style>
+</head>
+<body>
+	<div class="map-container">
+<datacommons-map
+	id="map"
+	header="% of Students Identified as Economically Disadvantaged"
+	parentPlace="geoId/40"
+	childPlaceType="County"
+	variable="PercentofStudentsEconomicallyDisadvantaged"
+	apiRoot="https://data-dev-datacommons-web-service-a6wrkh5rha-uc.a.run.app/"
+	colors="#3d5a78 #f3f3f3 #c47f42"
+></datacommons-map>
+
+	</div>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			document.querySelectorAll("datacommons-map").forEach((chart) => {
+				const shadowRoot = chart.shadowRoot;
+
+				if (shadowRoot) {
+					const observer = new MutationObserver((mutations, obs) => {
+						let changesMade = false;
+
+						mutations.forEach((mutation) => {
+							// Modify Download Button
+							const downloadButton = shadowRoot.querySelector(".outlink-item.download-outlink");
+							if (downloadButton && !downloadButton.dataset.modified) {
+								downloadButton.innerHTML = `<a href="https://thedataworks.org" target="_blank" style="color: black; text-decoration: none; font-size: 12px; font-weight: regular;">The DataWorks Commons</a>`;
+								downloadButton.dataset.modified = "true";
+								changesMade = true;
+							}
+
+							// Modify Source Text
+							const sourceElement = shadowRoot.querySelector("div[class*='source']");
+							if (sourceElement && !sourceElement.dataset.modified) {
+								sourceElement.innerHTML = `<strong style="font-size: 8px; color: black;">Source:</strong> <a href="https://thedataworks.org" target="_blank" style="color: black; text-decoration: none; font-size: 8px;"><em>Oklahoma Office of Educational Quality and Accountability</em></a>`;
+								sourceElement.dataset.modified = "true";
+								changesMade = true;
+							}
+
+							// Modify Tooltip Styles
+							let tooltip = shadowRoot.querySelector(".tooltip");
+							if (tooltip && !tooltip.dataset.modified) {
+								tooltip.style.fontFamily = "Arial, sans-serif";
+								tooltip.style.fontSize = "2px"; /* Updated font size */
+								tooltip.style.fontWeight = "bold";
+								tooltip.style.color = "white";
+								tooltip.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+								tooltip.style.padding = "10px";
+								tooltip.style.borderRadius = "5px";
+								tooltip.dataset.modified = "true";
+								changesMade = true;
+							}
+						});
+
+						if (changesMade) obs.disconnect();
+					});
+
+					observer.observe(shadowRoot, { childList: true, subtree: true });
+
+					// Inject Custom Tooltip Styles
+					const style = document.createElement("style");
+					style.textContent = `
+						.tooltip {
+							font-family: "Arial, sans-serif" !important;
+							font-size: 2px !important; /* Updated font size */
+							font-weight: bold !important;
+							color: white !important;
+							background-color: rgba(0, 0, 0, 0.8) !important;
+							padding: 10px !important;
+							border-radius: 5px !important;
+							box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3) !important;
+						}
+					`;
+					shadowRoot.appendChild(style);
+				}
+			});
+		});
+	</script>
+</body>
+</html>

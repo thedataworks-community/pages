@@ -89,18 +89,27 @@
 			</div>
 			
 			<hr>
-			
+						
 			<!-- Section 2 -->
 			<div class="commons-section">
-				<div class="commons-image">
-					<img src="img/example2.jpg" alt="Example 2">
-				</div>
 				<div class="commons-text">
-					<h2>Example Topic 2</h2>
+					<!-- <h2>Example Topic 2</h2> -->
 					<p>
-						Another interesting thing. Read further at 
-						<a href="https://example.com" target="_blank" rel="noopener noreferrer">this link</a>.
-					</p>
+						<strong>Oklahoma has long struggled with high student poverty rates, but the divide across the state is striking.</strong></p>
+					<p>
+						In southeastern and rural counties, over 79% of students are economically disadvantaged, with Choctaw, Hughes, and Seminole Counties among the highest. Meanwhile, northwestern counties, like McClain and Woods, report far lower rates, some below 42%.
+						These gaps reflect broader economic disparities, shaping access to resources and opportunities for students across the state.</p>
+				</div>
+				<div class="map-container">
+					<datacommons-map
+						id="map"
+						header="% of Students Identified as Economically Disadvantaged"
+						parentPlace="geoId/40"
+						childPlaceType="County"
+						variable="PercentofStudentsEconomicallyDisadvantaged"
+						apiRoot="https://data-dev-datacommons-web-service-a6wrkh5rha-uc.a.run.app/"
+						colors="#3d5a78 #f3f3f3 #c47f42"
+					></datacommons-map>
 				</div>
 			</div>
 			
@@ -108,15 +117,21 @@
 			
 			<!-- Section 3 -->
 			<div class="commons-section">
-				<div class="commons-image">
-					<img src="img/example3.jpg" alt="Example 3">
+				<div class="scatter-container">
+					<datacommons-scatter
+					  header="Property vs Violent Crime Rate per 100K"
+					  variables="Property_Crime_Rate_per_100k Violent_Crime_Rate_per_100k"
+					  parentPlace="geoId/40"
+					  childPlaceType="County"
+					  apiRoot="https://data-dev-datacommons-web-service-a6wrkh5rha-uc.a.run.app/"
+					></datacommons-scatter>
 				</div>
 				<div class="commons-text">
-					<h2>Example Topic 3</h2>
 					<p>
-						Some additional details. More info available at 
-						<a href="https://example.com" target="_blank" rel="noopener noreferrer">this resource</a>.
-					</p>
+						<strong>Crime in Oklahoma follows a clear pattern</strong>: counties with high violent crime rates also experience high property crime rates, though the extent varies widely.</p>
+					<p>
+						Urban centers like Tulsa and Oklahoma Counties consistently report some of the highest crime levels. Meanwhile, rural counties like Osage and Okfuskee have crime rates that rival the state’s largest cities, with property crime exceeding 5,000 per 100K and violent crime above 2,500 per 100K. In contrast, counties like McClain and Washington have some of the lowest rates in both categories.
+						These disparities highlight the need for region-specific public safety strategies, as both urban and rural areas face unique crime challenges.</p>
 				</div>
 			</div>
 			

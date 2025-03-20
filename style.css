@@ -55,15 +55,15 @@ body, html {
 	}
 	.commons-section {
 		flex-direction: column;
-		text-align: center;
 	}
-	.commons-image img {
+	.map-container, .chart-container {
 		width: 100%; /* Full width on small screens */
-		max-width: 300px; /* Prevents it from being too large */
-		margin-bottom: 10px;
+		margin-right: 0;
+		margin-bottom: 10px; /* Space between map/chart and text */
 	}
 	.commons-text {
-		margin-left: 0;
+		width: 100% !important;
+		max-width: 100%;
 	}
 }
 /* Ensure the menu collapses when a menu item is selected */
@@ -143,22 +143,19 @@ a.email-link:hover {
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-between;
+	flex-wrap: wrap; /* Allow text to wrap below */
 	margin: 20px 0;
 	padding: 20px;
 	text-align: left;
-}
-/* IMAGE STYLES */
-.commons-image img {
-	width: 200px; /* Adjust size as needed */
-	height: auto;
-	border-radius: 8px;
-	object-fit: cover;
+	/* gap: 20px; / * Adds space between items */
 }
 /* TEXT SECTION */
 .commons-text {
 	flex: 1;
-	margin-left: 20px;
+	min-width: 300px;
 	margin-top: 24px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 /* HEADINGS */
 .commons-text h2 {
@@ -176,11 +173,35 @@ a.email-link:hover {
 	text-decoration: underline;
 }
 
+/* .chart-container .map-container {
+	flex: 0 0 200px; /* Fix width, prevents shrinking * /
+	margin-right: 20px; /* Space between map/chart and text * /
+	margin-left: 20px;
+	/* display: flex; * /
+	justify-content: center;
+	align-items: center;
+	max-width: 700px;
+	/* margin: auto; */
+} */
 .chart-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	max-width: 700px;
+	margin: auto;
+}
+.map-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: 700px;
+	margin: auto;
+}
+.scatter-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: 450px;
 	margin: auto;
 }
 datacommons-line::part(container) {
@@ -196,11 +217,41 @@ datacommons-line::part(header) {
 	font-weight: bold !important;
 	color: #333 !important;
 }
+datacommons-map::part(container) {
+	max-width: 600px !important;
+	max-height: 500px !important;
+	width: 100% !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+datacommons-map::part(header) {
+	font-family: 'Garamond', sans-serif !important;
+	font-size: 18px !important;
+	font-weight: bold !important;
+	color: #333 !important;
+}
+datacommons-map::part(place-path) {
+	stroke: #444 !important;
+	stroke-width: 1px !important;
+}
+datacommons-scatter::part(container) {
+	max-width: 800px !important;
+	max-height: 500px !important;
+	width: 100% !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+datacommons-scatter::part(header) {
+	font-family: 'Garamond', sans-serif !important;
+	font-size: 18px !important;
+	font-weight: bold !important;
+	color: #333 !important;
+}
 
 /* SEPARATORS */
 hr {
 	border: none;
-	border-top: 1px solid #ddd;
+	border-top: 1px solid #326186;
 	margin: 20px 0;
 }
 
