@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function() {
 					// Modify Download Button
 					const downloadButton = shadowRoot.querySelector(".outlink-item.download-outlink");
 					if (downloadButton && !downloadButton.dataset.modified) {
-						downloadButton.innerHTML = `<a href="https://thedataworks.org" target="_blank" style="color: black; text-decoration: none; font-size: 12px; font-weight: regular;">The DataWorks Commons</a>`;
+						downloadButton.innerHTML = `<a href="https://data-dev-datacommons-web-service-a6wrkh5rha-uc.a.run.app/tools/visualization#visType%3Dtimeline%26place%3DgeoId%2F40143___geoId%2F40109%26placeType%3DTown%26sv%3D%7B%22dcid%22%3A%22Count_of_Persons_F%22%7D" target="_blank" style="color: black; text-decoration: none; font-size: 12px; font-weight: regular;">Explore The DataWorks Commons</a>`;
 						downloadButton.dataset.modified = "true";
 						changesMade = true;
 					}
@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function() {
 					// Modify Download Button
 					const downloadButton = shadowRoot.querySelector(".outlink-item.download-outlink");
 					if (downloadButton && !downloadButton.dataset.modified) {
-						downloadButton.innerHTML = `<a href="https://thedataworks.org" target="_blank" style="color: black; text-decoration: none; font-size: 12px; font-weight: regular;">The DataWorks Commons</a>`;
+						downloadButton.innerHTML = `<a href="https://data-dev-datacommons-web-service-a6wrkh5rha-uc.a.run.app/tools/visualization#visType%3Dmap%26place%3DgeoId%2F40%26placeType%3DCounty%26sv%3D%7B%22dcid%22%3A%22PercentofStudentsEconomicallyDisadvantaged%22%7D" target="_blank" style="color: black; text-decoration: none; font-size: 12px; font-weight: regular;">Explore The DataWorks Commons</a>`;
 						downloadButton.dataset.modified = "true";
 						changesMade = true;
 					}
@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			const modifyDownloadButton = () => {
 				const downloadButton = shadowRoot.querySelector(".outlink-item.download-outlink");
 				if (downloadButton && !downloadButton.dataset.modified) {
-					downloadButton.innerHTML = `<a href="https://thedataworks.org" target="_blank" style="color: black; text-decoration: none; font-size: 12px; font-weight: regular;">The DataWorks Commons</a>`;
+					downloadButton.innerHTML = `<a href="https://data-dev-datacommons-web-service-a6wrkh5rha-uc.a.run.app/tools/visualization#visType%3Dscatter%26place%3DgeoId%2F40%26placeType%3DCounty%26sv%3D%7B%22dcid%22%3A%22Property_Crime_Rate_per_100k%22%7D___%7B%22dcid%22%3A%22Violent_Crime_Rate_per_100k%22%7D" target="_blank" style="color: black; text-decoration: none; font-size: 12px; font-weight: regular;">Explore The DataWorks Commons</a>`;
 					downloadButton.dataset.modified = "true";
 					console.log("✅ Download button replaced with The DataWorks Commons!");
 				}
