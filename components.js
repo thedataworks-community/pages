@@ -1,76 +1,14 @@
-
-document.addEventListener("DOMContentLoaded", function() {
-	
-	const sections = {
-		home: document.getElementById("home"),
-		commons: document.getElementById("commons"),
-		contact: document.getElementById("contact")
-	};
-	
-	window.showSection = function (section, updateURL = true) {
-		
-		console.log("SHOW SECTION",section);
-		
-		Object.values(sections).forEach(div => div.classList.remove("active"));
-		sections[section].classList.add("active");
-	
-		// Update the URL with the new hash, if needed
-		if (updateURL) {
-			history.pushState(null, "", `#${section}`);
-		}
-		
-		// Collapse the navbar in mobile view
-		const navbarToggler = document.querySelector(".navbar-toggler");
-		const navbarCollapse = document.querySelector(".navbar-collapse");
-		if (navbarCollapse.classList.contains("show")) {
-			navbarToggler.click(); // Simulate a click to close the menu
-		}
-	}
-
-	const initialSection = window.location.hash.replace("#", "") || "home";
-	
-	// Ensure we only update if a valid section exists
-	if (Object.keys(sections).includes(initialSection)) {
-		showSection(initialSection, false);
-	}
-		
-	// Handle back/forward navigation
-	window.addEventListener("popstate", function () {
-		const section = window.location.hash.replace("#", "") || "home";
-		showSection(section, false); // Don't update URL when navigating via history
-	});
-	
-	document.getElementById("homeNav").addEventListener("click", (event) => {
-		event.preventDefault();
-		showSection("home");
-	});
-	document.getElementById("commonsNav").addEventListener("click", (event) => {
-		event.preventDefault();
-		showSection("commons");
-	});
-	document.getElementById("contactNav").addEventListener("click", (event) => {
-		event.preventDefault();
-		showSection("contact");
-	});
-	document.getElementById("commonsLink").addEventListener("click", (event) => {
-		event.preventDefault();
-		showSection("commons");
-	});
-
-	// const homeButton = document.querySelector(".home-button");
-	// if (homeButton) {
-	// 	homeButton.addEventListener("click", () => showSection("commons"));
-	// }
+export function setupDCComponents() {
 	
 	document.querySelectorAll("datacommons-line").forEach((chart) => {
-	
+
 		const shadowRoot = chart.shadowRoot;
-	
+
 		if (shadowRoot) {
 			// Observe changes to the shadow DOM
 			const observer = new MutationObserver((mutations, obs) => {
 				let changesMade = false;
-	
+
 				mutations.forEach((mutation) => {
 					// Modify Download Button
 					const downloadButton = shadowRoot.querySelector(".outlink-item.download-outlink");
@@ -79,47 +17,46 @@ document.addEventListener("DOMContentLoaded", function() {
 						downloadButton.dataset.modified = "true";
 						changesMade = true;
 					}
-	
+
 					// Modify Source Text
 					const sourceElement = shadowRoot.querySelector("div[class*='source']");
 					if (sourceElement && !sourceElement.dataset.modified) {
 						sourceElement.innerHTML = `<strong style="font-size: 8px; color: black;">Source:</strong> 
-							<a href="https://thedataworks.org" target="_blank" style="color: black; text-decoration: none; font-size: 8px;">
-							<em>Oklahoma Department of Corrections</em></a>`;
+						<a href="https://thedataworks.org" target="_blank" style="color: black; text-decoration: none; font-size: 8px;">
+						<em>Oklahoma Department of Corrections</em></a>`;
 						sourceElement.dataset.modified = "true";
 						changesMade = true;
 					}
-	
+
 					// Modify line colors
 					const svgPaths = shadowRoot.querySelectorAll("path[stroke]");
 					if (svgPaths.length > 0 && !svgPaths[0].dataset.modified) {
 						const colors = ["#FF1493", "#2E86C1", "#28B463", "#E74C3C", "#8E44AD"]; // Pink, Blue, Green, Red, Purple
-	
+
 						svgPaths.forEach((path, index) => {
 							path.style.stroke = colors[index % colors.length];  // Assign colors in sequence
 							path.style.strokeWidth = "3px";  // Optional: Increase line thickness
 							path.dataset.modified = "true";  // Prevent duplicate changes
 						});
-	
+
 						changesMade = true;
 					}
 				});
-	
+
 				if (changesMade) obs.disconnect();
 			});
-	
+
 			observer.observe(shadowRoot, { childList: true, subtree: true });
-	
 		}
 	});
-	
+
 	document.querySelectorAll("datacommons-map").forEach((chart) => {
 		const shadowRoot = chart.shadowRoot;
-	
+
 		if (shadowRoot) {
 			const observer = new MutationObserver((mutations, obs) => {
 				let changesMade = false;
-	
+
 				mutations.forEach((mutation) => {
 					// Modify Download Button
 					const downloadButton = shadowRoot.querySelector(".outlink-item.download-outlink");
@@ -128,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
 						downloadButton.dataset.modified = "true";
 						changesMade = true;
 					}
-	
+
 					// Modify Source Text
 					const sourceElement = shadowRoot.querySelector("div[class*='source']");
 					if (sourceElement && !sourceElement.dataset.modified) {
@@ -136,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
 						sourceElement.dataset.modified = "true";
 						changesMade = true;
 					}
-	
+
 					// Modify Tooltip Styles
 					let tooltip = shadowRoot.querySelector(".tooltip");
 					if (tooltip && !tooltip.dataset.modified) {
@@ -151,12 +88,12 @@ document.addEventListener("DOMContentLoaded", function() {
 						changesMade = true;
 					}
 				});
-	
+
 				if (changesMade) obs.disconnect();
 			});
-	
+
 			observer.observe(shadowRoot, { childList: true, subtree: true });
-	
+
 			// Inject Custom Tooltip Styles
 			const style = document.createElement("style");
 			style.textContent = `
@@ -174,15 +111,15 @@ document.addEventListener("DOMContentLoaded", function() {
 			shadowRoot.appendChild(style);
 		}
 	});
-	
+
 	document.querySelectorAll("datacommons-scatter").forEach((chart) => {
 		const shadowRoot = chart.shadowRoot;
-	
+
 		if (shadowRoot) {
 			console.log("✅ Shadow root detected. Applying all modifications...");
-	
-	
-	
+
+
+
 			// 2️⃣ Remove the Legend
 			const removeLegend = () => {
 				const legend = shadowRoot.querySelector("#density-legend");
@@ -191,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function() {
 					legend.remove();
 				}
 			};
-	
+
 			// 3️⃣ Modify Axis Label Font Sizes
 			const updateAxisLabels = () => {
 				const axisLabels = shadowRoot.querySelectorAll("svg text");
@@ -204,8 +141,8 @@ document.addEventListener("DOMContentLoaded", function() {
 					}
 				});
 			};
-	
-			  // 1️⃣ Resize Chart Width
+
+			// 1️⃣ Resize Chart Width
 			const resizeChart = () => {
 				const svg = shadowRoot.querySelector("svg");
 				if (svg) {
@@ -213,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function() {
 					svg.style.width = "800px";
 				}
 			};
-	
+
 			// 4️⃣ Modify Legend Text Font Size
 			const updateLegendText = () => {
 				const legendTexts = shadowRoot.querySelectorAll("#density-legend text");
@@ -227,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function() {
 					}
 				});
 			};
-	
+
 			// 5️⃣ Modify Tooltip & Other Text Styles
 			const updateCustomText = () => {
 				let tooltip = shadowRoot.querySelector(".tooltip");
@@ -242,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function() {
 					tooltip.dataset.modified = "true";
 				}
 			};
-	
+
 			// 6️⃣ Replace Download Button with DataWorks Commons
 			const modifyDownloadButton = () => {
 				const downloadButton = shadowRoot.querySelector(".outlink-item.download-outlink");
@@ -252,9 +189,7 @@ document.addEventListener("DOMContentLoaded", function() {
 					console.log("✅ Download button replaced with The DataWorks Commons!");
 				}
 			};
-	
-	
-	
+
 			// 7️⃣ Modify Source Text
 			const modifySourceText = () => {
 				const sourceElement = shadowRoot.querySelector("div[class*='source']");
@@ -264,8 +199,8 @@ document.addEventListener("DOMContentLoaded", function() {
 					console.log("✅ Source text updated!");
 				}
 			};
-	
-			  // 3️⃣ Remove Legend Container & Free Space
+
+			// 3️⃣ Remove Legend Container & Free Space
 			const removeLegendContainer = () => {
 				const legendContainer = shadowRoot.querySelector(".legend-container"); // Adjust selector if needed
 				if (legendContainer) {
@@ -274,7 +209,7 @@ document.addEventListener("DOMContentLoaded", function() {
 					console.log("🛠️ Legend container hidden and space freed!");
 				}
 			};
-	
+
 			// 8️⃣ Keep Changes Applied Even If The Chart Updates
 			setTimeout(() => {
 				resizeChart();
@@ -285,7 +220,7 @@ document.addEventListener("DOMContentLoaded", function() {
 				modifyDownloadButton();
 				modifySourceText();
 			}, 500);
-			
+		
 			setInterval(() => {
 				resizeChart();
 				removeLegend();
@@ -295,7 +230,7 @@ document.addEventListener("DOMContentLoaded", function() {
 				modifyDownloadButton();
 				modifySourceText();
 			}, 1000);
-	
+
 			// 9️⃣ MutationObserver: Detect & Fix Any Re-Renders
 			const observer = new MutationObserver(() => {
 				resizeChart();
@@ -307,7 +242,7 @@ document.addEventListener("DOMContentLoaded", function() {
 				modifySourceText();
 			});
 			observer.observe(shadowRoot, { childList: true, subtree: true });
-	
+
 			// 🔟 Inject CSS to Ensure Custom Styles Persist
 			const style = document.createElement("style");
 			style.textContent = `
@@ -335,6 +270,4 @@ document.addEventListener("DOMContentLoaded", function() {
 			shadowRoot.appendChild(style);
 		}
 	});
-});
-
-
+}
