@@ -3,7 +3,7 @@ export function initTopNav() {
 	const sections = {
 		home: document.getElementById("home"),
 		commons: document.getElementById("commons"),
-		contact: document.getElementById("contact")
+		// contact: document.getElementById("contact")
 	};
 
 	window.showSection = function (section, updateURL = true) {
@@ -11,7 +11,9 @@ export function initTopNav() {
 		console.log("SHOW SECTION",section);
 	
 		Object.values(sections).forEach(div => div.classList.remove("active"));
-		sections[section].classList.add("active");
+		if (sections[section]) {
+			sections[section].classList.add("active");
+		}
 
 		// Update the URL with the new hash, if needed
 		if (updateURL) {
@@ -26,6 +28,13 @@ export function initTopNav() {
 		}
 	}
 
+	// Function to compose an email
+	window.sendEmail = function (subject) {
+		const email = "info@thedataworks.org";
+		const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
+		window.location.href = mailtoLink;
+	};
+	
 	const initialSection = window.location.hash.replace("#", "") || "home";
 
 	// Ensure we only update if a valid section exists
@@ -49,6 +58,6 @@ export function initTopNav() {
 	});
 	document.getElementById("contactNav").addEventListener("click", (event) => {
 		event.preventDefault();
-		showSection("contact");
+		sendEmail("Hello!");
 	});
 }
