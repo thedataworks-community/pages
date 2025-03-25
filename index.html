@@ -19,7 +19,7 @@
 
 	<header>
 
-		<nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top position-static">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="#" id="homeNav">
 					<img src="img/logo-graph-bigorange.svg" alt="Logo">
@@ -29,11 +29,19 @@
 				</button>
 				<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
 					<ul class="navbar-nav">
-						<li class="nav-item">
-							<a class="nav-link active" id="solutionsNav" href="#">Solutions</a>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="solutionsNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Solutions
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="solutionsNav">
+								<li><a class="dropdown-item" href="#" id="item1Nav">AI Powered Document Extraction</a></li>
+								<li><a class="dropdown-item" href="#" id="item2Nav">Automated Next Court Date Retrieval</a></li>
+								<li><a class="dropdown-item" href="#" id="item3Nav">Comprehensive Case Modeling</a></li>
+								<li><a class="dropdown-item" href="#" id="item4Nav">Civil Case Intelligence</a></li>
+							</ul>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link active" id="commonsNav" href="#">DataWorks Commons</a>
+							<a class="nav-link" id="commonsNav" href="#">DataWorks Commons</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" id="contactNav" href="#">Contact</a>
@@ -142,9 +150,50 @@
 			
 		</div>
 		
-		<div id="contact" class="content">
-			<p>Contact</p>
+		<div id="item1" class="content-section">
+			
+			<h1>AI Powered Document Extraction</h1>
+			<h2>The Challenge</h2>
+			<p>
+				Oklahoma’s HB 2259 was created to reduce court costs for indigent Oklahomans by assessing their ability to pay. But key questions remain:</p>
+			<ul>
+				<li>
+				Do these waivers result in meaningful financial relief?</li>
+				<li>
+				What is the total amount of court debt avoided?</li>
+				<li>
+				Does reduced debt lead to fewer failure-to-pay warrants or future charges?</li>
+			</ul>
+			<p>
+				Answering these questions requires structured, case-level data—yet the relevant details are buried in fragmented, scanned court documents with a mix of typed and handwritten text.</p>
+			<hr/>
+			<h2>Our Solution</h2>
+			<p>
+				We’ve built a tightly controlled, AI-powered system that extracts and structures complex court data at scale.</p>
+			<ul>
+				<li>
+				We retrieve relevant records directly from Oklahoma’s public court system using automated search tools.</li>
+				<li>We use structured AI tools—guided by Pydantic schemas—to extract key information (balances, eligibility, court findings) from mixed-format documents.</li>
+				<li>We store data in a graph database, making it easy to query like a spreadsheet while also mapping deeper relationships across cases, individuals, and outcomes.</li>
+			</ul>
+			<figure>
+				<img src="img/cs1-image.png" alt="Example scanned court document">
+				<figcaption>Example of a scanned court document with both typed and handwritten sections.</figcaption>
+			</figure>
+			<hr/>
+			<h2>Why This Matters</h2>
+			<ul>
+				<li>
+				Measure the real-world impact of debt relief: how much court debt is avoided, and how that affects future warrants or charges.</li>
+				<li>Quantify financial benefits: how much money stays in people’s pockets, and whether that leads to greater stability or reduced need for public assistance.</li>
+				<li>Provide rigorous, scalable data for evaluating long-term impact.</li>
+			</ul>
+
 		</div>
+		
+		<div id="item2" class="content-section">Automated Next Court Date Retrieval</div>
+		<div id="item3" class="content-section">Comprehensive Case Modeling</div>
+		<div id="item4" class="content-section">Civil Case Intelligence</div>
 	</main>
 
 	<!-- Dark Sticky Footer -->

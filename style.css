@@ -7,14 +7,27 @@ body, html {
 	padding: 20px;
 	text-align: center;
 }
-/* Ensure #main takes up the remaining space between header and footer */
+
 #main {
+	padding: 20px;
+}
+/* Only center content when #home is active */
+#main.home-layout {
 	display: flex;
 	flex-direction: column;
-	flex-grow: 1; /* Pushes content down if needed */
-	justify-content: center; /* Centers vertically */
-	align-items: center; /* Centers horizontally */
-	padding: 20px;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
+	min-height: calc(100vh - 72px - 40px); /* Viewport minus navbar & footer height */
+}
+#home.active {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	max-width: 800px;
+	margin: auto;
 }
 
 .navbar {
@@ -28,10 +41,6 @@ body, html {
 .navbar-brand img {
 	height: 52px; /* Adjust as needed */
 }
-/* Navbar Toggler (Hamburger Icon) * /
-.navbar-toggler {
-	border-color: rgba(0, 0, 0, 0.5);
-} */
 .navbar-toggler-icon {
 	filter: invert(1);
 }
@@ -40,10 +49,27 @@ body, html {
 	font-weight: 500;
 	transition: all 0.2s ease-in-out;
 }
-.navbar-nav .nav-link:hover {
-	color: #27496d !important; /* Darker blue on hover */
-	font-weight: 700;
+.navbar .nav-link:focus, 
+.navbar .nav-link:active {
+	outline: none !important;
+	box-shadow: none !important;
 }
+.navbar-nav .nav-link.active {
+	font-weight: bold;
+	color: #27496d !important;
+}
+.navbar-nav .nav-link:hover {
+	color: #27496d !important;
+	font-weight: bold;
+}
+/* Remove default Bootstrap dropdown selection highlight */
+.dropdown-item:focus, 
+.dropdown-item:active {
+	background-color: transparent !important;
+	color: inherit !important;
+}
+
+
 /* Align the dropdown menu to the right in hamburger mode */
 @media (max-width: 768px) {
 	.navbar-collapse {
@@ -80,6 +106,65 @@ body, html {
 	display: block;
 }
 
+.content-section {
+	display: none;
+	padding: 2rem 1rem;
+	max-width: 900px;
+	margin: 0 auto;
+	text-align: left;
+}
+.content-section.active {
+	display: block;
+}
+.content-section h1 {
+	font-size: 2rem;
+	font-weight: 700;
+	margin-bottom: 1rem;
+	color: #27496d;
+}
+.content-section h2 {
+	font-size: 1.5rem;
+	font-weight: 600;
+	margin-top: 2rem;
+	margin-bottom: 0.75rem;
+	color: #326186;
+}
+.content-section p {
+	font-size: 1rem;
+	line-height: 1.6;
+	margin-bottom: 1rem;
+	color: #333;
+}
+.content-section ul {
+	padding-left: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+.content-section li {
+	margin-bottom: 0.5rem;
+	line-height: 1.4;
+}
+.content-section figure {
+	display: block;
+	margin: 2rem auto;
+	text-align: center;
+	max-width: 100%;
+}
+
+.content-section figure img {
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
+	height: auto;
+}
+
+.content-section figcaption {
+	margin-top: 0.5rem;
+	font-size: 0.95rem;
+	color: #666;
+	font-style: italic;
+	line-height: 1.4;
+}
+
 h1 {
 	color: #326186; /* Lapis Lazuli */
 	font-family: "Reddit Mono", monospace;
@@ -102,18 +187,6 @@ a.email-link:hover {
 	color: #8C4E18; /* Darkens the link color on hover */
 }
 
-#home {
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	max-width: 800px;
-	margin: auto;
-}
-/* Apply display: flex when #home is active */
-#home.active {
-	display: flex;
-}
 .home-intro {
 	font-size: 1.2rem; /* Slightly larger than normal text */
 	font-weight: 400; /* Bold text */
