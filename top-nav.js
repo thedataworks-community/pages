@@ -2,6 +2,7 @@ export function initTopNav() {
 	const sections = {
 		home: document.getElementById("home"),
 		commons: document.getElementById("commons"),
+		about: document.getElementById("about"),
 		item1: document.getElementById("item1"),
 		item2: document.getElementById("item2"),
 		item3: document.getElementById("item3"),
@@ -93,6 +94,12 @@ export function initTopNav() {
 		setActiveMenuItem("commonsNav");
 	});
 
+	document.getElementById("aboutNav").addEventListener("click", (event) => {
+		event.preventDefault();
+		showSection("about");
+		setActiveMenuItem("aboutNav");
+	});
+	
 	document.getElementById("contactNav").addEventListener("click", (event) => {
 		event.preventDefault();
 		sendEmail("Hello!");
