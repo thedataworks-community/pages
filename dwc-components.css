@@ -1,0 +1,74 @@
+/* .chart-container .map-container {
+	flex: 0 0 200px; /* Fix width, prevents shrinking * /
+	margin-right: 20px; /* Space between map/chart and text * /
+	margin-left: 20px;
+	/* display: flex; * /
+	justify-content: center;
+	align-items: center;
+	max-width: 700px;
+	/* margin: auto; */
+} */
+/* .chart-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: 700px;
+	margin: auto;
+}
+.map-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: 700px;
+	margin: auto;
+}
+.scatter-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: 450px;
+	margin: auto;
+} */
+datacommons-line::part(container) {
+	max-width: 600px !important;
+	max-height: 500px !important;
+	width: 100% !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+datacommons-line::part(header) {
+	font-family: 'Garamond', sans-serif !important;
+	font-size: 20px !important;
+	font-weight: bold !important;
+	color: #333 !important;
+}
+datacommons-map::part(container) {
+	max-width: 600px !important;
+	max-height: 500px !important;
+	width: 100% !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+datacommons-map::part(header) {
+	font-family: 'Garamond', sans-serif !important;
+	font-size: 18px !important;
+	font-weight: bold !important;
+	color: #333 !important;
+}
+datacommons-map::part(place-path) {
+	stroke: #444 !important;
+	stroke-width: 1px !important;
+}
+datacommons-scatter::part(container) {
+	max-width: 800px !important;
+	max-height: 500px !important;
+	width: 100% !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+datacommons-scatter::part(header) {
+	font-family: 'Garamond', sans-serif !important;
+	font-size: 18px !important;
+	font-weight: bold !important;
+	color: #333 !important;
+}
