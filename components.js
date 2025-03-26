@@ -5,6 +5,7 @@ export function setupDCComponents() {
 		const shadowRoot = chart.shadowRoot;
 
 		if (shadowRoot) {
+			console.log("✅ Shadow root detected for line chart. Applying all modifications...");
 			// Observe changes to the shadow DOM
 			const observer = new MutationObserver((mutations, obs) => {
 				let changesMade = false;
@@ -54,6 +55,7 @@ export function setupDCComponents() {
 		const shadowRoot = chart.shadowRoot;
 
 		if (shadowRoot) {
+			console.log("✅ Shadow root detected for map chart. Applying all modifications...");
 			const observer = new MutationObserver((mutations, obs) => {
 				let changesMade = false;
 
@@ -116,9 +118,7 @@ export function setupDCComponents() {
 		const shadowRoot = chart.shadowRoot;
 
 		if (shadowRoot) {
-			console.log("✅ Shadow root detected. Applying all modifications...");
-
-
+			console.log("✅ Shadow root detected for scatter chart. Applying all modifications...");
 
 			// 2️⃣ Remove the Legend
 			const removeLegend = () => {
@@ -270,4 +270,67 @@ export function setupDCComponents() {
 			shadowRoot.appendChild(style);
 		}
 	});
+	
+	const chart = document.querySelector("#home-dcmap datacommons-map");
+	const shadowRoot = chart?.shadowRoot;
+
+	if (shadowRoot) {
+		console.log("✅ Shadow root detected for homepage map chart. (Re-)applying all modifications...");
+		const observer = new MutationObserver((mutations, obs) => {
+			let changesMade = false;
+	
+			mutations.forEach((mutation) => {
+				// Modify Download Button
+				const downloadButton = shadowRoot.querySelector(".outlink-item.download-outlink");
+				if (downloadButton && !downloadButton.dataset.modified) {
+					downloadButton.innerHTML = `<a href="https://thedataworks.org" target="_blank" style="color: black; text-decoration: none; font-size: 12px; font-weight: regular;">The DataWorks Commons</a>`;
+					downloadButton.dataset.modified = "true";
+					changesMade = true;
+				}
+	
+				// Modify Source Text
+				const sourceElement = shadowRoot.querySelector("div[class*='source']");
+				if (sourceElement && !sourceElement.dataset.modified) {
+					sourceElement.innerHTML = `<strong style="font-size: 8px; color: black;">Source:</strong> <a href="https://thedataworks.org" target="_blank" style="color: black; text-decoration: none; font-size: 8px;"><em>Oklahoma Department of Corrections</em></a>`;
+					sourceElement.dataset.modified = "true";
+					changesMade = true;
+				}
+	
+				// Modify Tooltip Styles
+				let tooltip = shadowRoot.querySelector(".tooltip");
+				if (tooltip && !tooltip.dataset.modified) {
+					tooltip.style.fontFamily = "Arial, sans-serif";
+					tooltip.style.fontSize = "2px"; /* Updated font size */
+					tooltip.style.fontWeight = "bold";
+					tooltip.style.color = "white";
+					tooltip.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+					tooltip.style.padding = "10px";
+					tooltip.style.borderRadius = "5px";
+					tooltip.dataset.modified = "true";
+					changesMade = true;
+				}
+			});
+	
+			if (changesMade) obs.disconnect();
+		});
+	
+		observer.observe(shadowRoot, { childList: true, subtree: true });
+	
+		// Inject Custom Tooltip Styles
+		const style = document.createElement("style");
+		style.textContent = `
+			.tooltip {
+				font-family: "Arial, sans-serif" !important;
+				font-size: 2px !important; /* Updated font size */
+				font-weight: bold !important;
+				color: white !important;
+				background-color: rgba(0, 0, 0, 0.8) !important;
+				padding: 10px !important;
+				border-radius: 5px !important;
+				box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3) !important;
+			}
+		`;
+		shadowRoot.appendChild(style);
+	}
+	
 }

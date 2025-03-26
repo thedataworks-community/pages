@@ -14,8 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		showSection("commons");
 	});
 
-	setupDCComponents();
-	
+	setupDCComponents();	
 	setupTable();
 	
 });
