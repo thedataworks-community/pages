@@ -1,34 +1,25 @@
-/* .chart-container .map-container {
-	flex: 0 0 200px; /* Fix width, prevents shrinking * /
-	margin-right: 20px; /* Space between map/chart and text * /
-	margin-left: 20px;
-	/* display: flex; * /
-	justify-content: center;
-	align-items: center;
-	max-width: 700px;
-	/* margin: auto; */
-} */
-/* .chart-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	max-width: 700px;
-	margin: auto;
+.chart-float-left {
+  float: left;
+  max-width: 750px;
+  min-width: 500px;
+  margin-right: 1.5rem;
+  margin-bottom: 1rem;
+  padding-top: 0;
+  margin-top: 0;
 }
-.map-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	max-width: 700px;
-	margin: auto;
+.chart-float-right {
+  float: right;
+  max-width: 750px;
+  min-width: 500px;
+  margin-right: 1.5rem;
+  margin-bottom: 1rem;
+  padding-top: 0;
+  margin-top: 0;
 }
-.scatter-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	max-width: 450px;
-	margin: auto;
-} */
+.pt-adjust {
+  padding-top: 0.9rem; /* or use margin-top */
+}
+
 datacommons-line::part(container) {
 	max-width: 600px !important;
 	max-height: 500px !important;
