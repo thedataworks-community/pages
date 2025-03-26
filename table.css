@@ -1,0 +1,54 @@
+.table-filter-group {
+  margin-bottom: 16px;
+}
+.table-container {
+  overflow-x: auto;
+}
+#tSearch, #tCase, #tCounty, #tDisp, #tWarrant {
+	padding: 8px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+#caseTable {
+	border-collapse: collapse;
+	width: 100%;
+	min-width: 1500px;
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+#caseTable th {
+	padding: 10px 12px;
+	border-bottom: 1px solid #ccc;
+	text-align: left;
+	vertical-align: top;
+	background-color: #f0f0f0;
+	white-space: nowrap;
+}
+#caseTable td {
+	padding: 10px 12px;
+	border-bottom: 1px solid #ccc;
+	text-align: left;
+	vertical-align: top;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.expandable-row {
+	cursor: pointer;
+	background-color: #b7c9d4;
+}
+.details-row {
+	display: none;
+	background-color: #fdfdfd;
+}
+.expanded + .details-row {
+	display: table-row;
+}
+.details-row pre {
+	background-color: #eef2f5;
+	padding: 12px;
+	border-radius: 4px;
+	overflow-x: auto;
+}

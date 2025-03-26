@@ -22,6 +22,7 @@
 	
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="dwc-components.css">
+	<link rel="stylesheet" href="table.css">
 </head>
 <body class="d-flex flex-column min-vh-100">
 
@@ -218,6 +219,7 @@
 		</div>
 		
 		<div id="item2" class="content-section container-lg py-4">
+			
 			<h1 class="fs-1 fw-bold mb-4">Automated Next Court Date Retrieval</h1>
 			<p class="mb-3">
 				Thousands of people miss court dates every year—not because they’re evading justice, but because they never receive clear or timely notice. These missed appearances (FTAs) often lead to <strong>bench warrants, arrests, and jail stays that could have been avoided.</strong></p>
@@ -269,6 +271,7 @@
 		</div>
 		
 		<div id="item3" class="content-section container-lg py-4">
+			
 			<h1 class="fs-1 fw-bold mb-4">Comprehensive Case Modeling</h1>
 			<p class="mb-3">
 				Criminal court records hold the essential details that shape both individual outcomes and system-level insights—charges, sentencing, bond type, warrants, diversion participation, and more. But those elements live in many formats, scattered across scanned documents, docket minutes, and outdated court systems. There’s been no shared structure, no consistent language, and no reliable way to move this data across platforms or track it at scale—<strong>until now.</strong></p>
@@ -287,6 +290,34 @@
 				Stored in a graph database, this model supports both individual case tracking and cross-cutting queries about sentencing patterns, bond trends, or program outcomes.</li>
 			</ul>
 			<hr/>
+			
+			<h2 class="fs-3 fw-semibold mt-5 mb-3">Structured Criminal Case Index</h2>
+			
+			<div class="table-filter-group">
+				<input type="text" id="tSearch" placeholder="Search by any field...">
+				<select id="tCase">
+					<option value="">All Case Types</option>
+					</select>	
+				<select id="tCounty">
+					<option value="">All Counties</option>
+					</select>
+				<select id="tDisp">
+					<option value="">All Dispositions</option>
+					</select>
+				<select id="tWarrant">
+					<option value="">All Warrant Types</option>
+					</select>
+			</div>
+			<div class="table-container">
+				<table id="caseTable">
+					<thead>
+						<tr id="table-header"></tr>
+						</thead>
+					<tbody id="table-body"></tbody>
+				</table>
+			</div>
+			<hr/>
+			
 			<h2 class="fs-3 fw-semibold mt-5 mb-3">Why This Matters</h2>
 			<p class="mb-3">
 				This isn’t just about structuring data—it’s about building a durable layer of infrastructure for the justice system.</p>
@@ -300,8 +331,131 @@
 			</ul>
 
 		</div>
-		<div id="item4" class="content-section container-lg py-4">Civil Case Intelligence</div>
+		<div id="item4" class="content-section container-lg py-4">
+			
+			<h1 class="fs-1 fw-bold mb-4">Civil Case Intelligence</h1>
+			<p class="mb-3">
+				In civil litigation, the advantage often lies in what you can find—quickly. But the data needed to build timelines, spot expert witness patterns, or anticipate judicial rulings is scattered across filings, motions, scanned documents, and fragmented court systems.</p>
+			<p class="mb-3">
+				Legal teams spend hours reviewing records just to answer basic strategic questions—and often outsource the work at high cost.</p>
+			<hr/>
+			<h2 class="fs-3 fw-semibold mt-5 mb-3">Our Solution</h2>
+			<p class="mb-3">
+				We’ve developed a system that extracts, structures, and organizes civil case data at scale—providing legal teams with the tools they need to work smarter, faster, and more strategically.</p>
+			<ul>
+				<li>
+				Our AI models parse filings, dockets, motions, and orders into structured case records—capturing outcomes, sentence types, expert witnesses, timelines, and more.</li>
+				<li>
+				Using structured prompts and schema validation, we generate reliable case summaries and event timelines directly from raw documents.</li>
+				<li>
+				All data is queryable by judge, outcome, jurisdiction, and issue—revealing patterns in rulings, motions, and judicial tendencies over time.</li>
+			</ul>
+			<h3 class="fs-5 fw-semibold mt-4 mb-2">Example Case Summary</h3>
+			<blockquote class="blockquote">
+				<p>
+					On March 14, 2018, the plaintiff took their vehicle to the defendant for scheduled maintenance. The services performed included an oil and filter change, fluid level check, tire pressure adjustments, and a multi-point inspection. The defendant’s technician found that the tread on the plaintiff’s right rear tire was low. However, the defendant did not inform the plaintiff that the tire was unsafe. The plaintiff's car was returned to them on March 15, 2018. On March 25, 2018, the plaintiff was involved in a single-vehicle accident when the car hydroplaned during a heavy rainstorm.</p>
+				<p>
+					The plaintiff contended that the accident occurred because the defendant failed to properly service the vehicle ten days earlier. Specifically, the plaintiff claimed the defendant was negligent in failing to inspect the tires and warn about the low tread. The plaintiff further alleged negligence in assigning the inspection to an employee who failed to properly notify them of the condition, and in not providing a written copy of the multi-point inspection results. The plaintiff also claimed breach of contract and breach of express and implied warranties, arguing that the maintenance and inspection services were not performed professionally. The plaintiff requested damages in excess of $75,000 for injuries, medical expenses, lost wages, and pain and suffering.</p>
+				<p>
+					The defendant argued that the multi-point inspection was a courtesy and not a required service. They also claimed the plaintiff was distracted and speeding at the time of the accident. The defendant asserted there was no contractual obligation to provide inspection documentation and denied that the low tire tread caused the accident. They maintained they were not negligent and not responsible for the plaintiff’s injuries or damages.</p>
+			</blockquote>
+			<h3 class="fs-5 fw-semibold mt-4 mb-2">Timeline of Events</h3>
+			<ul>
+				<li>
+					<strong>March 15, 2018</strong>: Plaintiff's vehicle undergoes maintenance at ABC Auto Services. Technician notes low tire tread.</li>
+				<li>
+					<strong>March 25, 2018</strong>: Plaintiff crashes due to hydroplaning. Plaintiff’s child was a passenger.</li>
+				<li>
+					<strong>2018–2022</strong>: Legal preparation and evidence gathering.</li>
+				<li>
+					<strong>Feb 25, 2020</strong>: Plaintiff files lawsuit against ABC Auto Services and XYZ Auto Management Group.</li>
+				<li>
+					<strong>May 20, 2020</strong>: Defendants file responses, denying most allegations.</li>
+				<li>
+					<strong>Feb 22, 2021</strong>: Subpoenas issued for plaintiff’s employment and business records.</li>
+				<li>
+					<strong>Apr 28, 2021 – Aug 2022</strong>: Discovery requests, including attempts to schedule tire inspections.</li>
+				<li>
+					<strong>Aug 30, 2022</strong>: Plaintiff’s attorney requests VIN-based vehicle records.</li>
+				<li>
+					<strong>Dec 6, 2022</strong>: Motion to compel full discovery responses.</li>
+				<li>
+					<strong>May 8, 2023</strong>: Court orders defendant to comply with discovery.</li>
+				<li>
+					<strong>May–Sep 2023</strong>: Depositions of multiple service employees and experts.</li>
+				<li>
+					<strong>Oct 2023–Feb 2024</strong>: Ongoing discovery and correspondence.</li>
+				<li>
+					<strong>Dec 2023 – Feb 2024</strong>: Motions filed for summary judgment and discovery enforcement.</li>
+				<li>
+					<strong>Apr 12, 2024</strong>: Court grants defendant’s motion for partial summary judgment.</li>
+				<li>
+					<strong>May–Sep 2024</strong>: Trial preparation and objections exchanged.</li>
+				<li>
+					<strong>Oct 2024</strong>: Motions in Limine filed by both parties.</li>
+				<li>
+					<strong>Nov 4–7, 2024</strong>: Jury trial held.</li>
+				<li>
+					<strong>Nov 26, 2024</strong>: Jury finds ABC Auto Services 80% negligent; plaintiff 20% negligent.</li>
+				<li>
+					<strong>Dec 2024</strong>: Designation for appeal filed; defendants file for attorney fees.</li>
+			</ul>
+			<h3 class="fs-5 fw-semibold mt-4 mb-2">Cast of Characters</h3>
+			<ul>
+				<li>
+					<strong>Alex Reynolds</strong>: Plaintiff, vehicle owner and driver at time of crash.</li>
+				<li>
+					<strong>Jamie Reynolds</strong>: Minor passenger in vehicle, child of plaintiff.</li>
+				<li>
+					<strong>ABC Auto Services</strong>: Main defendant, performed vehicle maintenance.</li>
+				<li>
+					<strong>XYZ Auto Management Group</strong>: Related business entity, co-defendant.</li>
+				<li>
+					<strong>Erin Matthews</strong>: Plaintiff’s lead attorney.</li>
+				<li>
+					<strong>Jordan Ellis</strong>: Co-counsel for plaintiff.</li>
+				<li>
+					<strong>Kai Walker</strong>: Defense attorney for ABC Auto Services.</li>
+				<li>
+					<strong>Taylor Brooks</strong>: Additional defense counsel.</li>
+				<li>
+					<strong>Casey Duran</strong>: Plaintiff’s engineering and tire expert.</li>
+				<li>
+					<strong>Robin Chen</strong>: Vehicle damage appraiser for plaintiff.</li>
+				<li>
+					<strong>Morgan Price</strong>: Technician who performed tire inspection.</li>
+				<li>
+					<strong>Drew Parker</strong>: Service department employee, trial witness.</li>
+				<li>
+					<strong>Jesse Lane</strong>: Auto technician, witness under subpoena.</li>
+				<li>
+					<strong>Sam Carter</strong>: Manager, witness under subpoena.</li>
+				<li>
+					<strong>Alexis Ford</strong>: Expert for plaintiff.</li>
+				<li>
+					<strong>Riley Kim</strong>: Additional service department employee and witness.</li>
+				<li>
+					<strong>Dana White</strong>: Former service advisor (no role in disputed appointment).</li>
+				<li>
+					<strong>Judge Morgan Bennett</strong>: Presiding judge over the case.</li>
+				<li>
+					<strong>Sydney Cross</strong>: Insurance adjuster for ABC Auto Services.</li>
+				<li>
+					<strong>RapidTech Solutions, Inc.</strong>: Third-party software vendor for repair tracking.</li>
+			</ul>
+			<h2 class="fs-3 fw-semibold mt-5 mb-3">Why This Matters</h2>
+			<ul>
+				<li>
+					For Law Firms: Reduce time spent on manual case review, improve strategy, and gain a competitive edge with deeper visibility into courts, experts, and patterns.</li>
+				<li>
+					For Attorneys: Speed up research, improve accuracy, and make case information easier to access—freeing up more time for high-value, billable work.</li>
+				<li>
+					For Firm Leadership: Bring key research functions in-house, lower reliance on outsourced services, and invest in tools that compound in value over time.</li>
+			</ul>
+		</div>
+		
 		<div id="about" class="content-section container-lg py-4">
+			
 			<h1 class="fs-1 fw-bold mb-4">About Us</h1>
 			<p class="mb-3">
 				At <strong>DataWorks</strong>, we believe that trustworthy, well-structured data is foundational to meaningful and lasting solutions. We design technology Solutions specifically for complex data challenges—helping businesses, nonprofits, and public institutions alike turn messy, fragmented information into clear, actionable insight.</p>

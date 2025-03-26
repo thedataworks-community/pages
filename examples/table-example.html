@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <title>Structured Criminal Case Index</title>
+  <style>
+	body {
+	  font-family: Roboto, sans-serif;
+	  background-color: #f4f4f4;
+	  margin: 0;
+	  padding: 18px;
+	  font-size: 14px;
+	}
+	h1 {
+	  margin-bottom: 20px;
+	}
+	.filter-group {
+	  margin-bottom: 16px;
+	  
+	}
+input[type="text"], select {
+	  padding: 8px;
+	  margin-right: 10px;
+	  margin-bottom: 10px;
+	  border: 1px solid #ccc;
+	  border-radius: 4px;
+	  font-family: Roboto, serif;
+	  font-size: 14px;
+	}
+	.table-container {
+	  overflow-x: auto;
+	}
+	table {
+	  border-collapse: collapse;
+	  width: 100%;
+	  min-width: 1500px;
+	  background-color: #fff;
+	  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+	  font-size: 16px;
+	}
+	th, td {
+	  padding: 10px 12px;
+	  border-bottom: 1px solid #ccc;
+	  text-align: left;
+	  vertical-align: top;
+	}
+	th {
+	  background-color: #f0f0f0;
+	  white-space: nowrap;
+	}
+	tbody tr:nth-child(even) {
+	  background-color: #f9f9f9;
+	}
+	tbody tr:hover {
+	  background-color: #eef6ff;
+	}
+	.expandable-row {
+	  cursor: pointer;
+	  background-color: #b7c9d4;
+	}
+	.details-row {
+	  display: none;
+	  background-color: #fdfdfd;
+	}
+	.expanded + .details-row {
+	  display: table-row;
+	}
+	.arrow {
+	  font-weight: bold;
+	  margin-right: 8px;
+	}
+	th, td {
+	  white-space: nowrap;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
+	}
+	.details-row pre {
+	  font-family: 'Roboto Mono', monospace;
+	  font-size: 12px;
+	  background-color: #eef2f5;
+	  padding: 12px;
+	  border-radius: 4px;
+	  overflow-x: auto;
+	}
+  </style>
+</head>
+<body>
+  <h1>Structured Criminal Case Index</h1>
+
+  <div class="filter-group">
+	<input type="text" id="search" placeholder="Search by any field..." onkeyup="filterTable()">
+	<select id="Type_of_Case" onchange="filterTable()">
+	  <option value="">All Case Types</option>
+	</select>	
+	<select id="county" onchange="filterTable()">
+	  <option value="">All Counties</option>
+	</select>
+	<select id="disposition" onchange="filterTable()">
+	  <option value="">All Dispositions</option>
+	</select>
+	<select id="warrant_type" onchange="filterTable()">
+	  <option value="">All Warrant Types</option>
+	</select>
+  </div>
+  <div class="table-container">
+	<table id="caseTable">
+	  <thead>
+		<tr id="table-header"></tr>
+	  </thead>
+	  <tbody id="table-body"></tbody>
+	</table>
+  </div>
+  <script>
+	let caseData = [];
+
+	async function loadTableData() {
+	  const res = await fetch('./data/structured_case_data_with_labels.json');
+	  caseData = await res.json();
+	  renderTable(caseData);
+	  populateFilters(caseData);
+	}
+
+	function renderTable(data) {
+	  const headerRow = document.getElementById("table-header");
+	  const body = document.getElementById("table-body");
+	  body.innerHTML = "";
+
+	  const keys = ["Type_of_Case", "County", "Date_Filed", "Date_Closed", "Case_Disposition",  "Total_Fines_and_Fees", "Offense_Counts", "Bond_Type", "Bondsman_Payor", "Bond_Amount", "Warrant_Type", "Date_Warrant_Issued"];
+
+	  // Render headers
+	  headerRow.innerHTML = '<th></th>' + keys.map(key => `<th>${key.replace(/_/g, ' ')}</th>`).join('');
+
+	  data.forEach((row, index) => {
+		const caseId = `case-${index}`;
+
+		// Expandable main row
+		const mainRow = document.createElement("tr");
+		mainRow.className = "expandable-row";
+		mainRow.innerHTML = `<td class="arrow" onclick="toggleDetails('${caseId}')">▶</td>` + keys.map(key => `<td>${formatValue(row[key])}</td>`).join('');
+
+		// Details row
+		const detailsRow = document.createElement("tr");
+		detailsRow.id = caseId;
+		detailsRow.className = "details-row";
+		detailsRow.innerHTML = `<td colspan="${keys.length + 1}"><pre>${JSON.stringify(row, null, 2)}</pre></td>`;
+
+		body.appendChild(mainRow);
+		body.appendChild(detailsRow);
+	  });
+	}
+
+	function toggleDetails(id) {
+	  const row = document.getElementById(id);
+	  const toggleIcon = row.previousElementSibling.querySelector(".arrow");
+	  if (row.style.display === "table-row") {
+		row.style.display = "none";
+		toggleIcon.textContent = "▶";
+	  } else {
+		row.style.display = "table-row";
+		toggleIcon.textContent = "▼";
+	  }
+	}
+
+	function formatValue(val) {
+	  if (!val) return "";
+	  if (Array.isArray(val)) {
+		return val.map(obj => Object.entries(obj).map(([k, v]) => `${k}: ${v}`).join("<br>"))
+				  .join("<hr style='border:none;border-top:1px solid #ccc'>");
+	  }
+	  return val;
+	}
+
+	function populateFilters(data) {
+	  const counties = new Set();
+	  const casetypes = new Set();
+	  const dispositions = new Set();
+	  const warrants = new Set();
+
+	  data.forEach(row => {
+		if (row.Type_of_Case) casetypes.add(row.Type_of_Case);
+		if (row.County) counties.add(row.County);
+		if (row.Case_Disposition) dispositions.add(row.Case_Disposition);
+		if (row.Warrant_Type) warrants.add(row.Warrant_Type);
+	  });
+
+	  fillSelect("Type_of_Case", casetypes);
+	  fillSelect("county", counties);
+	  fillSelect("disposition", dispositions);
+	  fillSelect("warrant_type", warrants);
+	}
+
+	function fillSelect(id, values) {
+	  const select = document.getElementById(id);
+	  Array.from(values).sort().forEach(val => {
+		const opt = document.createElement("option");
+		opt.value = val;
+		opt.textContent = val;
+		select.appendChild(opt);
+	  });
+	}
+
+	function filterTable() {
+	  const searchValue = document.getElementById("search").value.toLowerCase();
+	  const Type_of_CaseFilter = document.getElementById("Type_of_Case").value;
+	  const countyFilter = document.getElementById("county").value;
+	  const dispositionFilter = document.getElementById("disposition").value;
+	  const warrantFilter = document.getElementById("warrant_type").value;
+
+	  const filtered = caseData.filter(row => {
+		const values = Object.values(row).flatMap(val =>
+		  Array.isArray(val)
+			? val.map(obj => Object.entries(obj).map(([k, v]) => `${k} ${v}`).join(" ")).join(" ")
+			: val
+		).join(" ").toLowerCase();
+
+		return (
+		  (!searchValue || values.includes(searchValue)) &&
+		  (!Type_of_CaseFilter || row.Type_of_Case === Type_of_CaseFilter) &&
+		  (!countyFilter || row.County === countyFilter) &&
+		  (!dispositionFilter || row.Case_Disposition === dispositionFilter) &&
+		  (!warrantFilter || row.Warrant_Type === warrantFilter)
+		);
+	  });
+
+	  renderTable(filtered);
+	}
+
+	window.onload = loadTableData;
+  </script>
+</body>
+</html>
+
