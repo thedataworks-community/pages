@@ -3,7 +3,7 @@
   float: none;
   width: 100%;
   max-width: 500px;
-  margin: 0 auto 1rem auto;
+  margin: 0 auto ,75rem auto;
 }
 
 @media (min-width: 600px) {
@@ -57,6 +57,9 @@ datacommons-scatter::part(container) {
   height: auto !important;
   overflow: hidden !important;
   display: block !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+  padding-left: 0.1rem !important;
 }
 datacommons-scatter::part(header) {
 	font-family: 'Garamond', sans-serif !important;
@@ -72,3 +75,14 @@ datacommons-scatter::part(legend-container) {
   max-height: 0 !important;
   overflow: hidden !important;
 }
+
+svg text {
+  font-size: 12px;
+}
+
+@media (max-width: 576px) {
+  svg text {
+	font-size: 7px !important;
+  }
+}
+

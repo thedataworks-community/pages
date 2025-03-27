@@ -167,7 +167,7 @@ export function setupDCComponents() {
 			
 				// Optional: Recalculate viewBox to adapt to new space
 				const bbox = svg.getBBox();
-				svg.setAttribute("viewBox", `0 0 ${bbox.width} ${bbox.height + 2}`); // 🔧 add 40px bottom padding
+				svg.setAttribute("viewBox", `+20 0 ${bbox.width + 10} ${bbox.height + 20}`); // 🔧 add 40px bottom padding
 				svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
 			  }
 			
@@ -305,27 +305,33 @@ export function setupDCComponents() {
 			// 🔟 Inject CSS to Ensure Custom Styles Persist
 			const style = document.createElement("style");
 			style.textContent = `
-				svg {
-					width: 400px !important;
-					max-width: 100% !important;
-				}
+			  svg {
+				width: 100% !important;
+				max-width: 100% !important;
+			  }
+			  svg text {
+				font-family: "Garamond, sans-serif" !important;
+				font-size: 8px !important;
+				font-weight: normal !important;
+				fill: black !important;
+			  }
+			  .tooltip {
+				font-family: "Garamond, sans-serif" !important;
+				font-size: 8px !important;
+				font-weight: bold !important;
+				color: white !important;
+				background-color: rgba(0, 0, 0, 0.8) !important;
+				padding: 3px !important;
+				border-radius: 2px !important;
+				box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3) !important;
+			  }
+			  @media (max-width: 576px) {
 				svg text {
-					font-family: "Garamond, sans-serif" !important;
-					font-size: 10.5px !important;
-					font-weight: normal !important;
-					fill: black !important;
+				  font-size: 8px !important;
 				}
-				.tooltip {
-					font-family: "Arial, sans-serif" !important;
-					font-size: 12px !important;
-					font-weight: bold !important;
-					color: white !important;
-					background-color: rgba(0, 0, 0, 0.8) !important;
-					padding: 10px !important;
-					border-radius: 5px !important;
-					box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3) !important;
-				}
+			  }
 			`;
+
 			shadowRoot.appendChild(style);
 		}
 	});
