@@ -327,7 +327,7 @@ export function setupDCComponents() {
 			  }
 			  @media (max-width: 576px) {
 				svg text {
-				  font-size: 6px !important;
+				  font-size: 4px !important;
 				}
 			  }
 			`;
