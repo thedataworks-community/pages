@@ -1,64 +1,72 @@
-/* ========== FLOATING CHARTS ========== */
-
 .chart-float-left,
 .chart-float-right {
-  float: none;
+  float: none; /* Disable float on mobile */
   width: 100%;
   max-width: 100%;
   margin: 0 auto 1rem auto;
   padding-top: 0;
-  box-sizing: border-box;
 }
 
 .pt-adjust {
-  padding-top: 0.9rem;
+  padding-top: 0.9rem; /* or use margin-top */
 }
 
-/* Enable float on larger screens */
 @media (min-width: 768px) {
   .chart-float-left {
 	float: left;
-	max-width: 500px;
+	max-width: 750px;
 	min-width: 500px;
 	margin-right: 1.5rem;
   }
 
   .chart-float-right {
 	float: right;
-	max-width: 500px;
+	max-width: 750px;
 	min-width: 500px;
 	margin-left: 1.5rem;
   }
 }
 
-
-/* ========== DATACOMMONS CHARTS ========== */
-
-/* Shared responsive container rules */
-datacommons-line::part(container),
-datacommons-map::part(container),
-datacommons-scatter::part(container) {
-  width: 100% !important;
-  max-width: 100% !important;
-  height: auto !important;
-  overflow: hidden !important;
-  box-sizing: border-box !important;
-  padding: 1rem !important;
+datacommons-line::part(container) {
+	max-width: 600px !important;
+	max-height: 500px !important;
+	width: 100% !important;
+	height: auto !important;
+	overflow: hidden !important;
 }
-
-/* Chart headers */
-datacommons-line::part(header),
-datacommons-map::part(header),
-datacommons-scatter::part(header) {
-  font-family: 'Garamond', sans-serif !important;
-  font-size: 18px !important;
-  font-weight: bold !important;
-  color: #333 !important;
-  text-align: center;
+datacommons-line::part(header) {
+	font-family: 'Garamond', sans-serif !important;
+	font-size: 20px !important;
+	font-weight: bold !important;
+	color: #333 !important;
 }
-
-/* Map visuals */
+datacommons-map::part(container) {
+	max-width: 600px !important;
+	max-height: 500px !important;
+	width: 100% !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+datacommons-map::part(header) {
+	font-family: 'Garamond', sans-serif !important;
+	font-size: 18px !important;
+	font-weight: bold !important;
+	color: #333 !important;
+}
 datacommons-map::part(place-path) {
-  stroke: #444 !important;
-  stroke-width: 1px !important;
+	stroke: #444 !important;
+	stroke-width: 1px !important;
+}
+datacommons-scatter::part(container) {
+	max-width: 600px !important;
+	max-height: 500px !important;
+	width: 100% !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+datacommons-scatter::part(header) {
+	font-family: 'Garamond', sans-serif !important;
+	font-size: 18px !important;
+	font-weight: bold !important;
+	color: #333 !important;
 }
