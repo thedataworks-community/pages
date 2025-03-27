@@ -2,19 +2,19 @@
 .chart-float-right {
   float: none;
   width: 100%;
-  max-width: 750px;
+  max-width: 500px;
   margin: 0 auto 1rem auto;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   .chart-float-left {
 	float: left;
-	margin-right: 1.5rem;
+	margin-right: 0.75rem; /* tightened from 1.5rem */
   }
 
   .chart-float-right {
 	float: right;
-	margin-left: 1.5rem;
+	margin-left: 0.75rem;
   }
 }
 .pt-adjust {
@@ -22,7 +22,7 @@
 }
 
 datacommons-line::part(container) {
-	max-width: 600px !important;
+	max-width: 500px !important;
 	max-height: 500px !important;
 	width: 100% !important;
 	height: auto !important;
@@ -35,7 +35,7 @@ datacommons-line::part(header) {
 	color: #333 !important;
 }
 datacommons-map::part(container) {
-	max-width: 600px !important;
+	max-width: 500px !important;
 	max-height: 500px !important;
 	width: 100% !important;
 	height: auto !important;
@@ -52,7 +52,7 @@ datacommons-map::part(place-path) {
 	stroke-width: 1px !important;
 }
 datacommons-scatter::part(container) {
-	max-width: 800px !important;
+	max-width: 500px !important;
 	max-height: 500px !important;
 	width: 100% !important;
 	height: auto !important;
