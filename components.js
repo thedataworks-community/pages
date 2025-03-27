@@ -51,7 +51,7 @@ export function setupDCComponents() {
 		}
 	});
 
-	document.querySelectorAll("datacommons-map").forEach((chart) => {
+	document.querySelectorAll("datacommons-map:not(#home-dcmap datacommons-map)").forEach((chart) => {
 		const shadowRoot = chart.shadowRoot;
 
 		if (shadowRoot) {
@@ -127,6 +127,16 @@ export function setupDCComponents() {
 					console.log("🔥 Removing density legend!");
 					legend.remove();
 				}
+			};
+
+			const updateDotColors = () => {
+				const circles = shadowRoot.querySelectorAll("svg circle");
+				const colors = ["#3d5a78"]; // use your own palette
+			
+				circles.forEach((circle, index) => {
+					circle.style.fill = colors[index % colors.length];
+					circle.dataset.modified = "true";
+				});
 			};
 
 			// 3️⃣ Modify Axis Label Font Sizes
@@ -219,6 +229,7 @@ export function setupDCComponents() {
 				updateCustomText();
 				modifyDownloadButton();
 				modifySourceText();
+				updateDotColors();
 			}, 500);
 		
 			setInterval(() => {
@@ -229,6 +240,7 @@ export function setupDCComponents() {
 				updateCustomText();
 				modifyDownloadButton();
 				modifySourceText();
+				updateDotColors();
 			}, 1000);
 
 			// 9️⃣ MutationObserver: Detect & Fix Any Re-Renders
@@ -240,6 +252,7 @@ export function setupDCComponents() {
 				updateCustomText();
 				modifyDownloadButton();
 				modifySourceText();
+				updateDotColors();
 			});
 			observer.observe(shadowRoot, { childList: true, subtree: true });
 
@@ -283,7 +296,7 @@ export function setupDCComponents() {
 				// Modify Download Button
 				const downloadButton = shadowRoot.querySelector(".outlink-item.download-outlink");
 				if (downloadButton && !downloadButton.dataset.modified) {
-					downloadButton.innerHTML = `<a href="https://thedataworks.org" target="_blank" style="color: black; text-decoration: none; font-size: 12px; font-weight: regular;">The DataWorks Commons</a>`;
+					downloadButton.innerHTML = `<a href="https://data-dev-datacommons-web-service-a6wrkh5rha-uc.a.run.app/tools/visualization#visType%3Dmap%26place%3DgeoId%2F40%26placeType%3DCounty%26sv%3D%7B%22dcid%22%3A%22Count_of_Persons_Violent%22%7D" target="_blank" style="color: black; text-decoration: none; font-size: 12px; font-weight: regular;">Explore The DataWorks Commons</a>`;
 					downloadButton.dataset.modified = "true";
 					changesMade = true;
 				}
