@@ -52,15 +52,23 @@ datacommons-map::part(place-path) {
 	stroke-width: 1px !important;
 }
 datacommons-scatter::part(container) {
-	max-width: 500px !important;
-	max-height: 500px !important;
-	width: 100% !important;
-	height: auto !important;
-	overflow: hidden !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: auto !important;
+  overflow: hidden !important;
+  display: block !important;
 }
 datacommons-scatter::part(header) {
 	font-family: 'Garamond', sans-serif !important;
 	font-size: 18px !important;
 	font-weight: bold !important;
 	color: #333 !important;
+}
+datacommons-scatter::part(legend-container) {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
 }

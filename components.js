@@ -154,12 +154,33 @@ export function setupDCComponents() {
 
 			// 1️⃣ Resize Chart Width
 			const resizeChart = () => {
-				const svg = shadowRoot.querySelector("svg");
-				if (svg) {
-					svg.setAttribute("width", "800px"); 
-					svg.style.width = "800px";
-				}
+			  const svg = shadowRoot.querySelector("svg");
+			  if (svg) {
+				// Let SVG fill the container
+				svg.removeAttribute("width");
+				svg.removeAttribute("height");
+				svg.style.width = "100%";
+				svg.style.height = "auto";
+			
+				// Optional: Recalculate viewBox to adapt to new space
+				const bbox = svg.getBBox();
+				svg.setAttribute("viewBox", `0 0 ${bbox.width} ${bbox.height + 2}`); // 🔧 add 40px bottom padding
+				svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
+			  }
+			
+			  // Expand the container if needed
+			  const chartContainer = shadowRoot.querySelector(".chart-container");
+			  if (chartContainer) {
+				chartContainer.style.width = "100%";
+			  }
+			
+			  // 🆕 Add padding to svg container to ensure x-axis labels aren't cut off
+			  const svgContainer = shadowRoot.querySelector(".svg-container");
+			  if (svgContainer) {
+				svgContainer.style.paddingBottom = "2.5rem"; // adjust as needed
+			  }
 			};
+
 
 			// 4️⃣ Modify Legend Text Font Size
 			const updateLegendText = () => {
@@ -216,14 +237,32 @@ export function setupDCComponents() {
 				if (legendContainer) {
 					legendContainer.style.display = "none"; // Hide it
 					legendContainer.style.height = "0px"; // Remove spacing
+					legendContainer.style.margin = "0";
+					legendContainer.style.padding = "0";
+					legendContainer.style.maxHeight = "0";
+					legendContainer.style.overflow = "hidden";
 					console.log("🛠️ Legend container hidden and space freed!");
 				}
 			};
+
+			const expandChartAfterLegendRemoval = () => {
+				const svg = shadowRoot.querySelector("svg");
+				if (svg) {
+					console.log("📏 Resizing SVG after legend removal");
+					svg.removeAttribute("width");  // clear any hardcoded width
+					svg.style.width = "100%";      // let it fill the container
+					svg.setAttribute("preserveAspectRatio", "xMidYMid meet"); // keep ratio
+				}
+			};
+
+
 
 			// 8️⃣ Keep Changes Applied Even If The Chart Updates
 			setTimeout(() => {
 				resizeChart();
 				removeLegend();
+				removeLegendContainer();
+				expandChartAfterLegendRemoval();
 				updateAxisLabels();
 				updateLegendText();
 				updateCustomText();
@@ -235,6 +274,8 @@ export function setupDCComponents() {
 			setInterval(() => {
 				resizeChart();
 				removeLegend();
+				removeLegendContainer();
+				expandChartAfterLegendRemoval();
 				updateAxisLabels();
 				updateLegendText();
 				updateCustomText();
@@ -247,6 +288,8 @@ export function setupDCComponents() {
 			const observer = new MutationObserver(() => {
 				resizeChart();
 				removeLegend();
+				removeLegendContainer();
+				expandChartAfterLegendRemoval();
 				updateAxisLabels();
 				updateLegendText();
 				updateCustomText();
