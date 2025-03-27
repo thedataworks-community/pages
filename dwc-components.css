@@ -51,7 +51,6 @@ datacommons-map::part(place-path) {
 	stroke-width: 1px !important;
 }
 datacommons-scatter::part(container) {
-	max-width: 800px !important;
 	max-height: 500px !important;
 	width: 100% !important;
 	height: auto !important;
