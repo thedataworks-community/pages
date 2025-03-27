@@ -311,7 +311,7 @@ export function setupDCComponents() {
 			  }
 			  svg text {
 				font-family: "Garamond, sans-serif" !important;
-				font-size: 8px !important;
+				font-size: 10px !important;
 				font-weight: normal !important;
 				fill: black !important;
 			  }
@@ -327,7 +327,7 @@ export function setupDCComponents() {
 			  }
 			  @media (max-width: 576px) {
 				svg text {
-				  font-size: 8px !important;
+				  font-size: 6px !important;
 				}
 			  }
 			`;
