@@ -1,7 +1,7 @@
 .chart-float-left {
   float: left;
-  max-width: 500px;
-  min-width: 500px;
+  max-width: 400px;
+  min-width: 400px;
   margin-right: 1.5rem;
   margin-bottom: 1rem;
   padding-top: 0;
@@ -9,8 +9,8 @@
 }
 .chart-float-right {
   float: right;
-  max-width: 600px;
-  min-width: 500px;
+  max-width: 400px;
+  min-width: 400px;
   margin-right: 1.5rem;
   margin-bottom: 1rem;
   padding-top: 0;
@@ -21,7 +21,7 @@
 }
 
 datacommons-line::part(container) {
-	max-width: 500px !important;
+	max-width: 400px !important;
 	max-height: 500px !important;
 	width: 100% !important;
 	height: auto !important;
@@ -34,7 +34,7 @@ datacommons-line::part(header) {
 	color: #333 !important;
 }
 datacommons-map::part(container) {
-	max-width: 500px !important;
+	max-width: 400px !important;
 	max-height: 500px !important;
 	width: 100% !important;
 	height: auto !important;
@@ -51,7 +51,7 @@ datacommons-map::part(place-path) {
 	stroke-width: 1px !important;
 }
 datacommons-scatter::part(container) {
-	max-width: 500px !important;
+	max-width: 400px !important;
 	max-height: 500px !important;
 	width: 100% !important;
 	height: auto !important;
