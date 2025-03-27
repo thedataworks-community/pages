@@ -141,16 +141,19 @@ export function setupDCComponents() {
 
 			// 3️⃣ Modify Axis Label Font Sizes
 			const updateAxisLabels = () => {
-				const axisLabels = shadowRoot.querySelectorAll("svg text");
-				axisLabels.forEach((label) => {
-					if (!label.dataset.modified) {
-						label.style.fontSize = "14px"; // Adjust as needed
-						label.style.fontWeight = "bold";
-						label.style.fill = "black";
-						label.dataset.modified = "true";
-					}
-				});
+			  const axisLabels = shadowRoot.querySelectorAll("svg text");
+			  axisLabels.forEach((label) => {
+				if (!label.dataset.modified) {
+				  // Mobile-friendly size logic
+				  const isMobile = window.innerWidth <= 576;
+				  label.style.fontSize = isMobile ? "6px" : "6px";
+				  label.style.fontWeight = "bold";
+				  label.style.fill = "black";
+				  label.dataset.modified = "true";
+				}
+			  });
 			};
+
 
 			// 1️⃣ Resize Chart Width
 			const resizeChart = () => {
