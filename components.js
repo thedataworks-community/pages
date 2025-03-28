@@ -203,7 +203,7 @@ document.querySelectorAll("datacommons-map").forEach((chart) => {
 			
 				// Optional: Recalculate viewBox to adapt to new space
 				const bbox = svg.getBBox();
-				svg.setAttribute("viewBox", `+20 0 ${bbox.width + 10} ${bbox.height + 20}`); // 🔧 add 40px bottom padding
+				svg.setAttribute("viewBox", `+20 0 ${bbox.width + 10} ${bbox.height + 5}`); // 🔧 add 40px bottom padding
 				svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
 			  }
 			
