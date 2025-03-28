@@ -1,4 +1,40 @@
 export function setupDCComponents() {
+
+document.querySelectorAll("datacommons-map").forEach((chart) => {
+  const shadowRoot = chart.shadowRoot;
+
+  if (!shadowRoot) return;
+
+  const isHomepageMap = chart.closest("#home-dcmap");
+
+  const observer = new MutationObserver((mutations, obs) => {
+	let changesMade = false;
+
+	const downloadButton = shadowRoot.querySelector(".outlink-item.download-outlink");
+	const sourceElement = shadowRoot.querySelector("div[class*='source']");
+
+	if (downloadButton && !downloadButton.dataset.modified) {
+	  downloadButton.innerHTML = isHomepageMap
+		? `<a href="https://data-dev-datacommons-web-service-a6wrkh5rha-uc.a.run.app/tools/visualization#visType%3Dmap%26place%3DgeoId%2F40%26placeType%3DCounty%26sv%3D%7B%22dcid%22%3A%22Count_of_Persons_Violent%22%7D" target="_blank" style="color: black; text-decoration: none; font-size: 12px; font-weight: regular;">Explore The DataWorks Commons</a>`
+		: `<a href="https://data-dev-datacommons-web-service-a6wrkh5rha-uc.a.run.app/tools/visualization#visType%3Dmap%26place%3DgeoId%2F40%26placeType%3DCounty%26sv%3D%7B%22dcid%22%3A%22PercentofStudentsEconomicallyDisadvantaged%22%7D" target="_blank" style="color: black; text-decoration: none; font-size: 12px; font-weight: regular;">Explore The DataWorks Commons</a>`;
+	  downloadButton.dataset.modified = "true";
+	  changesMade = true;
+	}
+
+	if (sourceElement && !sourceElement.dataset.modified) {
+	  sourceElement.innerHTML = isHomepageMap
+		? `<strong style="font-size: 8px; color: black;">Source:</strong> <a href="https://thedataworks.org" target="_blank" style="color: black; text-decoration: none; font-size: 8px;"><em>Oklahoma Department of Corrections</em></a>`
+		: `<strong style="font-size: 8px; color: black;">Source:</strong> <a href="https://thedataworks.org" target="_blank" style="color: black; text-decoration: none; font-size: 8px;"><em>Oklahoma Office of Educational Quality and Accountability</em></a>`;
+	  sourceElement.dataset.modified = "true";
+	  changesMade = true;
+	}
+
+	if (changesMade) obs.disconnect();
+  });
+
+  observer.observe(shadowRoot, { childList: true, subtree: true });
+});
+
 	
 	document.querySelectorAll("datacommons-line").forEach((chart) => {
 
