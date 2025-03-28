@@ -503,5 +503,54 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
 	<script type="module" src="script.js?v=20250319"></script>
+	<script>
+	  function trackVirtualPage(path) {
+		if (typeof gtag === 'function') {
+		  gtag('event', 'page_view', {
+			page_path: path
+		  });
+		}
+	  }
+	
+	  // Track nav clicks
+	  document.addEventListener("DOMContentLoaded", () => {
+		const navMap = {
+		  homeNav: "/home",
+		  commonsNav: "/commons",
+		  aboutNav: "/about",
+		  contactNav: "/contact",
+		  item1Nav: "/solutions/document-extraction",
+		  item2Nav: "/solutions/court-date-retrieval",
+		  item3Nav: "/solutions/case-modeling",
+		  item4Nav: "/solutions/civil-case-intelligence"
+		};
+	
+		for (const [id, path] of Object.entries(navMap)) {
+		  const el = document.getElementById(id);
+		  if (el) {
+			el.addEventListener("click", () => trackVirtualPage(path));
+		  }
+		}
+	
+		// Track initial load via anchor
+		const hash = window.location.hash;
+		const hashMap = {
+		  "#commons": "/commons",
+		  "#about": "/about",
+		  "#contact": "/contact",
+		  "#item1": "/solutions/document-extraction",
+		  "#item2": "/solutions/court-date-retrieval",
+		  "#item3": "/solutions/case-modeling",
+		  "#item4": "/solutions/civil-case-intelligence"
+		};
+	
+		if (hashMap[hash]) {
+		  trackVirtualPage(hashMap[hash]);
+		} else {
+		  trackVirtualPage("/home");
+		}
+	  });
+	</script>
+
 </body>
 </html>
