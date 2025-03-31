@@ -311,9 +311,9 @@ pre[class*="language-"] {
   .hero-banner-img {
 	margin-top: 0;
 	object-fit: contain;
-	max-height: 320px;
-	width: 150%;
-	transform: translateX(-25%); /* Centers the oversized image */
+	width: 150vw; /* Wider than the viewport */
+	max-height: none;
+	transform: translateX(-25vw); /* Center the wide image */
   }
 
   .hero-overlay {
@@ -328,7 +328,7 @@ pre[class*="language-"] {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	background: rgba(0, 0, 0, 0.25);
+	background: none; /* 🚫 Remove the shaded box */
   }
 
   .hero-overlay h1 {
