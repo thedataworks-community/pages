@@ -211,16 +211,6 @@ pre[class*="language-"] {
   text-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
 }
 
-
-@media (max-width: 768px) {
-  .hero-overlay h1 {
-	font-size: 2rem;
-  }
-  .hero-overlay p {
-	font-size: 1rem;
-  }
-}
-
 .btn-outline-orangeblue {
   color: #f58220;               /* Orange text */
   border: 2px solid #005596;    /* Blue border */
@@ -308,4 +298,34 @@ pre[class*="language-"] {
 
 .custom-toast.show {
   opacity: 1;
+}
+@media (max-width: 768px) {
+  .hero-overlay {
+	padding: 1.5rem;
+	align-items: center;
+	text-align: center;
+  }
+
+  .hero-overlay h1 {
+	font-size: 1.75rem;
+	line-height: 2.2rem;
+	margin-bottom: 1rem;
+  }
+
+  .hero-overlay p {
+	font-size: 1rem;
+	line-height: 1.5rem;
+	margin-bottom: 1rem;
+  }
+
+  .hero-overlay .btn {
+	font-size: 0.95rem;
+	padding: 0.5rem 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .hero-banner-img {
+	margin-top: 0;
+	object-fit: cover;
+  }
 }
