@@ -305,19 +305,20 @@ pre[class*="language-"] {
 	}
 
 	/* 👇 HERO SECTION FIXES */
-	.hero-banner {
-		padding-bottom: 1rem;
-		overflow-x: hidden;
+.hero-banner {
+		padding-bottom: 0;
+		overflow: hidden;
+		position: relative;
 	}
+	
 	.hero-banner-img {
-		width: 150vw;
-		max-width: none;
+		width: 100%;
 		height: auto;
-		object-fit: contain;
+		object-fit: cover;
 		display: block;
 		margin: 0 auto;
-		transform: translateX(-25vw);
 	}
+	
 	.hero-overlay {
 		position: absolute;
 		top: 0;
@@ -330,32 +331,34 @@ pre[class*="language-"] {
 		justify-content: center;
 		align-items: center;
 		text-align: center;
-		background: none;
-		z-index: 1;
+		background: rgba(0, 0, 0, 0.25); /* subtle overlay */
 	}
+	
 	.hero-overlay h1,
 	.hero-overlay p {
-		font-size: 1rem;
-		line-height: 1.6rem;     /* Match paragraph spacing */
-		margin-bottom: 0.75rem;  /* Consistent paragraph spacing */
 		color: white;
-		text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+		font-size: 1rem;
+		line-height: 1.5rem;
+		font-weight: normal;
+		margin: 0 0 0.75rem;
+		text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
 	}
+	
 	.hero-overlay h1 {
 		color: #f58220;
-		font-weight: 700;
+		font-weight: bold;
 	}
+	
 	.hero-overlay .btn {
-		font-size: 1rem;
-		padding: 0.6rem 1.25rem;
-		white-space: normal;
-		line-height: 1.2;
-		text-align: center;
-		border-radius: 2rem;
-		max-width: 90%;
-		width: auto;
 		margin-top: 1rem;
+		font-size: 1rem;
+		padding: 0.5rem 1.25rem;
+		border-radius: 2rem;
+		width: auto;
+		max-width: 90%;
+		white-space: normal;
 	}
+
 
 	#home.active > p {
 		font-size: 1rem;
