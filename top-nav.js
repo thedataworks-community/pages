@@ -40,11 +40,49 @@ export function initTopNav() {
 	};
 
 	// Function to send an email
-	window.sendEmail = function (subject) {
-		const email = "info@thedataworks.org";
-		const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
-		window.location.href = mailtoLink;
+	window.sendEmail = function () {
+	  showContactOverlay();
 	};
+	
+	window.showContactOverlay = function () {
+	  const overlay = document.getElementById("contactOverlay");
+	  if (overlay) overlay.classList.remove("d-none");
+	};
+	
+	window.hideContactOverlay = function () {
+	  const overlay = document.getElementById("contactOverlay");
+	  if (overlay) overlay.classList.add("d-none");
+	};
+	
+	window.copyEmail = function () {
+	  const email = "info@thedataworks.org";
+	  navigator.clipboard.writeText(email).then(() => {
+		showToast("Email copied to clipboard!");
+		hideContactOverlay(); // ✅ Close overlay after copy
+	  }).catch(() => {
+		showToast("Failed to copy email.");
+	  });
+	};
+	
+	function showToast(message) {
+	  const toast = document.getElementById("toast");
+	  if (!toast) return;
+	
+	  toast.textContent = message;
+	  toast.classList.remove("d-none");
+	  toast.classList.add("show");
+	
+	  setTimeout(() => {
+		toast.classList.remove("show");
+	  }, 1500);
+	
+	  setTimeout(() => {
+		toast.classList.add("d-none");
+	  }, 1800);
+	}
+
+
+
 
 	// Ensure we only update if a valid section exists
 	const initialSection = window.location.hash.replace("#", "") || "home";

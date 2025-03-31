@@ -77,33 +77,63 @@
 		</nav>
 	</header>
 
-	<!-- Main Content -->
-	<main id="main" class="container-lg py-4">
+<main id="main" class="container-lg pt-0 pb-4">
+	  
+	  <!-- HOMEPAGE ONLY CONTENT -->
+	  <div id="home" class="content text-start active">
 		
-		<div id="home" class="content text-start">
-								   
-			<p class="fs-5 mb-4 text-start">
-				Public data is messy, scattered, and hard to use. As a result, nonprofits, researchers, and businesses end up wasting valuable time wrangling and cleaning data instead of using it.</p>
-			<p class="fs-5 mb-4 text-start">
-				DataWorks makes public data accessible, structured, and ready to use. Our <strong>DataWorks&nbsp;Commons</strong> platform solves the access problem, and our custom solutions help organizations turn raw data into real impact.</p>
-			
-			<div class="map-container" id="home-dcmap">
-				<datacommons-map
-			  		id="map"
-			  		class="homepage-map"
-			  		header="Total Sentenced Prisoners with a Violent Offense (2024)"
-			  		parentPlace="geoId/40"
-			  		childPlaceType="County"
-			  		variable="Count_of_Persons_Violent"
-			  		apiRoot="https://data-dev-datacommons-web-service-a6wrkh5rha-uc.a.run.app/"
-			  		colors="#ffffff #3d5a78 #c47f42"
-				></datacommons-map>
+		<!-- Hero Section -->
+		<!-- Hero Section -->
+		<section class="hero-banner position-relative text-center">
+		  <img src="img/us-map-background.png" alt="Oklahoma Map" class="img-fluid w-100 hero-banner-img" />
+		
+		  <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white px-3">
+			<h1 class="display-4 fw-bold mb-3">Public data is broken.</h1>
+			<p class="fs-5 mb-2">Scattered across old data systems, trapped in PDFs, dashboards, and websites</p>
+			<p class="fs-5 mb-4">We turn fragmented public data into usable infrastructure.</p>
+			<a href="#" id="commonsLink" data-target="commons" class="btn btn-blue-to-orange btn-lg">Learn about the DataWorks Commons</a>
+		  </div> <!-- ✅ This was missing -->
+		</section>
+
+
+	
+		<p class="fs-6 mb-4 text-start">
+		  Whether you're a non-profit organization, a for-profit company, or a research team, trying to use it at scale means lost time, inconsistent results, and missed opportunities.
+		</p>
+		<p class="fs-6 mb-4 text-start">
+		  DataWorks turns fragmented public data into usable infrastructure.
+		  We unify and structure data from courts, health agencies, schools, social services, and more—so it’s clean, current, and ready to power the tools and insights that matter.
+		</p>
+		<p class="fs-6 mb-4 text-start">
+		  Our platform, <strong>DataWorks&nbsp;Commons</strong>, offers validated, cross-agency datasets ready for use. And our custom solutions solve harder problems: like pulling structured information from PDFs, tracking outcomes across counties, or building real-time alerts from state data feeds.
+		</p>
+		
+		
+		<section class="impact-banner text-center my-5 py-5 px-3">
+		  <div class="container">
+			<hr class="divider mb-4">
+			<p class="fs-4 fw-semibold mb-4">
+			  <i class="bi bi-lightbulb"></i>  
+			  We partner with public institutions, mission-driven orgs, and private companies.
+			  
+			  Explore a handful of our current solutions.
+			</p>
+		
+			<!-- 🔗 Solution Buttons -->
+			<div class="d-flex flex-wrap justify-content-center gap-3">
+			  <a href="#" data-target="item1" class="btn btn-outline-orangeblue">AI Powered Document Extraction</a>
+			  <a href="#" data-target="item1" class="btn btn-outline-orangeblue">Automated Next Court Date Retrieval</a>
+			  <a href="#" data-target="item1" class="btn btn-outline-orangeblue">Comprehensive Case Modeling</a>
+			  <a href="#" data-target="item1" class="btn btn-outline-orangeblue">Civil Case Intelligence</a>
 			</div>
-			
-			<p/>
-			<p class="fs-5 mb-4 text-start" align="center">
-				<a href="#" id="commonsLink">Visit The DataWorks Commons and partner with us to build custom solutions.</a> </p>
-		</div>
+		  </div>
+		</section>
+
+
+	
+	  </div>
+	</main>
+
 		
 		<div id="commons" class="content">
 			<h1>The DataWorks Commons</h1>
@@ -118,8 +148,8 @@
 						<datacommons-line
 							id="timeline"
 							header="Unique Female Prison Sentences"
-				           	places="geoId/40109 geoId/40143"
-				            colors="#c47f42 #3d5a78"
+							   places="geoId/40109 geoId/40143"
+							colors="#c47f42 #3d5a78"
 							variables="Count_of_Persons_F"
 							apiRoot="https://data-dev-datacommons-web-service-a6wrkh5rha-uc.a.run.app/"
 						></datacommons-line>
@@ -184,6 +214,11 @@
 			<h1 class="fs-1 fw-bold mb-4">AI Powered Document Extraction</h1>
 			<!-- <h2 class="fs-3 fw-semibold mt-5 mb-3">The Challenge</h2> -->
 			<p class="mb-3">
+				What if the information you need most is buried in handwritten notes, scanned PDFs, or outdated systems—but you still need it structured, accurate, and scalable across tens of thousands of records?
+				
+				Whether you're analyzing court waivers, social services forms, licensing records, or grant applications, the raw materials are often the same: fragmented documents in inconsistent formats. Solving that bottleneck doesn’t just speed up workflow—it unlocks entirely new ways of understanding the data you already have.</p>
+			<h2 class="fs-3 fw-semibold mt-5 mb-3">Example Problem</h2>
+			<p class="mb-3">
 				Oklahoma’s HB 2259 was created to reduce court costs for indigent Oklahomans by assessing their ability to pay. But key questions remain:</p>
 			<ul>
 				<li>
@@ -195,8 +230,7 @@
 			</ul>
 			<p class="mb-3">
 				Answering these questions requires structured, case-level data—yet the relevant details are buried in fragmented, scanned court documents with a mix of typed and handwritten text.</p>
-			<hr/>
-			<h2 class="fs-3 fw-semibold mt-5 mb-3">Our Solution</h2>
+				<h2 class="fs-3 fw-semibold mt-5 mb-3">Our Solution</h2>
 			<p class="mb-3">
 				We’ve built a tightly controlled, AI-powered system that extracts and structures complex court data at scale.</p>
 			<ul>
@@ -209,15 +243,17 @@
 				<img src="img/cs1-image.png" alt="Example scanned court document" class="img-fluid d-block mx-auto">
 				<figcaption class="text-muted fst-italic small mt-2">Example of a scanned court document with both typed and handwritten sections.</figcaption>
 			</figure>
-			<hr/>
 			<h2 class="fs-3 fw-semibold mt-5 mb-3">Why This Matters</h2>
+			<p class="mb-3">
+			Beyond court records, this system offers a blueprint for structuring document-based data in any domain:</p>
 			<ul>
 				<li>
-				Measure the real-world impact of debt relief: how much court debt is avoided, and how that affects future warrants or charges.</li>
-				<li>Quantify financial benefits: how much money stays in people’s pockets, and whether that leads to greater stability or reduced need for public assistance.</li>
-				<li>Provide rigorous, scalable data for evaluating long-term impact.</li>
+				Health: Extract data from handwritten intake assessments or care plans</li>
+				<li>Education: Structure student-level records from scanned IEPs or counselor notes</li>
+				<li>Workforce: Parse job training documents, evaluations, or subsidy applications</li>
 			</ul>
-
+			<p class="mb-3">
+			If your data lives in messy PDFs, DataWorks can turn it into something you can search, analyze, and use—at scale, across systems, and with validation built in.</p>
 		</div>
 		
 		<div id="item2" class="content-section container-lg py-4">
@@ -551,6 +587,21 @@
 		}
 	  });
 	</script>
+<div id="contactOverlay" class="contact-overlay d-none">
+	  <div class="contact-box">
+		<button class="close-btn" onclick="hideContactOverlay()">×</button>
+		<h5 class="mb-3">Email us at:</h5>
+		<p class="fw-bold text-break">info@thedataworks.org</p>
+		<div class="d-flex justify-content-center gap-2 mt-3">
+		  <button class="btn btn-sm btn-outline-primary" onclick="copyEmail()">Copy Email</button>
+		  <a class="btn btn-sm btn-primary" href="mailto:info@thedataworks.org" onclick="hideContactOverlay()">Open in Mail App</a>
+		</div>
+	  </div>
+	</div>
+<div id="toast" class="custom-toast d-none">Email copied to clipboard!</div>
+
 
 </body>
 </html>
+
+

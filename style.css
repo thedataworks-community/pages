@@ -134,7 +134,6 @@ h1, h2, h3, h4, h5, h6 {
 .content-section.active {
 	display: block;
 }
-
 blockquote {
   font-style: italic;
   color: #336186; /* DataWorks blue */
@@ -152,4 +151,161 @@ pre[class*="language-"] {
   font-size: 0.85rem;
   overflow: auto;
   line-height: 1.5;
+}
+
+.impact-banner {
+  background: #f1f5f9;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: background 0.3s ease;
+}
+.impact-banner:hover {
+  background: #e2e8f0;
+}
+.divider {
+  width: 60px;
+  height: 4px;
+  margin: 0 auto;
+  background: #2563eb;
+  border: none;
+  border-radius: 2px;
+}
+
+
+.homepage-map {
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.homepage-map:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 30px rgba(37, 99, 235, 0.3);
+}
+.homepage-map:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 30px rgba(37, 99, 235, 0.3);
+}
+.hero-banner {
+  position: relative;
+  overflow: visible;      /* Let image expand fully */
+  max-height: none;       /* Remove any hard cap */
+  padding-bottom: 2rem;   /* Add spacing below if needed */
+}
+
+.hero-banner-img {
+  margin-top: -40px; /* adjust this number as needed */
+  width: 100%;
+  height: auto;
+  object-fit: contain;    /* Ensures the full image shows */
+  filter: none;           /* Remove any dimming */
+}
+
+
+
+.hero-overlay {
+  color: black;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, .6);
+}
+.hero-overlay h1 {
+  color: #f58220; /* Replace with your exact orange if needed */
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+}
+
+
+@media (max-width: 768px) {
+  .hero-overlay h1 {
+	font-size: 2rem;
+  }
+  .hero-overlay p {
+	font-size: 1rem;
+  }
+}
+
+.btn-outline-orangeblue {
+  color: #f58220;               /* Orange text */
+  border: 2px solid #005596;    /* Blue border */
+  background-color: transparent;
+  border-radius: 2rem;
+  padding: 0.6rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.btn-outline-orangeblue:hover {
+  background-color: #005596;    /* Blue background on hover */
+  color: white;                 /* White text on hover */
+  border-color: #005596;
+  text-decoration: none;
+}
+.btn-blue-to-orange {
+  background-color: #005596;
+  color: white;
+  border: 2px solid #005596;
+  border-radius: 2rem;
+  padding: 0.6rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.btn-blue-to-orange:hover {
+  background-color: #f58220;
+  color: white;
+  border-color: #f58220;
+  text-decoration: none;
+}
+
+.contact-overlay {
+  position: fixed;
+  top: 4.5rem; /* Adjust this based on your nav height */
+  right: 2rem;
+  z-index: 1055;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  padding: 1rem;
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.contact-box {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  max-width: 300px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+
+.contact-overlay .close-btn {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  border: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.custom-toast {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background-color: #005596;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.custom-toast.show {
+  opacity: 1;
 }
