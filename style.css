@@ -305,57 +305,52 @@ pre[class*="language-"] {
 @media (max-width: 768px) {
   .hero-banner {
 	position: relative;
-	padding-bottom: 1rem;
-	overflow: hidden; /* make sure nothing gets cut off */
+	padding-bottom: 2rem;
+	overflow-x: hidden;
+	text-align: center;
   }
 
   .hero-banner-img {
-	width: 150vw;              /* oversized image */
+	width: 150vw;
 	max-width: none;
 	height: auto;
-	object-fit: contain;
 	display: block;
-	position: relative;
+	position: absolute;
+	top: 0;
 	left: 50%;
-	transform: translateX(-50%); /* perfectly centers it */
+	transform: translateX(-50%);
 	z-index: 0;
   }
 
   .hero-overlay {
-	position: absolute;
-	top: 0;
-	left: 0;
+	position: relative;
 	z-index: 1;
 	width: 100%;
-	height: 100%;
+	margin-top: 2rem;
 	padding: 1rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 	text-align: center;
-	background: none; /* no shaded box */
   }
 
   .hero-overlay h1 {
-	font-size: 1.5rem;
-	line-height: 2rem;
+	font-size: 1.75rem;
+	line-height: 2.2rem;
 	color: #f58220;
-	text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
-	margin-bottom: 0.75rem;
+	text-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+	font-weight: 700;
+	margin-bottom: 1rem;
   }
 
   .hero-overlay p {
-	font-size: 0.875rem;
-	line-height: 1.4rem;
+	font-size: 1rem;
+	line-height: 1.5rem;
 	color: white;
 	text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 	margin-bottom: 0.75rem;
   }
 
   .hero-overlay .btn {
-	font-size: 0.9rem;
-	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	padding: 0.6rem 1.25rem;
 	white-space: normal;
 	line-height: 1.2;
 	text-align: center;
