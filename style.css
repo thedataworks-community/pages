@@ -95,28 +95,6 @@ h1, h2, h3, h4, h5, h6 {
 	color: inherit !important;
 }
 
-@media (max-width: 768px) {
-	.navbar-collapse {
-		text-align: right;
-	}
-	.navbar-nav {
-		width: 100%;
-		text-align: right;
-	}
-	.commons-section {
-		flex-direction: column;
-	}
-	.map-container,
-	.chart-container {
-		width: 100%;
-		margin-right: 0;
-		margin-bottom: 10px;
-	}
-	.commons-text {
-		width: 100% !important;
-		max-width: 100%;
-	}
-}
 
 .content {
 	display: none;
@@ -302,4 +280,74 @@ pre[class*="language-"] {
 
 .custom-toast.show {
   opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .hero-banner {
+	padding-bottom: 1rem;
+	overflow-x: hidden;
+  }
+
+  .hero-banner-img {
+	width: 150vw;
+	max-width: none;
+	height: auto;
+	object-fit: contain;
+	display: block;
+	margin: 0 auto;
+	transform: translateX(-25vw);
+  }
+
+  .hero-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background: none;
+  }
+
+  .hero-overlay h1 {
+  	font-size: 1rem;
+  	line-height: 1.6rem;     /* Match paragraph spacing */
+  	color: #f58220;
+  	text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+  	margin-bottom: 0.75rem;  /* Slight margin for visual break */
+	}
+	
+	.hero-overlay p {
+  	font-size: 1rem;
+  	line-height: 1.6rem;     /* Match paragraph spacing */
+  	color: white;
+  	text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  	margin-bottom: 0.75rem;  /* Same as paragraph spacing */
+	}
+
+  .hero-overlay .btn {
+	font-size: 1rem;
+	padding: 0.5rem 1rem;
+	white-space: normal;
+	line-height: 1.2;
+	text-align: center;
+	border-radius: 2rem;
+	max-width: 90%;
+	width: auto;
+	margin-top: 1rem;
+  }
+
+  #home.active {
+	padding-top: 2rem;
+	text-align: left;
+  }
+
+  #home.active > p {
+	font-size: 1rem;
+	line-height: 1.6rem;
+  }
 }
