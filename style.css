@@ -211,6 +211,10 @@ pre[class*="language-"] {
   text-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
 }
 
+
+
+
+
 .btn-outline-orangeblue {
   color: #f58220;               /* Orange text */
   border: 2px solid #005596;    /* Blue border */
@@ -298,64 +302,4 @@ pre[class*="language-"] {
 
 .custom-toast.show {
   opacity: 1;
-}
-
-
-
-@media (max-width: 768px) {
-  .hero-banner {
-	position: relative;
-	padding-bottom: 2rem;
-	overflow-x: hidden;
-	text-align: center;
-  }
-
-  .hero-banner-img {
-	width: 150vw;
-	max-width: none;
-	height: auto;
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 50%;
-	transform: translateX(-50%);
-	z-index: 0;
-  }
-
-  .hero-overlay {
-	position: relative;
-	z-index: 1;
-	width: 100%;
-	margin-top: 2rem;
-	padding: 1rem;
-	text-align: center;
-  }
-
-  .hero-overlay h1 {
-	font-size: 1.75rem;
-	line-height: 2.2rem;
-	color: #f58220;
-	text-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
-	font-weight: 700;
-	margin-bottom: 1rem;
-  }
-
-  .hero-overlay p {
-	font-size: 1rem;
-	line-height: 1.5rem;
-	color: white;
-	text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-	margin-bottom: 0.75rem;
-  }
-
-  .hero-overlay .btn {
-	font-size: 1rem;
-	padding: 0.6rem 1.25rem;
-	white-space: normal;
-	line-height: 1.2;
-	text-align: center;
-	border-radius: 2rem;
-	max-width: 90%;
-	width: auto;
-  }
 }
