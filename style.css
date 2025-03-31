@@ -338,7 +338,7 @@ pre[class*="language-"] {
   }
 
   .hero-overlay p {
-	font-size: 0.875rem;
+	font-size: 0.65rem;
 	line-height: 1.4rem;
 	color: white;
 	text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
