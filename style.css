@@ -299,6 +299,9 @@ pre[class*="language-"] {
 .custom-toast.show {
   opacity: 1;
 }
+
+
+
 @media (max-width: 768px) {
   .hero-banner {
 	padding-bottom: 1rem;
@@ -327,24 +330,24 @@ pre[class*="language-"] {
   }
 
   .hero-overlay h1 {
-	font-size: 1.75rem;
-	line-height: 2.2rem;
+	font-size: 1.5rem;
+	line-height: 2rem;
 	color: #f58220;
 	text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
-	margin-bottom: 1rem;
+	margin-bottom: 0.75rem;
   }
 
   .hero-overlay p {
-	font-size: 1rem;
-	line-height: 1.5rem;
+	font-size: 0.875rem;
+	line-height: 1.4rem;
 	color: white;
 	text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 	margin-bottom: 0.75rem;
   }
 
   .hero-overlay .btn {
-	font-size: 1rem;
-	padding: 0.6rem 1.25rem;
+	font-size: 0.9rem;
+	padding: 0.5rem 1rem;
 	white-space: normal;
 	line-height: 1.2;
 	text-align: center;
