@@ -210,6 +210,13 @@ pre[class*="language-"] {
   border-color: #005596;
   text-decoration: none;
 }
+.btn-outline-orangeblue {
+  min-width: 280px; /* Ensures buttons align in width */
+  text-align: center;
+  white-space: normal; /* Allow wrapping for long labels */
+  height: 100%; /* Let flex container manage vertical alignment */
+}
+
 .btn-blue-to-orange {
   background-color: #005596;
   color: white;
