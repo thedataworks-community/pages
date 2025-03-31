@@ -319,12 +319,13 @@ pre[class*="language-"] {
 	}
 	
 	.hero-banner-img {
-	  width: 100%;
-	  height: auto;
-	  object-fit: cover;
+	  width: 175%;
+	  max-width: none;
 	  display: block;
-	  margin: 0 auto;
+	  transform: translateX(-25%);
+	  object-fit: cover;
 	}
+
 	
 	.hero-overlay {
 	  position: absolute;
