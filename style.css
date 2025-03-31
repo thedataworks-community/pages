@@ -313,59 +313,55 @@ pre[class*="language-"] {
 
 	/* 👇 HERO SECTION FIXES */
 	.hero-banner {
-	  padding-bottom: 0;
-	  overflow: hidden;
 	  position: relative;
+	  height: 400px;
+	  overflow: hidden;
+	  margin-left: -1rem;
+	  margin-right: -1rem;
 	}
 	
-	.hero-banner-img {
-	  width: 175%;
-	  max-width: none;
-	  display: block;
-	  transform: translateX(-25%);
-	  object-fit: cover;
+	.hero-background {
+	  background-image: url('img/us-map-background.png');
+	  background-size: cover;
+	  background-position: center;
+	  background-repeat: no-repeat;
+	  position: absolute;
+	  top: 0; left: 0;
+	  width: 100vw;
+	  height: 100%;
+	  z-index: 0;
 	}
-
 	
 	.hero-overlay {
-	  position: absolute;
-	  top: 1.5rem; /* lower to reveal “Public data is broken” */
-	  left: 0;
-	  width: 100%;
-	  height: auto;
-	  padding: 1rem 1.25rem 2.5rem;
+	  position: relative;
+	  z-index: 1;
+	  color: white;
+	  text-align: center;
+	  padding: 2rem 1rem;
+	  text-shadow: 0 3px 6px rgba(0,0,0,0.6);
 	  display: flex;
 	  flex-direction: column;
+	  justify-content: center;
 	  align-items: center;
-	  text-align: center;
-	  background: rgba(0, 0, 0, 0.2); /* subtle backdrop */
+	  height: 100%;
 	}
 	
 	.hero-overlay h1 {
-	  font-size: 1.1rem;
-	  line-height: 1.5rem;
 	  color: #f58220;
-	  font-weight: bold;
 	  margin-bottom: 0.75rem;
-	  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+	  font-size: 1.5rem;
 	}
 	
 	.hero-overlay p {
-	  font-size: 0.9rem;
-	  line-height: 1.35rem;
-	  color: white;
-	  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
-	  margin-bottom: 0.75rem;
+	  font-size: 1rem;
+	  margin: 0.5rem 0;
+	  line-height: 1.4;
 	}
 	
 	.hero-overlay .btn {
 	  margin-top: 1rem;
-	  font-size: 0.9rem;
-	  padding: 0.5rem 1.25rem;
-	  border-radius: 2rem;
-	  max-width: 90%;
-	  white-space: normal;
 	}
+
 
 
 
