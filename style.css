@@ -304,33 +304,37 @@ pre[class*="language-"] {
 
 @media (max-width: 768px) {
   .hero-banner {
-	padding-bottom: 1rem;
 	position: relative;
-	overflow-x: hidden;
+	padding-bottom: 1rem;
+	overflow: hidden; /* make sure nothing gets cut off */
   }
 
   .hero-banner-img {
-	width: 200vw;              /* 2x screen width */
+	width: 150vw;              /* oversized image */
 	max-width: none;
 	height: auto;
-	object-fit: cover;
-	position: absolute;
-	top: 0;
+	object-fit: contain;
+	display: block;
+	position: relative;
 	left: 50%;
-	transform: translateX(-50%);  /* Center the oversized image */
+	transform: translateX(-50%); /* perfectly centers it */
 	z-index: 0;
   }
 
   .hero-overlay {
-	position: relative;
-	z-index: 1; /* Ensure text overlays the image */
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
 	padding: 1rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	background: none; /* Removes gray overlay */
+	background: none; /* no shaded box */
   }
 
   .hero-overlay h1 {
@@ -342,7 +346,7 @@ pre[class*="language-"] {
   }
 
   .hero-overlay p {
-	font-size: 0.95rem;
+	font-size: 0.875rem;
 	line-height: 1.4rem;
 	color: white;
 	text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
@@ -350,9 +354,10 @@ pre[class*="language-"] {
   }
 
   .hero-overlay .btn {
-	font-size: 1rem;
-	padding: 0.6rem 1.25rem;
+	font-size: 0.9rem;
+	padding: 0.5rem 1rem;
 	white-space: normal;
+	line-height: 1.2;
 	text-align: center;
 	border-radius: 2rem;
 	max-width: 90%;
