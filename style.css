@@ -328,7 +328,7 @@ pre[class*="language-"] {
 	
 	.hero-overlay {
 	  position: absolute;
-	  top: 2.5rem; /* lower to reveal “Public data is broken” */
+	  top: 1.5rem; /* lower to reveal “Public data is broken” */
 	  left: 0;
 	  width: 100%;
 	  height: auto;
