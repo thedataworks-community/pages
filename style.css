@@ -310,6 +310,14 @@ pre[class*="language-"] {
   border-radius: 0.25rem;
   color: white;
 }
+#commons h1 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#commons h1 a:hover {
+  text-decoration: underline;
+}
 
 
 
