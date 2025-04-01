@@ -417,7 +417,7 @@ pre[class*="language-"] {
 	  .elegant-cta .highlight {
 		display: block;
 		font-size: 1.1rem;
-		margin: 0.6rem 0; /* controls spacing between lines */
+		margin: 0rem 0; /* controls spacing between lines */
 		padding: 0.25rem 0.5rem;
 		line-height: 1.2;
 	  }
