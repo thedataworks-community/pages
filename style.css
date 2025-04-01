@@ -354,12 +354,13 @@ pre[class*="language-"] {
 	  }
 	
 	  .hero-overlay p {
-		font-size: 0.7rem;         /* smaller font */
-		line-height: 1.35rem;      /* tighter line spacing */
+		font-size: 0.7rem;
+		line-height: 1.2rem;
 		font-weight: 400;
-		padding: 1.5rem 1rem;      /* slightly reduce vertical padding */
-		margin: 0.25rem 0; /* 👈 tighten up spacing above and below each paragraph */
+		margin: 0.25rem 0;
+		padding: 0; /* 👈 remove all vertical padding here */
 	  }
+
 
 	
 	  .hero-overlay .btn {
