@@ -349,12 +349,12 @@ pre[class*="language-"] {
 	
 	  .hero-overlay h1 {
 		color: #f58220;
-		font-size: 1.25rem;
+		font-size: 1.5rem;
 		margin-bottom: .25rem;
 	  }
 	
 	  .hero-overlay p {
-		font-size: 0.7rem;
+		font-size: 0.5rem;
 		line-height: 1.2rem;
 		font-weight: 400;
 		margin: 0.25rem 0;
