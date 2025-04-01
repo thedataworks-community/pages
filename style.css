@@ -354,9 +354,9 @@ pre[class*="language-"] {
 	  }
 	  
 	  .hero-overlay p.fs-5 {
-		  font-size: 1rem !important;
+		  font-size: .95rem !important;
 		  line-height: 1.2rem !important;
-		  font-weight: 400;
+		  font-weight: 500;
 		  padding: 0 !important;
 		  margin: 0.2rem 0 !important;
 	  }
