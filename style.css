@@ -313,17 +313,13 @@ pre[class*="language-"] {
 
 	/* 👇 HERO SECTION FIXES */
 	.hero-banner {
-	  position: relative;
-	  width: 100vw;
-	  left: 50%;
-	  right: 50%;
-	  margin-left: -50vw;
-	  margin-right: -50vw;
-	  overflow: hidden;
-	  padding-top: 1rem;
-	  padding-bottom: 2rem;
-	}
-
+		position: relative;
+		width: 100vw;
+		margin-left: calc(-20vw + 50%);
+		height: auto;
+		padding-top: 1rem;
+		padding-bottom: 2rem;
+	  }
 	
 	  .hero-background {
 		background-image: url('img/us-map-background.png');
@@ -364,7 +360,13 @@ pre[class*="language-"] {
 		margin: 0.25rem 0;
 		padding: 0; /* 👈 remove all vertical padding here */
 	  }
-
+	  
+	  .hero-overlay p.fs-5 {
+		  font-size: 0.3rem !important;
+		  line-height: 1.2rem !important;
+		  padding: 0 !important;
+		  margin: 0.2rem 0 !important;
+	  }
 
 	
 	  .hero-overlay .btn {
