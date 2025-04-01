@@ -289,6 +289,47 @@ pre[class*="language-"] {
   opacity: 1;
 }
 
+.elegant-cta {
+  background: #fefbf6;
+  border-top: 4px solid #f58220;
+  box-shadow: inset 0 6px 30px rgba(0, 0, 0, 0.02);
+  font-family: "Lato", sans-serif;
+  animation: fadeSlideIn 1s ease-out both;
+}
+
+.elegant-cta-heading {
+  font-size: 1.5rem; /* was 1.75rem */
+  font-weight: 700;
+  color: #003f5c;
+}
+
+.elegant-cta .highlight {
+  background: linear-gradient(to right, #f58220 0%, #fbbf77 100%);
+  padding: 0 0.3em;
+  line-height: 1.6; /* Adjust this for internal line spacing */
+  border-radius: 0.25rem;
+  color: white;
+}
+
+
+
+@keyframes fadeSlideIn {
+  0% {
+	opacity: 0;
+	transform: translateY(30px);
+  }
+  100% {
+	opacity: 1;
+	transform: translateY(0);
+  }
+}
+
+
+
+
+
+
+
 @media (max-width: 768px) {
 	.navbar-collapse {
 		text-align: right;
