@@ -316,51 +316,48 @@ pre[class*="language-"] {
 	  position: relative;
 	  height: 400px;
 	  overflow: hidden;
-	  margin-left: -1rem;
-	  margin-right: -1rem;
+	  width: 100vw;
+	  margin-left: calc(-50vw + 50%); /* Full-width breakout */
 	}
 	
 	.hero-background {
-	  background-image: url('img/us-map-background.png');
+	  background-image: url("img/us-map-background.png"); /* update path if needed */
 	  background-size: cover;
 	  background-position: center;
 	  background-repeat: no-repeat;
 	  position: absolute;
-	  top: 0; left: 0;
-	  width: 100vw;
+	  top: 0;
+	  left: 0;
 	  height: 100%;
+	  width: 100%;
 	  z-index: 0;
 	}
 	
 	.hero-overlay {
 	  position: relative;
 	  z-index: 1;
-	  color: white;
-	  text-align: center;
+	  height: 100%;
 	  padding: 2rem 1rem;
-	  text-shadow: 0 3px 6px rgba(0,0,0,0.6);
 	  display: flex;
 	  flex-direction: column;
 	  justify-content: center;
 	  align-items: center;
-	  height: 100%;
+	  text-align: center;
+	  color: white;
+	  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 	}
 	
 	.hero-overlay h1 {
+	  font-size: 1.25rem;
 	  color: #f58220;
-	  margin-bottom: 0.75rem;
-	  font-size: 1.5rem;
+	  margin-bottom: 0.5rem;
 	}
 	
 	.hero-overlay p {
 	  font-size: 1rem;
-	  margin: 0.5rem 0;
-	  line-height: 1.4;
+	  margin: 0.25rem 0;
 	}
-	
-	.hero-overlay .btn {
-	  margin-top: 1rem;
-	}
+
 
 
 
