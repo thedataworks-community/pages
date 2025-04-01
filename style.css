@@ -313,13 +313,17 @@ pre[class*="language-"] {
 
 	/* 👇 HERO SECTION FIXES */
 	.hero-banner {
-		position: relative;
-		width: 100vw;
-		margin-left: calc(-50vw + 50%);
-		height: auto;
-		padding-top: 1rem;
-		padding-bottom: 2rem;
-	  }
+	  position: relative;
+	  width: 100vw;
+	  left: 50%;
+	  right: 50%;
+	  margin-left: -50vw;
+	  margin-right: -50vw;
+	  overflow: hidden;
+	  padding-top: 1rem;
+	  padding-bottom: 2rem;
+	}
+
 	
 	  .hero-background {
 		background-image: url('img/us-map-background.png');
