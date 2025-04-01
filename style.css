@@ -328,7 +328,7 @@ pre[class*="language-"] {
 	  position: absolute;
 	  top: 0; left: 0;
 	  width: 100vw;
-  	  height: 500px;
+  	  height: 60vh; /* 60% of the viewport height */
 	  z-index: 0;
 	}
 	
