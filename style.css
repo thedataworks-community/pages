@@ -408,6 +408,20 @@ pre[class*="language-"] {
 		margin-top: 1.25rem;
 		font-size: 1rem;
 	  }
+	  .elegant-cta-heading {
+		font-size: 1.25rem;
+		line-height: 1.5;
+		padding: 0 1rem;
+	  }
+	  
+	  .elegant-cta .highlight {
+		display: block;
+		font-size: 1.1rem;
+		margin: 0.5rem 0;
+		padding: 0.25rem 0.5rem;
+		line-height: 1.4;
+	  }
+
 	}
 
 
