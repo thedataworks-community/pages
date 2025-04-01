@@ -358,7 +358,7 @@ pre[class*="language-"] {
 		line-height: 1.35rem;      /* tighter line spacing */
 		font-weight: 400;
 		padding: 1.5rem 1rem;      /* slightly reduce vertical padding */
-		margin: 0.25rem 0; /* 👈 tighten up spacing above and below each paragraph */d
+		margin: 0.25rem 0; /* 👈 tighten up spacing above and below each paragraph */
 	  }
 
 	
