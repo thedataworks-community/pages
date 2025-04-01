@@ -315,7 +315,7 @@ pre[class*="language-"] {
 	.hero-banner {
 		position: relative;
 		width: 100vw;
-		margin-left: calc(0vw + 50%);
+		margin-left: calc(0vw);
 		height: auto;
 		padding-top: 1rem;
 		padding-bottom: 2rem;
