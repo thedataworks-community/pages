@@ -77,23 +77,26 @@
 		</nav>
 	</header>
 
-<section class="hero-banner text-center">
-	  <div class="hero-background"></div>
-	
-	  <div class="hero-overlay">
-		<h1 class="display-6 fw-bold mb-3">Public data is broken.</h1>
-		<p class="fs-6 mb-2">Scattered across old data systems, trapped in PDFs, dashboards, and websites</p>
-		<p class="fs-6 mb-4">We turn fragmented public data into usable infrastructure.</p>
-		<a href="#" id="commonsLink" data-target="commons" class="btn btn-blue-to-orange btn-lg">Learn about the DataWorks Commons</a>
-	  </div>
-	</section>
-
 <main id="main" class="container-lg pt-0 pb-4">
 	  
 	  <!-- HOMEPAGE ONLY CONTENT -->
 	  <div id="home" class="content text-start active">
 		
+		<!-- Hero Section -->
+		<!-- Hero Section -->
+		<section class="hero-banner position-relative text-center">
+		  <img src="img/us-map-background.png" alt="Oklahoma Map" class="img-fluid w-100 hero-banner-img" />
+		
+		  <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white px-3">
+			<h1 class="display-4 fw-bold mb-3">Public data is broken.</h1>
+			<p class="fs-5 mb-2">Scattered across old data systems, trapped in PDFs, dashboards, and websites</p>
+			<p class="fs-5 mb-4">We turn fragmented public data into usable infrastructure.</p>
+			<a href="#" id="commonsLink" data-target="commons" class="btn btn-blue-to-orange btn-lg">Learn about the DataWorks Commons</a>
+		  </div> <!-- ✅ This was missing -->
+		</section>
 
+
+	
 		<p class="fs-6 mb-4 text-start">
 		  Whether you're a non-profit organization, a for-profit company, or a research team, trying to use it at scale means lost time, inconsistent results, and missed opportunities.
 		</p>
