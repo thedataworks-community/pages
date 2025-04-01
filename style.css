@@ -318,6 +318,7 @@ pre[class*="language-"] {
 	  overflow: hidden;
 	  margin-left: -1rem;
 	  margin-right: -1rem;
+	  height: 100vh;  /* Full screen height */
 	}
 	
 	.hero-background {
@@ -328,7 +329,7 @@ pre[class*="language-"] {
 	  position: absolute;
 	  top: 0; left: 0;
 	  width: 100vw;
-  	  height: 100vh; /* 60% of the viewport height */
+	  height: 100%;
 	  z-index: 0;
 	}
 	
