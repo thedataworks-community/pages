@@ -87,6 +87,32 @@ blockquote {
 	background-color: transparent !important;
 	color: inherit !important;
 }
+/* Nested dropdown styling */
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;      /* Align submenu directly below parent */
+  left: 0;        /* Align left edge with parent */
+  z-index: 1000;
+  min-width: 220px;
+  padding-left: 1rem;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block;
+}
+
+
+
+
+
 
 /* ---- Buttons ---- */
 .btn-outline-orangeblue {
@@ -217,4 +243,16 @@ pre[class*="language-"] {
 		opacity: 1;
 		transform: translateY(0);
 	}
+}
+.fs-6 {
+  font-size: 1rem;
+}
+.fs-5 {
+  font-size: 1.25rem;
+}
+.fs-4 {
+  font-size: 1.5rem;
+}
+.fs-3 {
+  font-size: 1.75rem;
 }

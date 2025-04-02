@@ -67,15 +67,32 @@
 						</li> -->
 
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="dwcNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								DataWorks Commons
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="dwcNav">
-								<li><a class="dropdown-item" href="#" id="item5Nav">Data Validation Methodology</a></li>
-								<li><a class="dropdown-item" href="#" id="commonsNav">Explore the DataWorks Commons</a></li>
-							</ul>
+						  <a class="nav-link dropdown-toggle" href="#" id="dwcNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							DataWorks Commons
+						  </a>
+						  <ul class="dropdown-menu" aria-labelledby="dwcNav">
+							<li><a class="dropdown-item" href="#" id="commonsNav">Explore the DataWorks Commons</a></li>
+						
+							<li class="dropdown-submenu">
+							  <a
+								class="dropdown-item dropdown-toggle"
+								href="#"
+								id="item5Nav"
+								onclick="event.preventDefault(); event.stopPropagation();"
+							  >
+								Data Methodologies
+							  </a>
+							  <ul class="dropdown-menu">
+								<li><a class="dropdown-item small ps-4" href="#method1" data-target="item5">Oklahoma DMHSAS Dataset</a></li>
+								<li><a class="dropdown-item small ps-4" href="#method2" data-target="item5">Oklahoma DOC Dataset</a></li>
+								<li><a class="dropdown-item small ps-4" href="#method3" data-target="item5">Oklahoma EQA Dataset</a></li>
+								<li><a class="dropdown-item small ps-4" href="#method4" data-target="item5">Oklahoma Crime Dataset</a></li>
+							  </ul>
+							</li>
+						  </ul>
 						</li>
 
+						
 						<li class="nav-item">
 							<a class="nav-link" id="aboutNav" href="#">
 								About Us</a>
@@ -110,7 +127,7 @@
 			<p class="fs-6 mb-4 text-start">
 				Whether you're a non-profit organization, a for-profit company, or a research team, trying to use public data at scale means lost time, inconsistent results, and missed opportunities.</p>
 			<p class="fs-6 mb-4 text-start">
-				DataWorks turns fragmented public data into usable infrastructure. We unify and structure data from courts, health agencies, schools, social services, and more—so it’s clean, current, and ready to power the tools and insights that matter.</p>
+				DataWorks turns fragmented public data into usable infrastructure. We unify, validate, and structure data from courts, health agencies, schools, social services, and more—so it’s clean, current, and ready to power the tools and insights that matter.</p>
 			<p class="fs-6 mb-4 text-start">
 		    	Our platform, <strong>DataWorks&nbsp;Commons</strong>, offers validated, cross-agency datasets ready for use. And our custom solutions solve harder problems: like pulling structured information from PDFs, tracking outcomes across counties, or building real-time alerts from state data feeds.</p>
 				
@@ -167,7 +184,7 @@
 			</p>
 			<p class="fs-6 mb-4">
 			  DataWorks turns fragmented public data into usable infrastructure.
-			  We unify and structure data from courts, health agencies, schools, social services, and more—so it’s clean, current, and ready to power the tools and insights that matter.
+			  We unify, validate, and structure data from courts, health agencies, schools, social services, and more—so it’s clean, current, reliable, and ready to power the tools and insights that matter.
 			</p>
 			<p class="fs-6 mb-4">
 			  Our platform, <strong>DataWorks&nbsp;Commons</strong>, offers validated, cross-agency datasets ready for use. And our custom solutions solve harder problems: like pulling structured information from PDFs, tracking outcomes across counties, or building real-time alerts from state data feeds.
@@ -223,7 +240,7 @@
 					<div style="width:100%;">
 						<datacommons-line
 							id="timeline"
-							header="Unique Female Prison Sentences"
+							header="Female Prison Sentences"
 							   places="geoId/40109 geoId/40143"
 							colors="#c47f42 #3d5a78"
 							variables="Count_of_Persons_F"
@@ -583,10 +600,398 @@
 		</div>
 		
 		
-		<div id="item5" class="content-section container-lg py-4">
-			<p class="mb-3">
-				(Here's how we do the magic)</p>
+		<div id="item5" class="content-section container-lg py-4">		
+		  <!-- Methodology Section 1 -->
+		  <div id="method1" class="methodology-section mb-5 d-none">
+			<h1 class="fs-1 fw-bold mb-4">Oklahoma DMHSAS Dataset</h1>		  
+			<!-- Section 1 -->
+			<h2 class="fs-5 fw-semibold mt-5 mb-3">1. Source Overview</h2>
+			<p class="small mb-2"><strong>Title:</strong><br>
+			Mental Health and/or Substance Abuse Clients Served – County-Level Counts and Rates</p>
+			<p class="small mb-2"><strong>Publisher:</strong><br>
+			Oklahoma Department of Mental Health and Substance Abuse Services (ODMHSAS)</p>
+			<p class="small mb-2"><strong>Original Format:</strong><br>
+			Online dashboard (web-based query system)</p>
+			<p class="small mb-2"><strong>Access URL:</strong><br>
+			<a href="http://www.odmhsas.org/eda/query.htm" target="_blank">http://www.odmhsas.org/eda/query.htm</a></p>
+			<p class="small mb-2"><strong>Date Accessed:</strong><br>
+			February 2025</p>
+			<p class="small mb-2"><strong>Geographic Scope:</strong><br>
+			Oklahoma – All 77 counties</p>
+			<p class="small mb-2"><strong>Time Period Covered:</strong><br>
+			FY2015 (July 1, 2014 – June 30, 2015) through FY2024 (July 1, 2023 – June 30, 2024)</p>
+			<p class="small mb-2"><strong>Quoted Methodology from Source:</strong></p>
+			<blockquote class="small mb-4">
+			  ODMHSAS Online Query System (OOnQueS)<br>
+			  Mental Health and/or Substance Abuse Client Served<br>
+			  Client Served by ODMHSAS/Medicaid Behavioral Health Providers (Most Recent 10 Years)<br>
+			  Client Counts by County of Residence (Most Recent 10 Years)<br><br>
+		  
+			  <strong>Who is counted in the system?</strong><br>
+			  The system includes individuals who have received a PAID behavioral health service for programs which ODMHSAS contracts with or operates. This includes behavioral health services paid for with Medicaid funding or behavioral health services paid for with state-appropriated, grant-supported, or federally-funded ODMHSAS monies. Includes substance residential, detox, and halfway house services contracted directly with ODMHSAS.<br><br>
+		  
+			  <strong>Who is not included?</strong><br>
+			  Non-outpatient Medicaid-funded behavioral health services, such as most inpatient. The only inpatient counts included are ODMHSAS state-operated inpatient facilities. Data from privately-funded, non-contracted American Indian programs or private insurance is NOT included.<br><br>
+		  
+			  <strong>What does ‘Not Reported’ mean?</strong><br>
+			  Some services (e.g., crisis or initial assessment) do not require providers to report detailed demographics.<br><br>
+		  
+			  <strong>Why can I only see county of residence in some queries?</strong><br>
+			  To protect confidentiality. For example, if a county has only two female Asians aged 0–6, and one received services, the identity may be inferred.<br><br>
+		  
+			  <strong>What is the difference between ‘Any Drug of Choice’ and ‘Primary Drug of Choice’?</strong><br>
+			  Clients may report up to three drugs of choice: primary, secondary, tertiary. 'Primary' only includes the first. 'Any' includes all three.<br><br>
+		  
+			  <strong>What is a Fiscal Year?</strong><br>
+			  Oklahoma’s fiscal year runs July 1 to June 30. E.g., FY22 = July 1, 2021 – June 30, 2022.<br><br>
+		  
+			  <strong>If you need more detail, contact:</strong> David.Wright@odmhsas.org<br><br>
+		  
+			  <strong>Source Documentation:</strong><br>
+			  No standalone downloadable documentation provided. All methodology is embedded within the FAQ and About sections of the dashboard.
+			</blockquote>
+		  
+			<!-- Section 2 -->
+			<h2 class="fs-5 fw-semibold mt-5 mb-3">2. Data Use in DataWorks Commons</h2>
+			<p class="small mb-2"><strong>Was the data transformed, estimated, or used raw?</strong><br>
+			Raw data was used. No values were estimated or altered during ingestion.</p>
+			<p class="small mb-2"><strong>How was the data used in DataWorks Commons?</strong><br>
+			The dataset powers the mental health and substance use metrics within the DataWorks Commons platform. It provides:<br>
+			Gender-specific and overall client rates per 100,000 by county<br>
+			Aggregated comparisons across metro, metro-adjacent, and non-metro county types<br>
+			Comparisons of 781 funded vs non-funded counties (as of February 2025).<br>
+			Trend analysis across FY2015–FY2024<br>
+			This enables researchers, local government, and community organizations to evaluate service reach, demographic disparities, and regional gaps in care.</p>
+		  
+			<!-- Section 3 -->
+			<h2 class="fs-5 fw-semibold mt-5 mb-3">3. Transformations & Processing</h2>
+			<p class="small mb-2"><strong>Transformations applied:</strong><br>
+			Standardized county names to align with geographic identifiers<br>
+			Mapped fiscal years to calendar years (e.g., FY15 → 2015)<br>
+			Grouped client counts by County, Gender, Fiscal Year, and MHSA category<br>
+			Merged with county-level population data (male/female) from DataWorks Commons for denominator calculations<br>
+			Computed rates per 100,000 population using the formula:<br>
+			<code>Rate = (Unique Clients / Population) × 100,000</code><br>
+			Aggregated values by:<br>
+			County Type (Metro, Metro-Adjacent, Non-Metro)<br>
+			Funding Status (Funding vs Non-Funding counties)<br>
+			Gender × County Type (e.g., Female in Non-Metro counties)</p>
+			<p class="small mb-2"><strong>Processing Tools:</strong><br>
+			Python + Pandas; population data pulled dynamically via the DataWorks Commons Python API</p>
+		  
+			<!-- Section 4 -->
+			<h2 class="fs-5 fw-semibold mt-5 mb-3">4. Estimates, Interpolation, Labeling</h2>
+			<p class="small mb-2"><strong>Were estimates or imputations made?</strong><br>
+			No</p>
+			<p class="small mb-2"><strong>Were any fields reclassified or grouped?</strong><br>
+			No — client-level attributes (gender, MHSA type) were used as-is from the source.</p>
+			<p class="small mb-2"><strong>Assumptions or estimation formulas used?</strong><br>
+			None — no assumptions were required.</p>
+		  
+			<!-- Section 5 -->
+			<h2 class="fs-5 fw-semibold mt-5 mb-3">5. Data Quality & Limitations</h2>
+			<p class="small mb-2"><strong>Coverage:</strong><br>
+			Full – 100% of paid behavioral health client services reported to ODMHSAS for contracted and state-operated providers.</p>
+			<p class="small mb-2"><strong>Limitations / Caveats:</strong><br>
+			Reflects only individuals who received paid services through ODMHSAS programs (Medicaid, state, or grant funded).<br>
+			Does not include individuals who may have needed services but did not receive them.<br>
+			Excludes services paid through private insurance, non-contracted providers, or tribal health programs.</p>
+			<p class="small mb-2"><strong>Suppressed or imputed values:</strong><br>
+			None — the dataset does not contain redacted or statistically masked entries.</p>
+		  
+			<!-- Section 6 -->
+			<h2 class="fs-5 fw-semibold mt-5 mb-3">6. Version History</h2>
+			<p class="small mb-2"><strong>Publication Date:</strong><br>
+			Currently published</p>
+			<p class="small mb-2"><strong>Update Frequency:</strong><br>
+			Annually</p>
+			<p class="small mb-2"><strong>Version Notes:</strong><br>
+			None</p>
+		  </div>
+
+		  
+		  <!-- Methodology Section 2 -->
+		  <div id="method2" class="methodology-section mb-5 d-none">
+			<h1 class="fs-1 fw-bold mb-4">Oklahoma DOC Dataset</h1>          
+		  
+			<!-- Section 1 -->
+			<h2 class="fs-5 fw-semibold mt-5 mb-3">1. Source Overview</h2>
+			<p class="small mb-2"><strong>Title:</strong><br>
+			Prison and Probation Sentences – County-Level Counts and Rates</p>
+			<p class="small mb-2"><strong>Publisher:</strong><br>
+			Oklahoma Department of Corrections (ODOC)</p>
+			<p class="small mb-2"><strong>Original Format:</strong><br>
+			Fixed-width data tables</p>
+			<p class="small mb-2"><strong>Access URL:</strong><br>
+			<a href="https://oklahoma.gov/doc/media-relations.html" target="_blank">https://oklahoma.gov/doc/media-relations.html</a></p>
+			<p class="small mb-2"><strong>Date Accessed:</strong><br>
+			February 2025</p>
+			<p class="small mb-2"><strong>Geographic Scope:</strong><br>
+			Oklahoma – All 77 counties</p>
+			<p class="small mb-2"><strong>Time Period Covered:</strong><br>
+			2000 to present (outputs filtered to 2010–2024)</p>
+			<p class="small mb-2"><strong>Quoted Methodology from Source:</strong></p>
+			<blockquote class="small mb-4">
+			  ODOC Data Extract Layout and Crosswalk Notes<br>
+			  The data files are fixed width text files. The sample files contain a subset of the data in the extract files and are useful for testing your import.<br><br>
+		  
+			  The primary foreign key constraints follow:<br>
+			  DOC_NUM(Profile Data) ← DOC_NUM(Alias Data)<br>
+			  DOC_NUM(Profile Data) ← DOC_NUM(Sentence Data)<br>
+			  STATUTE_CODE(Offense Codes) ← STATUTE_CODE(Sentence Data)<br>
+			  SENTENCE_ID(Sentence Data) ← SENTENCE_ID(Consecutive Sentence Data)<br>
+			  SENTENCE_ID(Sentence Data) ← CONSECUTIVE_TO_ID(Consecutive Sentence Data)<br><br>
+		  
+			  Special values for sentence types:<br>
+			  9999 = death sentence<br>
+			  8888 = life without parole<br>
+			  7777 = life sentence
+			</blockquote>
+			<p class="small mb-2"><strong>Source Documentation:</strong><br>
+			No standalone documentation provided. All methodology is embedded in the data layout tables and descriptions available at the access URL.</p>
+		  
+			<!-- Section 2 -->
+			<h2 class="fs-5 fw-semibold mt-5 mb-3">2. Data Use in DataWorks Commons</h2>
+			<p class="small mb-2"><strong>Was the data transformed, estimated, or used raw?</strong><br>
+			Raw data was used. Records were aggregated using straightforward counts; no values were estimated or imputed.</p>
+			<p class="small mb-2"><strong>How was the data used in DataWorks Commons?</strong><br>
+			The dataset powers incarceration metrics within the DataWorks Commons platform. It provides:<br>
+			- Counts and per capita rates of prison sentences and offense records by county<br>
+			- Demographic breakdowns (race and gender) for both sentence and offense measures<br>
+			- Offense-type categorization using UCCS coding<br>
+			- Comparative trends by county type (Metro, Metro-Adjacent, Non-Metro)<br>
+			- Aggregated trends from 2010 through 2024<br>
+			This supports community organizations, researchers, and public officials in monitoring sentencing patterns and disparities across Oklahoma.</p>
+		  
+			<!-- Section 3 -->
+			<h2 class="fs-5 fw-semibold mt-5 mb-3">3. Transformations & Processing</h2>
+			<p class="small mb-2"><strong>Transformations applied:</strong><br>
+			- Parsed fixed-width text into structured CSV format<br>
+			- Cleaned and standardized column names<br>
+			- Converted JS_DATE to datetime and extracted year<br>
+			- Recoded “American Indian” and “Alaskan Native” into a unified race category<br>
+			- Mapped each county to a Metro, Metro-Adjacent, or Non-Metro type<br>
+			- Applied UCCS coding system to group offenses by type (e.g., Violent, Property, Drug)<br>
+			- Merged with population data by county, race, and gender using DataWorks Commons API<br>
+			- Computed metrics:<br>
+			  <code>Sentence Count = Unique DOC_NUM per county per year</code><br>
+			  <code>Offense Count = All offense rows (multiple per person possible)</code><br>
+			  <code>Rate = (Count / Population) × 100,000</code><br>
+			  (Population year chosen as closest available prior to or equal to the event year)<br>
+			- Aggregated values by:<br>
+			  County × Year<br>
+			  Race × County × Year<br>
+			  Gender × County × Year<br>
+			  Offense Type × County × Year<br>
+			  County Type (Metro, Metro-Adjacent, Non-Metro)</p>
+			<p class="small mb-2"><strong>Processing Tools:</strong><br>
+			Python + Pandas; population data retrieved via DataWorks Commons Python API</p>
+		  
+			<!-- Section 4 -->
+			<h2 class="fs-5 fw-semibold mt-5 mb-3">4. Estimates, Interpolation, Labeling</h2>
+			<p class="small mb-2"><strong>Were estimates or imputations made?</strong><br>
+			No</p>
+			<p class="small mb-2"><strong>Were any fields reclassified or grouped?</strong><br>
+			Yes<br>
+			- Offense Type: Classified using UCCS schema developed by CJARS (e.g., 1 = Violent, 2 = Property, etc.)<br>
+			- Race: “American Indian” and “Alaskan Native” grouped together<br>
+			- County Type: Each county labeled as Metro, Metro-Adjacent, or Non-Metro</p>
+			<p class="small mb-2"><strong>Assumptions or estimation formulas used?</strong><br>
+			None — counts are based on direct aggregations of raw records. Population rates are calculated using observed values only.</p>
+		  
+			<!-- Section 5 -->
+			<h2 class="fs-5 fw-semibold mt-5 mb-3">5. Data Quality & Limitations</h2>
+			<p class="small mb-2"><strong>Coverage:</strong><br>
+			Full – dataset includes all prison and probation sentence records reported by ODOC statewide</p>
+			<p class="small mb-2"><strong>Limitations / Caveats:</strong><br>
+			- Data only includes individuals for whom sentence or offense-level records exist<br>
+			- No information is included on unsentenced individuals, pretrial, or those released without a formal sentence<br>
+			- Population denominators limited to years 2016–2023; nearest available year used for each event</p>
+			<p class="small mb-2"><strong>Suppressed or imputed values:</strong><br>
+			None — no data masking, suppression, or imputation applied</p>
+		  
+			<!-- Section 6 -->
+			<h2 class="fs-5 fw-semibold mt-5 mb-3">6. Version History</h2>
+			<p class="small mb-2"><strong>Publication Date:</strong><br>
+			Quarterly, as data becomes available</p>
+			<p class="small mb-2"><strong>Update Frequency:</strong><br>
+			Quarterly</p>
+			<p class="small mb-2"><strong>Version Notes:</strong><br>
+			None</p>
+		  </div>
+
+		  
+		  <!-- Methodology Section 3 -->
+		  <div id="method3" class="methodology-section mb-5 d-none">
+			<h1 class="fs-1 fw-bold mb-4">Oklahoma EQA Dataset</h1>
+		  
+			<!-- Section 1 -->
+			<h2 class="fs-5 fw-semibold mt-5 mb-3">1. Source Overview</h2>
+			<p class="small mb-2"><strong>Title:</strong><br>
+			Oklahoma Educational Indicators Program - Profiles State Report</p>
+			<p class="small mb-2"><strong>Publisher:</strong><br>
+			Oklahoma Office of Educational Quality and Accountability</p>
+			<p class="small mb-2"><strong>Original Format:</strong><br>
+			PDF reports</p>
+			<p class="small mb-2"><strong>Access URL:</strong><br>
+			<a href="https://www.edprofiles.info/state-report" target="_blank">https://www.edprofiles.info/state-report</a></p>
+			<p class="small mb-2"><strong>Date Accessed:</strong><br>
+			February 2025</p>
+			<p class="small mb-2"><strong>Geographic Scope:</strong><br>
+			Oklahoma – All 77 counties</p>
+			<p class="small mb-2"><strong>Time Period Covered:</strong><br>
+			2017–2023</p>
+			<p class="small mb-2"><strong>Quoted Methodology from Source:</strong></p>
+			<blockquote class="small mb-4">
+			  The information presented in the “Profiles Report” is divided into three major reporting categories: (1) Community Characteristics, (2) Educational Process, and (3) Student Performance. This is meant to mirror the real-world educational process. Students have a given home and community life. They attend schools comprised of a diverse makeup of teachers who deliver education through different programs and a variety of teaching styles. And in the end, all of these factors come to bear on each student’s academic performance.<br><br>
+			  The “State Profiles” deals with state-level common education issues. It examines the “big picture” of Oklahoma education and it is meant to set the stage for examining education in your part of the state, or within your local community. It contains many tables, graphs, and maps, all with accompanying text. Wherever possible, tables and graphs cover multiple years so that trends may be observed. National comparisons are added where comparable data exists.
+			</blockquote>
+		  
+			<!-- Section 2 -->
+			<h2 class="fs-5 fw-semibold mt-5 mb-3">2. Data Use in DataWorks Commons</h2>
+			<p class="small mb-2"><strong>Was the data transformed, estimated, or used raw?</strong><br>
+			Data was extracted using AI-based visual document processing. Values were not estimated or transformed.</p>
+			<p class="small mb-2"><strong>How was the data used in DataWorks Commons?</strong><br>
+			The dataset was used to populate the "Oklahoma Education" section in DataWorks Commons. Variables were grouped into categories including Test Scores, Post-Secondary Outcomes, Demographics, and District Revenue. All data is county-level and supports time series comparisons across 2017–2023.</p>
+		  
+			<!-- Section 3 -->
+			<h2 class="fs-5 fw-semibold mt-5 mb-3">3. Transformations & Processing</h2>
+			<p class="small mb-2"><strong>Transformations applied:</strong><br>
+			None applied. Data was extracted as-is from maps embedded in PDFs.</p>
+			<p class="small mb-2"><strong>Processing Logic:</strong><br>
+			- PDF pages were converted into images.<br>
+			- Each image was analyzed by an AI-powered tool using a structured prompt.<br>
+			- Values for all 77 Oklahoma counties (plus State Average) were extracted.<br>
+			- Missing or unreadable values were recorded as "N/A".<br>
+			- Values were not modified after extraction.<br>
+			- Output was saved in a structured CSV format with metadata (map title, county, page number).</p>
+		  
+			<!-- Section 4 -->
+			<h2 class="fs-5 fw-semibold mt-5 mb-3">4. Estimates, Interpolation, Labeling</h2>
+			<p class="small mb-2"><strong>Were estimates or imputations made?</strong><br>
+			No</p>
+			<p class="small mb-2"><strong>Were any fields reclassified or grouped?</strong><br>
+			No</p>
+			<p class="small mb-2"><strong>Assumptions or estimation formulas used?</strong><br>
+			None</p>
+		  
+			<!-- Section 5 -->
+			<h2 class="fs-5 fw-semibold mt-5 mb-3">5. Data Quality & Limitations</h2>
+			<p class="small mb-2"><strong>Coverage:</strong><br>
+			Mostly full. Some variables are partial due to not being published in all years.</p>
+			<p class="small mb-2"><strong>Limitations / Caveats:</strong><br>
+			Rare errors may occur in extracted values due to visual interpretation limits of the AI tool.</p>
+			<p class="small mb-2"><strong>Suppressed or imputed values:</strong><br>
+			None</p>
+			<p class="small mb-2"><strong>Other concerns:</strong><br>
+			None</p>
+		  
+			<!-- Section 6 -->
+			<h2 class="fs-5 fw-semibold mt-5 mb-3">6. Version History</h2>
+			<p class="small mb-2"><strong>Publication Date:</strong><br>
+			Annually</p>
+			<p class="small mb-2"><strong>Update Frequency:</strong><br>
+			Annual</p>
+			<p class="small mb-2"><strong>Version Notes:</strong><br>
+			None</p>
+		  </div>
+		  
+		  <!-- Methodology Section 4 -->
+		<div id="method4" class="methodology-section mb-5">
+		  <h1 class="fs-1 fw-bold mb-4">Oklahoma Crime Dataset</h1>
+		
+		  <!-- Section 1 -->
+		  <h2 class="fs-5 fw-semibold mt-5 mb-3">1. Source Overview</h2>
+		  <p class="small mb-2"><strong>Title:</strong><br>County-level crime rates</p>
+		  <p class="small mb-2"><strong>Publisher:</strong><br>Bureau of Justice Statistics</p>
+		  <p class="small mb-2"><strong>Original Format:</strong><br>Tableau dashboard</p>
+		  <p class="small mb-2"><strong>Access URL:</strong><br><a href="https://learcat.bjs.ojp.gov/IncidentsCrime?Data+Year=2023&Unit+of+Analysis=Count" target="_blank">LEARCAT Dashboard</a></p>
+		  <p class="small mb-2"><strong>Date Accessed:</strong><br>February 2025</p>
+		  <p class="small mb-2"><strong>Geographic Scope:</strong><br>Oklahoma – All 77 counties</p>
+		  <p class="small mb-2"><strong>Time Period Covered:</strong><br>2016–2023</p>
+		  <p class="small mb-2"><strong>Quoted Methodology from Source:</strong></p>
+		  <blockquote class="small mb-4">
+			“The Law Enforcement Agency Reported Crime Analysis Tool (LEARCAT) dashboard enables you to examine crime information reported by participating law enforcement agencies to the FBI’s National Incident-Based Reporting System (NIBRS)… LEARCAT presents NIBRS data from 2016 to 2023 on crimes reported by law enforcement to the FBI at both the incident and victimization levels… Rates of incidents or victimizations are calculated by dividing the total number of incidents or victimizations by the associated population for the relevant year and then multiplying by 100,000... Please note that while LEARCAT and the FBI’s Crime Data Explorer (CDE) both present NIBRS data, the two tools use different definitions for some of the offense categories…”
+		  </blockquote>
+		
+		  <!-- Section 2 -->
+		  <h2 class="fs-5 fw-semibold mt-5 mb-3">2. Data Use in DataWorks Commons</h2>
+		  <p class="small mb-2"><strong>Was the data transformed, estimated, or used raw?</strong><br>
+		  ☑ Raw (2021–2023 from LEARCAT) <br>☑ Estimated (2016–2020)</p>
+		  <p class="small mb-2"><strong>How was the data used in DataWorks Commons?</strong><br>
+		  Published as "Oklahoma Crime" on DataWorks Commons.<br>
+		  Data is grouped by county, county type (Metro, Metro-Adjacent, Non-metro), and 781 funding status.<br>
+		  Used for trend analysis from 2016–2023.</p>
+		
+		  <!-- Section 3 -->
+		  <h2 class="fs-5 fw-semibold mt-5 mb-3">3. Transformations & Processing</h2>
+		  <p class="small mb-2"><strong>Transformations applied:</strong><br>
+		  - Pulled city-level population and property crime data (2016–2020) from DataWorks Commons<br>
+		  - Allocated city-level crime counts to counties using population-based overlaps from StatsAmerica<br>
+		  - Aggregated city-level values to compute county totals<br>
+		  - Replaced city population estimates with official county-level population data from DataWorks Commons<br>
+		  - Calculated rates per 100,000 using county population<br>
+		  - Removed known anomalies and flagged city-years with fewer than 6 crimes as "Insufficient Size"<br>
+		  - Used LEARCAT values for 2021–2023 without modification<br>
+		  - Developed and applied scaling factors to estimate 2016–2020 county totals based on LEARCAT-calibrated differences
+		  </p>
+		  <p class="small mb-2"><strong>Mathematical formulas:</strong><br>
+			Let <code>c</code> = county, <code>y</code> = year<br>
+			<code>EstimatedCrimes[c,y]</code> = city-level total crimes allocated to county <code>c</code><br>
+			<code>AvgScalingFactor[c]</code> = mean of (<code>LEARCATCrimes[c,y]</code> / <code>EstimatedCrimes[c,y]</code>) for y in 2021–2023<br>
+			<br>
+			Final estimates:<br>
+			<code>AdjustedCrimes[c,y] = EstimatedCrimes[c,y] × AvgScalingFactor[c]</code><br>
+			<code>Rate[c,y] = (AdjustedCrimes[c,y] / Population[c,y]) × 100,000</code>
+		  </p>
+		  <p class="small mb-2"><strong>Assumptions:</strong><br>
+		  - Crime allocated by residential population shares, not incident location<br>
+		  - Patterns of underreporting in 2021–2023 assumed stable back to 2016<br>
+		  - County-level population estimates assumed accurate
+		  </p>
+		
+		  <!-- Section 4 -->
+		  <h2 class="fs-5 fw-semibold mt-5 mb-3">4. Estimates, Interpolation, and Labeling</h2>
+		  <p class="small mb-2"><strong>Estimation rationale:</strong><br>
+		  LEARCAT data prior to 2021 lacks full county coverage due to NIBRS adoption gaps. Estimates were needed to enable longitudinal analysis.</p>
+		  <p class="small mb-2"><strong>Estimation method (plain language):</strong><br>
+		  County-level estimates for 2016–2020 were derived from city-level NIBRS crime counts reported in DataWorks Commons. Cities overlapping multiple counties were allocated based on population shares from StatsAmerica. Aggregated county totals were then scaled using an average correction factor derived from LEARCAT county totals in 2021–2023.</p>
+		  <p class="small mb-2"><strong>Mathematical equation:</strong><br>
+		  <code>AdjustedCrimes[c,y] = EstimatedCrimes[c,y] × AvgScalingFactor[c]</code></p>
+		  <p class="small mb-2"><strong>Reclassification / Grouping:</strong><br>
+		  - Counties grouped by <em>CountyType</em>: Metro, Metro-Adjacent, Non-metro<br>
+		  - Counties flagged by <em>781 Funding Status</em>: 781 Recipient, Potential Recipient</p>
+		
+		  <!-- Section 5 -->
+		  <h2 class="fs-5 fw-semibold mt-5 mb-3">5. Data Quality & Limitations</h2>
+		  <p class="small mb-2"><strong>Completeness:</strong><br>
+		  Full from 2021 onward, partial before 2021 due to estimation</p>
+		  <p class="small mb-2"><strong>Limitations / Caveats:</strong><br>
+		  - All caveats from BJS LEARCAT documentation apply<br>
+		  - Differences may exist between LEARCAT and CDE offense definitions<br>
+		  - Crime counts reflect agency of report, not necessarily incident location<br>
+		  - Rate values only valid for full-reporter states</p>
+		  <p class="small mb-2"><strong>Suppressed or imputed values:</strong><br>
+		  - Missing values replaced with zeros<br>
+		  - Unknowns excluded<br>
+		  - City-years with &lt;6 crimes flagged as "Insufficient Size" and removed from county estimates</p>
+		  <p class="small mb-2"><strong>Additional flags:</strong><br>
+		  - Multi-county city allocations may introduce small error<br>
+		  - "Insufficient Size" entries are unreliable and excluded from rate calcs</p>
+		
+		  <!-- Section 6 -->
+		  <h2 class="fs-5 fw-semibold mt-5 mb-3">6. Version History</h2>
+		  <p class="small mb-2"><strong>Publication Date:</strong><br>
+		  Already published</p>
+		  <p class="small mb-2"><strong>Update Frequency:</strong><br>
+		  Annual</p>
+		  <p class="small mb-2"><strong>Version Notes:</strong><br>
+		  Updated to LEARCAT 2023 release</p>
 		</div>
+
+		  
+		</div>
+
 		
 		
 		<div id="about" class="content-section container-lg py-4">
@@ -652,7 +1057,11 @@
 		  item1Nav: "/solutions/document-extraction",
 		  item2Nav: "/solutions/court-date-retrieval",
 		  item3Nav: "/solutions/case-modeling",
-		  item4Nav: "/solutions/civil-case-intelligence"
+		  item4Nav: "/solutions/civil-case-intelligence",
+		  method1Nav: "/commons/methodology/odmhsas",
+		  method2Nav: "/commons/methodology/juvenile",
+		  method3Nav: "/commons/methodology/education",
+
 		};
 	
 		for (const [id, path] of Object.entries(navMap)) {
