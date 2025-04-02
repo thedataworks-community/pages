@@ -6,7 +6,9 @@ export function initTopNav() {
 		item1: document.getElementById("item1"),
 		item2: document.getElementById("item2"),
 		item3: document.getElementById("item3"),
-		item4: document.getElementById("item4")
+		item4: document.getElementById("item4"),
+
+		item5: document.getElementById("item5")
 	};
 
 	window.showSection = function (section, updateURL = true) {
@@ -126,11 +128,11 @@ export function initTopNav() {
 		setActiveMenuItem(""); // No item remains bold for home
 	});
 
-	document.getElementById("commonsNav").addEventListener("click", (event) => {
-		event.preventDefault();
-		showSection("commons");
-		setActiveMenuItem("commonsNav");
-	});
+	// document.getElementById("commonsNav").addEventListener("click", (event) => {
+	// 	event.preventDefault();
+	// 	showSection("commons");
+	// 	setActiveMenuItem("commonsNav");
+	// });
 
 	document.getElementById("aboutNav").addEventListener("click", (event) => {
 		event.preventDefault();
@@ -160,12 +162,37 @@ export function initTopNav() {
 		setActiveMenuItem("solutionsNav");
 	});
 
-	// Dropdown item event listeners
+	// Solutions dropdown item event listeners
 	["item1Nav", "item2Nav", "item3Nav", "item4Nav"].forEach(id => {
 		document.getElementById(id).addEventListener("click", (event) => {
 			event.preventDefault();
 			showSection(id.replace("Nav", ""));
 			setActiveMenuItem("solutionsNav");
+	
+			// Hide dropdown after click
+			const bsDropdown = bootstrap.Dropdown.getInstance(solutionsToggle);
+			bsDropdown?.hide();
+		});
+	});
+
+	const dwcToggle = document.getElementById("dwcNav");
+	
+	dwcToggle.addEventListener("click", (event) => {
+		event.preventDefault();
+	
+		// Toggle Bootstrap dropdown manually
+		const bsDropdown = bootstrap.Dropdown.getOrCreateInstance(dwcToggle);
+		
+		bsDropdown.show();
+		setActiveMenuItem("dwcNav");
+	});
+
+	// Commons dropdown item event listeners
+	["item5Nav", "commonsNav"].forEach(id => {
+		document.getElementById(id).addEventListener("click", (event) => {
+			event.preventDefault();
+			showSection(id.replace("Nav", ""));
+			setActiveMenuItem("dwcNav");
 	
 			// Hide dropdown after click
 			const bsDropdown = bootstrap.Dropdown.getInstance(solutionsToggle);
@@ -195,5 +222,9 @@ export function initTopNav() {
 	document.getElementById("solutionsNav").addEventListener("click", (event) => {
 		event.preventDefault();
 		setActiveMenuItem("solutionsNav"); // Mark Solutions as active
+	});
+	document.getElementById("dwcNav").addEventListener("click", (event) => {
+		event.preventDefault();
+		setActiveMenuItem("dwcNav"); // Mark Solutions as active
 	});
 }

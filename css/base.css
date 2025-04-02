@@ -1,0 +1,220 @@
+/* ---- General Layout ---- */
+html, body {
+	height: 100%;
+}
+body {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	background-color: #f8f9fa;
+	color: #212529;
+	font-family: "Lato", sans-serif;
+	overflow-x: hidden;
+}
+main {
+	flex: 1;
+	overflow-y: auto;
+	padding: 20px;
+}
+header {
+	position: sticky;
+	top: 0;
+	z-index: 1030;
+}
+footer {
+	flex-shrink: 0;
+}
+
+/* ---- Typography ---- */
+h1, h2, h3, h4, h5, h6 {
+	color: #336186;
+}
+a {
+	color: #dc7f2e;
+	font-weight: 600;
+	text-decoration: none;
+	transition: color 0.2s ease-in-out;
+}
+a:hover {
+	color: #8C4E18;
+	text-decoration: underline;
+}
+blockquote {
+	font-style: italic;
+	color: #336186;
+	margin: 2rem auto;
+	padding: 1rem 2rem;
+	max-width: 800px;
+	font-size: 0.95rem !important;
+	border-left: 4px solid #336186;
+	background-color: #f9f9fb;
+}
+
+/* ---- Navbar ---- */
+.navbar {
+	background-color: #ffffff !important;
+	border-bottom: 1px solid #ddd;
+	padding: 0;
+}
+.navbar .container-fluid {
+	padding: 0 15px;
+}
+.navbar-brand img {
+	height: 52px;
+}
+.navbar-toggler-icon {
+	filter: invert(1);
+}
+.navbar-nav .nav-link {
+	color: #326186 !important;
+	font-weight: 500;
+	transition: all 0.2s ease-in-out;
+}
+.navbar .nav-link:focus,
+.navbar .nav-link:active {
+	outline: none !important;
+	box-shadow: none !important;
+}
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:hover {
+	color: #27496d !important;
+	font-weight: bold;
+}
+.dropdown-item:focus,
+.dropdown-item:active {
+	background-color: transparent !important;
+	color: inherit !important;
+}
+
+/* ---- Buttons ---- */
+.btn-outline-orangeblue {
+	color: #f58220;
+	border: 2px solid #005596;
+	background-color: transparent;
+	border-radius: 2rem;
+	padding: 0.6rem 1.5rem;
+	font-weight: 500;
+	transition: all 0.2s ease-in-out;
+	text-decoration: none;
+	min-width: 280px;
+	text-align: center;
+	white-space: normal;
+	height: 100%;
+}
+.btn-outline-orangeblue:hover {
+	background-color: #005596;
+	color: white;
+	border-color: #005596;
+}
+.btn-blue-to-orange {
+	background-color: #005596;
+	color: white;
+	border: 2px solid #005596;
+	border-radius: 2rem;
+	padding: 0.6rem 1.5rem;
+	font-weight: 500;
+	transition: all 0.2s ease-in-out;
+}
+.btn-blue-to-orange:hover {
+	background-color: #f58220;
+	color: white;
+	border-color: #f58220;
+}
+
+/* ---- Utilities ---- */
+.divider {
+	width: 60px;
+	height: 4px;
+	margin: 0 auto;
+	background: #2563eb;
+	border: none;
+	border-radius: 2px;
+}
+pre[class*="language-"] {
+	padding: 1rem;
+	border-radius: 6px;
+	background: #f8f9fa;
+	font-size: 0.85rem;
+	overflow: auto;
+	line-height: 1.5;
+}
+
+/* ---- Shared Content Area ---- */
+.content {
+	display: none;
+	padding: 20px;
+}
+.content.active:not(#home) {
+	display: block;
+}
+.content-section {
+	display: none;
+	text-align: left;
+}
+.content-section.active {
+	display: block;
+}
+
+/* ---- CTA & Toast ---- */
+.contact-overlay {
+	position: fixed;
+	top: 4.5rem;
+	right: 2rem;
+	z-index: 1055;
+	background: rgba(0, 0, 0, 0.4);
+	backdrop-filter: blur(4px);
+	padding: 1rem;
+	border-radius: 12px;
+	transition: all 0.3s ease-in-out;
+}
+.contact-box {
+	background: white;
+	padding: 1.5rem;
+	border-radius: 10px;
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+	max-width: 300px;
+	width: 100%;
+	text-align: center;
+	position: relative;
+}
+.contact-overlay .close-btn {
+	position: absolute;
+	top: 6px;
+	right: 10px;
+	border: none;
+	background: none;
+	font-size: 1.25rem;
+	font-weight: bold;
+	cursor: pointer;
+}
+.custom-toast {
+	position: fixed;
+	bottom: 1.5rem;
+	right: 1.5rem;
+	background-color: #005596;
+	color: white;
+	padding: 0.75rem 1.25rem;
+	border-radius: 8px;
+	font-size: 0.95rem;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+	z-index: 9999;
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+}
+.custom-toast.show {
+	opacity: 1;
+}
+
+/* ---- Shared Animations ---- */
+@keyframes fadeSlideIn {
+	0% {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

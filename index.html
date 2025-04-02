@@ -30,9 +30,11 @@
 	<!-- JSON language support -->
 	<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
 	
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="dwc-components.css">
-	<link rel="stylesheet" href="table.css">
+	<!-- <link rel="stylesheet" href="style.css"> -->
+	<link rel="stylesheet" href="css/base.css"> 		<!-- base styles for brand, colors, fonts, etc. -->
+	<link rel="stylesheet" href="css/home.css"> 		<!-- homepage-specific styling -->
+	<link rel="stylesheet" href="css/dwc-components.css">
+	<link rel="stylesheet" href="css/table.css">
 </head>
 <body class="d-flex flex-column min-vh-100">
 
@@ -59,10 +61,21 @@
 								<li><a class="dropdown-item" href="#" id="item4Nav">Civil Case Intelligence</a></li>
 							</ul>
 						</li>
-						<li class="nav-item">
+						<!-- <li class="nav-item">
 							<a class="nav-link" id="commonsNav" href="#">
 								DataWorks Commons</a>
+						</li> -->
+
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="dwcNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								DataWorks Commons
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="dwcNav">
+								<li><a class="dropdown-item" href="#" id="item5Nav">Data Validation Methodology</a></li>
+								<li><a class="dropdown-item" href="#" id="commonsNav">Explore the DataWorks Commons</a></li>
+							</ul>
 						</li>
+
 						<li class="nav-item">
 							<a class="nav-link" id="aboutNav" href="#">
 								About Us</a>
@@ -77,83 +90,123 @@
 		</nav>
 	</header>
 
-<main id="main" class="container-lg pt-0 pb-4">
+	<main id="main" class="container-lg pt-0 pb-4">
 	  
-	  <!-- HOMEPAGE ONLY CONTENT -->
-	  <div id="home" class="content text-start active">
+	  	<!-- HOMEPAGE ONLY CONTENT -->
+		<!-- <div id="home" class="content text-start active">
 		
-		<!-- Hero Section -->
-		<!-- Hero Section -->
-		<section class="hero-banner position-relative text-center">
-		  <img src="img/us-map-background.png" alt="Oklahoma Map" class="img-fluid w-100 hero-banner-img" />
+			<!-- Hero Section -- >
+			<section class="hero-banner position-relative text-center">
+				<img src="img/us-map-background.png" alt="Oklahoma Map" class="img-fluid w-100 hero-banner-img" />
 		
-		  <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white px-3">
-			<h1 class="display-4 fw-bold mb-3">Public data is broken.</h1>
-			<p class="fs-5 mb-2">It’s scattered across old data systems, trapped in PDFs, dashboards, & websites.</p>
-			<p class="fs-5 mb-4">We turn fragmented public data into usable infrastructure.</p>
-			<a href="#" id="commonsLink" data-target="commons" class="btn btn-blue-to-orange btn-lg">Learn about the DataWorks Commons</a>
-		  </div> <!-- ✅ This was missing -->
-		</section>
+				<div class="hero-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white px-3">
+					<h1 class="display-4 fw-bold mb-3">Public data is broken.</h1>
+					<p class="fs-5 mb-2">It’s scattered across old data systems, trapped in PDFs, dashboards, & websites.</p>
+					<p class="fs-5 mb-4">We turn fragmented public data into usable infrastructure.</p>
+					<a href="#" id="commonsLink" data-target="commons" class="btn btn-blue-to-orange btn-lg">Learn about the DataWorks Commons</a>
+				</div>
+			</section>
 
+			<p class="fs-6 mb-4 text-start">
+				Whether you're a non-profit organization, a for-profit company, or a research team, trying to use public data at scale means lost time, inconsistent results, and missed opportunities.</p>
+			<p class="fs-6 mb-4 text-start">
+				DataWorks turns fragmented public data into usable infrastructure. We unify and structure data from courts, health agencies, schools, social services, and more—so it’s clean, current, and ready to power the tools and insights that matter.</p>
+			<p class="fs-6 mb-4 text-start">
+		    	Our platform, <strong>DataWorks&nbsp;Commons</strong>, offers validated, cross-agency datasets ready for use. And our custom solutions solve harder problems: like pulling structured information from PDFs, tracking outcomes across counties, or building real-time alerts from state data feeds.</p>
+				
+			<section class="impact-banner text-center my-5 py-5 px-3">
+				<div class="container">
+					<hr class="divider mb-4">
+					<p class="fs-4 fw-semibold mb-4">
+						<i class="bi bi-lightbulb"></i>  
+						We partner with public institutions, mission-driven orgs, and private companies. Explore a handful of our current solutions.</p>
+		
+					<!-- 🔗 Solution Buttons -- >
+					<div class="d-flex flex-wrap justify-content-center gap-3">
+						<a href="#" data-target="item1" class="btn btn-outline-orangeblue">AI Powered Document Extraction</a>
+						<a href="#" data-target="item2" class="btn btn-outline-orangeblue">Structured Event Tracking</a>
+						<a href="#" data-target="item3" class="btn btn-outline-orangeblue">Comprehensive Case Modeling</a>
+						<a href="#" data-target="item4" class="btn btn-outline-orangeblue">Civil Case Intelligence</a>
+					</div>
+				</div>
+			</section>
 
-	
-		<p class="fs-6 mb-4 text-start">
-		  Whether you're a non-profit organization, a for-profit company, or a research team, trying to use public data at scale means lost time, inconsistent results, and missed opportunities.
-		</p>
-		<p class="fs-6 mb-4 text-start">
-		  DataWorks turns fragmented public data into usable infrastructure.
-		  We unify and structure data from courts, health agencies, schools, social services, and more—so it’s clean, current, and ready to power the tools and insights that matter.
-		</p>
-		<p class="fs-6 mb-4 text-start">
-		  Our platform, <strong>DataWorks&nbsp;Commons</strong>, offers validated, cross-agency datasets ready for use. And our custom solutions solve harder problems: like pulling structured information from PDFs, tracking outcomes across counties, or building real-time alerts from state data feeds.
-		</p>
-		
-		
-		<section class="impact-banner text-center my-5 py-5 px-3">
-		  <div class="container">
-			<hr class="divider mb-4">
-			<p class="fs-4 fw-semibold mb-4">
-			  <i class="bi bi-lightbulb"></i>  
-			  We partner with public institutions, mission-driven orgs, and private companies.
-			  
-			  Explore a handful of our current solutions.
-			</p>
-		
-			<!-- 🔗 Solution Buttons -->
-			<div class="d-flex flex-wrap justify-content-center gap-3">
-			  <a href="#" data-target="item1" class="btn btn-outline-orangeblue">AI Powered Document Extraction</a>
-			  <a href="#" data-target="item2" class="btn btn-outline-orangeblue">Structured Event Tracking</a>
-			  <a href="#" data-target="item3" class="btn btn-outline-orangeblue">Comprehensive Case Modeling</a>
-			  <a href="#" data-target="item4" class="btn btn-outline-orangeblue">Civil Case Intelligence</a>
-			</div>
-		  </div>
-		</section>
-
-		<!-- Call-to-Action Banner -->
-		<section class="elegant-cta text-center py-5 px-3">
-		  <div class="container">
-			<h2 class="elegant-cta-heading mb-3">
-			  Are you struggling to unlock important data? <br />
-			<span class="highlight">Need help getting to it?</span> <br />
-			<span class="highlight">Want to make it more accessible?</span> <br />
-			<span class="highlight">Need State, County, City, or Neighborhood data?</span> <br />
-			</h2>
+			<!-- Call-to-Action Banner -- >
+			<section class="elegant-cta text-center py-5 px-3">
+				<div class="container">
+					<h2 class="elegant-cta-heading mb-3">
+						Are you struggling to unlock important data? <br />
+						<span class="highlight">Need help getting to it?</span> <br />
+						<span class="highlight">Want to make it more accessible?</span> <br />
+						<span class="highlight">Need State, County, City, or Neighborhood data?</span> <br />
+					</h2>
 			
-			<button class="btn btn-blue-to-orange btn-lg px-4" onclick="sendEmail()">Get in Touch</button>
-		  </div>
-		</section>
-
-
-
-
-
-
-
-	
-	  </div>
-	</main>
-
+					<button class="btn btn-blue-to-orange btn-lg px-4" onclick="sendEmail()">Get in Touch</button>
+				</div>
+			</section>
+		</div> -->
 		
+		<div id="home" class="content text-start active">
+		
+		  <!-- Hero Section -->
+		  <section class="hero-banner position-relative text-center">
+			<img src="img/us-map-background.png" alt="Oklahoma Map" class="img-fluid w-100 hero-banner-img" />
+		
+			<div class="hero-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white px-3">
+			  <h1 class="display-4 fw-bold mb-3">Public data is broken.</h1>
+			  <p class="fs-5 mb-2">It’s scattered across old data systems, trapped in PDFs, dashboards, & websites.</p>
+			  <p class="fs-5 mb-4">We turn fragmented public data into usable infrastructure.</p>
+			  <a href="#" id="commonsLink" data-target="commons" class="btn btn-blue-to-orange btn-lg">Learn about the DataWorks Commons</a>
+			</div>
+		  </section>
+		
+		  <!-- Intro Paragraphs -->
+		  <div class="container my-5 px-3 px-md-5">
+			<p class="fs-6 mb-4">
+			  Whether you're a non-profit organization, a for-profit company, or a research team, trying to use public data at scale means lost time, inconsistent results, and missed opportunities.
+			</p>
+			<p class="fs-6 mb-4">
+			  DataWorks turns fragmented public data into usable infrastructure.
+			  We unify and structure data from courts, health agencies, schools, social services, and more—so it’s clean, current, and ready to power the tools and insights that matter.
+			</p>
+			<p class="fs-6 mb-4">
+			  Our platform, <strong>DataWorks&nbsp;Commons</strong>, offers validated, cross-agency datasets ready for use. And our custom solutions solve harder problems: like pulling structured information from PDFs, tracking outcomes across counties, or building real-time alerts from state data feeds.
+			</p>
+		  </div>
+		
+		  <!-- Impact Section -->
+		  <section class="impact-banner text-center my-5 py-5 px-3">
+			<div class="container">
+			  <hr class="divider mb-4">
+			  <p class="fs-4 fw-semibold mb-4">
+				<i class="bi bi-lightbulb"></i>  
+				We partner with public institutions, mission-driven orgs, and private companies.<br />
+				Explore a handful of our current solutions.
+			  </p>
+			  <div class="d-flex flex-wrap justify-content-center gap-3">
+				<a href="#" data-target="item1" class="btn btn-outline-orangeblue">AI Powered Document Extraction</a>
+				<a href="#" data-target="item2" class="btn btn-outline-orangeblue">Structured Event Tracking</a>
+				<a href="#" data-target="item3" class="btn btn-outline-orangeblue">Comprehensive Case Modeling</a>
+				<a href="#" data-target="item4" class="btn btn-outline-orangeblue">Civil Case Intelligence</a>
+			  </div>
+			</div>
+		  </section>
+		
+		  <!-- Call-to-Action -->
+		  <section class="elegant-cta text-center py-5 px-3">
+			<div class="container">
+			  <h2 class="elegant-cta-heading mb-3">
+				Are you struggling to unlock important data? <br />
+				<span class="highlight">Need help getting to it?</span> <br />
+				<span class="highlight">Want to make it more accessible?</span> <br />
+				<span class="highlight">Need State, County, City, or Neighborhood data?</span>
+			  </h2>
+			  <button class="btn btn-blue-to-orange btn-lg px-4" onclick="sendEmail()">Get in Touch</button>
+			</div>
+		  </section>
+		
+		</div>
+	
 		<div id="commons" class="content">
 			<h1>
 			  <a href="https://data-dev-datacommons-web-service-558994267226.us-central1.run.app/" target="_blank" rel="noopener noreferrer">
@@ -528,6 +581,13 @@
 					For Firm Leadership: Bring key research functions in-house, lower reliance on outsourced services, and invest in tools that compound in value over time.</li>
 			</ul>
 		</div>
+		
+		
+		<div id="item5" class="content-section container-lg py-4">
+			<p class="mb-3">
+				(Here's how we do the magic)</p>
+		</div>
+		
 		
 		<div id="about" class="content-section container-lg py-4">
 			
