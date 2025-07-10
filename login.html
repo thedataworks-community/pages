@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DataWorks | Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+	:root {
+	  --dw-blue: #005596;
+	  --dw-orange: #f58220;
+	}
+
+	.digit-input::-webkit-outer-spin-button,
+	.digit-input::-webkit-inner-spin-button {
+	  -webkit-appearance: none;
+	  margin: 0;
+	}
+
+	.digit-input {
+	  -moz-appearance: textfield;
+	  text-align: center;
+	  font-size: 1.25rem;
+	}
+  </style>
+</head>
+
+<body class="bg-[--dw-blue] text-white font-sans min-h-screen flex flex-col items-center justify-center px-6">
+
+  <!-- Header -->
+  <h1 class="text-4xl md:text-5xl font-bold mb-6 text-center text-[--dw-orange]">
+	Let’s get you logged in!
+  </h1>
+
+  <!-- Subheading -->
+  <p class="text-lg mb-4 text-white/90">Enter your phone number:</p>
+
+  <!-- Phone Number Form -->
+  <form id="phone-form" class="flex flex-col items-center" autocomplete="off">
+	<!-- Digit Inputs -->
+	<div id="phoneDigits" class="flex flex-wrap justify-center gap-2 mb-6">
+	  <template id="digit-template">
+		<input type="text" inputmode="numeric" maxlength="1"
+			   class="digit-input w-10 h-12 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[--dw-orange] text-[--dw-blue] font-semibold bg-white" />
+	  </template>
+	</div>
+
+	<p class="text-xs text-white/70 text-center mb-4 max-w-xs">
+	  By submitting your phone number, you consent to receive a one-time SMS code for login. 
+	  <a href="/optin" class="underline text-white hover:text-[--dw-orange]">Learn more</a>
+	</p>
+
+
+	<!-- Submit Button -->
+	<button type="submit" class="bg-[--dw-orange] hover:bg-orange-600 text-white font-semibold px-6 py-2 rounded transition mb-2">
+	  Submit
+	</button>
+
+	<!-- Cancel Link -->
+	<button type="button" id="cancelButton" class="text-xs text-white/60 hover:underline">
+	  Cancel
+	</button>
+  </form>
+
+  <!-- Account Signup -->
+  <p class="mt-8 text-white/80 text-lg">
+	Don’t have an account?
+	<a href="/signup" class="text-[--dw-orange] font-semibold hover:underline">Set up an account</a>
+  </p>
+
+  <!-- Verification Modal -->
+  <div id="verifyModal" class="fixed inset-0 flex items-center justify-center z-50 hidden bg-black/50">
+	<div class="bg-white text-center p-8 rounded-xl shadow-xl max-w-md w-full text-gray-800">
+	  <p class="mb-6 text-lg leading-relaxed">
+		Enter your verification code.<br />
+		We just sent you one.
+	  </p>
+	  <!-- 4-digit input -->
+	  <form id="codeForm" class="flex justify-center gap-3 mb-6">
+		<template id="codeDigitTemplate">
+		  <input type="text" inputmode="numeric" maxlength="1"
+				 class="w-12 h-14 text-xl text-center border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[--dw-orange] text-[--dw-blue] font-semibold bg-white" />
+		</template>
+	  </form>
+
+	  <!-- Resend message -->
+	  <p class="text-sm text-gray-500 mb-2">
+		Didn’t receive a code?
+		<button id="resendCode" class="text-[--dw-orange] font-semibold hover:underline ml-1">Resend</button>
+	  </p>
+
+	  <!-- Cancel / Submit -->
+	  <div class="flex justify-center gap-6 mt-4">
+		<button id="cancelVerify" class="text-sm text-gray-500 hover:underline">Cancel</button>
+		<button type="submit" form="codeForm" class="bg-[--dw-orange] hover:bg-orange-600 text-white font-semibold px-6 py-2 rounded transition">
+		  Submit
+		</button>
+	  </div>
+	</div>
+  </div>
+
+  <!-- Script -->
+  <script>
+	document.addEventListener("DOMContentLoaded", () => {
+	  const phoneForm = document.getElementById("phone-form");
+	  const phoneDigitsContainer = document.getElementById("phoneDigits");
+	  const digitTemplate = document.getElementById("digit-template");
+	  const cancelButton = document.getElementById("cancelButton");
+
+	  const verifyModal = document.getElementById("verifyModal");
+	  const codeForm = document.getElementById("codeForm");
+	  const codeDigitTemplate = document.getElementById("codeDigitTemplate");
+	  const cancelVerify = document.getElementById("cancelVerify");
+	  const resendCode = document.getElementById("resendCode");
+
+	  // Create 10 input fields for phone number
+	  for (let i = 0; i < 10; i++) {
+		const input = digitTemplate.content.cloneNode(true);
+		phoneDigitsContainer.appendChild(input);
+	  }
+
+	  const phoneInputs = phoneForm.querySelectorAll("input");
+
+	  // Auto-advance for phone number
+	  phoneInputs.forEach((input, i) => {
+		input.addEventListener("input", (e) => {
+		  if (e.target.value.length === 1 && i < phoneInputs.length - 1) {
+			phoneInputs[i + 1].focus();
+		  }
+		});
+
+		input.addEventListener("keydown", (e) => {
+		  if (e.key === "Backspace" && !e.target.value && i > 0) {
+			phoneInputs[i - 1].focus();
+		  }
+		});
+	  });
+
+	  // Phone number form submit
+	  phoneForm.addEventListener("submit", async (e) => {
+		e.preventDefault();
+		const digits = [...phoneInputs].map(input => input.value).join('');
+		console.log("Phone number submitted:", digits);
+	  
+		const res = await fetch("/send-code", {
+		  method: "POST",
+		  headers: {
+			"Content-Type": "application/json"
+		  },
+		  body: JSON.stringify({ phone: digits })
+		});
+	  
+		const data = await res.json();
+	  
+		if (data.success) {
+		  openVerifyModal();  // Show the 4-digit modal
+		} else {
+		  alert(data.error || "Something went wrong while sending the code.");
+		}
+	  });
+
+
+	  // Cancel clears phone inputs
+	  cancelButton.addEventListener("click", () => {
+		phoneInputs.forEach(input => input.value = '');
+		phoneInputs[0].focus();
+	  });
+
+	  // === VERIFICATION MODAL ===
+
+	  // Open modal programmatically
+	  function openVerifyModal() {
+		verifyModal.classList.remove("hidden");
+		codeForm.querySelector("input")?.focus();
+	  }
+
+	  // Cancel in modal
+	  cancelVerify.addEventListener("click", () => {
+		verifyModal.classList.add("hidden");
+		[...codeForm.querySelectorAll("input")].forEach(i => i.value = "");
+	  });
+
+	  // Resend click
+	  resendCode.addEventListener("click", () => {
+		alert("Code resent to your phone.");
+		// TODO: hook into resend backend
+	  });
+
+	  // Add 4 code digit fields
+	  for (let i = 0; i < 4; i++) {
+		const input = codeDigitTemplate.content.cloneNode(true);
+		codeForm.appendChild(input);
+	  }
+
+	  const codeInputs = codeForm.querySelectorAll("input");
+
+	  // Auto-advance for code digits
+	  codeInputs.forEach((input, i) => {
+		input.addEventListener("input", () => {
+		  if (input.value.length === 1 && i < codeInputs.length - 1) {
+			codeInputs[i + 1].focus();
+		  }
+		});
+
+		input.addEventListener("keydown", (e) => {
+		  if (e.key === "Backspace" && !input.value && i > 0) {
+			codeInputs[i - 1].focus();
+		  }
+		});
+	  });
+
+	  // Submit 4-digit code
+	  codeForm.addEventListener("submit", async (e) => {
+		e.preventDefault();
+		const code = [...codeInputs].map(i => i.value).join('');
+		const phone = [...phoneInputs].map(i => i.value).join('');
+	  
+		if (phone.length !== 10 || code.length !== 4) {
+		  alert("Please enter a valid phone number and 4-digit code.");
+		  return;
+		}
+	  
+		console.log("📲 Sending phone + code to /verify-code:", phone, code);
+	  
+		try {
+		  const res = await fetch("/verify-code", {
+			method: "POST",
+			headers: {
+			  "Content-Type": "application/json"
+			},
+			body: JSON.stringify({ phone, code })
+		  });
+	  
+		  const data = await res.json();
+		  console.log("✅ /verify-code response:", data);
+	  
+		  if (data.success) {
+			window.location.href = data.redirect || "/";
+		  } else {
+			alert(data.error || "Verification failed.");
+		  }
+		} catch (err) {
+		  console.error("❌ Error verifying code:", err);
+		  alert("Server error. Please try again.");
+		}
+	  });
+
+
+	  // Enable keyboard digit entry without mouse
+	  document.addEventListener("keydown", (e) => {
+		if (
+		  document.activeElement.tagName !== "INPUT" &&
+		  e.key.match(/^[0-9]$/) &&
+		  !verifyModal.classList.contains("!block")
+		) {
+		  const firstEmpty = [...phoneInputs].find((el) => el.value === "");
+		  if (firstEmpty) {
+			firstEmpty.focus(); // Just focus, do NOT set .value
+		  }
+		}
+	  });
+	});
+  </script>
+
+</body>
+</html>
