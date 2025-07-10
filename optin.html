@@ -1,19 +1,50 @@
-<!-- public_optin.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>DataWorks Opt-In Page</title>
+  <meta charset="UTF-8" />
+  <title>SMS Opt-In Consent | DataWorks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+      line-height: 1.6;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.05rem;
+      color: #444;
+    }
+  </style>
 </head>
 <body>
-  <h1>Consent to Receive SMS Authentication Codes</h1>
+  <h1>Consent to Receive SMS Verification Codes</h1>
+
   <p>
-	Users visiting <strong>https://thedataworks.org</strong> log in by entering their phone number.
-	They are explicitly informed that a 4-digit authentication code will be sent via SMS
-	to verify their identity.
+    When a user visits <strong>https://thedataworks.org</strong>, they are prompted to log in by entering their phone number on the login page.
   </p>
+
   <p>
-	This constitutes opt-in consent under A2P messaging requirements.
+    After submitting their number, the user is explicitly informed that they will receive a 4-digit verification code via SMS. This code is used solely for authentication and expires shortly after it's issued.
   </p>
+
+  <p>
+    By entering their phone number and continuing the login process, the user gives explicit consent to receive a one-time SMS message for authentication purposes.
+  </p>
+
+  <p>
+  This login experience, including the phone number entry field and consent messaging, is visible on our <a href="/login">login page</a>.
+</p>
+
+<p>
+  Based on this flow, users provide valid opt-in consent under A2P messaging requirements when initiating login with their phone number.
+</p>
+
 </body>
 </html>
