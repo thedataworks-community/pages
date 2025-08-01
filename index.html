@@ -1,1112 +1,604 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-7JHFXXSEPX"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-	  gtag('config', 'G-7JHFXXSEPX', { 'send_page_view': false });
-	</script>
-
-	
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>DataWorks</title>
-	<!-- Bootstrap CSS -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?\family=Lato:wght@300;400;700&family=Reddit+Mono:wght@200..900&display=swap" rel="stylesheet">
-
-	<script src="https://data-dev-datacommons-web-service-a6wrkh5rha-uc.a.run.app/datacommons.js"></script>
-	
-	<!-- Prism.js core theme (light) -->
-	<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css" rel="stylesheet" />
-	<!-- Prism.js core script -->
-	<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
-	<!-- JSON language support -->
-	<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
-	
-	<!-- <link rel="stylesheet" href="style.css"> -->
-	<link rel="stylesheet" href="css/base.css"> 		<!-- base styles for brand, colors, fonts, etc. -->
-	<link rel="stylesheet" href="css/home.css"> 		<!-- homepage-specific styling -->
-	<link rel="stylesheet" href="css/dwc-components.css">
-	<link rel="stylesheet" href="css/table.css">
-</head>
-<body class="d-flex flex-column min-vh-100">
-
-	<header>
-
-		<nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="#" id="homeNav">
-					<img src="img/logo-graph-bigorange.svg" alt="Logo">
-				</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-					<ul class="navbar-nav">
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="solutionsNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								Solutions
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="solutionsNav">
-								<li><a class="dropdown-item" href="#" id="item1Nav">AI Powered Document Extraction</a></li>
-								<li><a class="dropdown-item" href="#" id="item2Nav">Structured Event Tracking</a></li>
-								<li><a class="dropdown-item" href="#" id="item3Nav">Comprehensive Case Modeling</a></li>
-								<li><a class="dropdown-item" href="#" id="item4Nav">Civil Case Intelligence</a></li>
-							</ul>
-						</li>
-						<!-- <li class="nav-item">
-							<a class="nav-link" id="commonsNav" href="#">
-								DataWorks Commons</a>
-						</li> -->
-
-						<li class="nav-item dropdown">
-						  <a class="nav-link dropdown-toggle" href="#" id="dwcNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							DataWorks Commons
-						  </a>
-						  <ul class="dropdown-menu" aria-labelledby="dwcNav">
-							<li><a class="dropdown-item" href="#" id="commonsNav">Learn About The DataWorks Commons</a></li>
-						
-							<li class="dropdown-submenu">
-							  <a
-								class="dropdown-item dropdown-toggle"
-								href="#"
-								id="item5Nav"
-								onclick="event.preventDefault(); event.stopPropagation();"
-							  >
-								Data Methodologies
-							  </a>
-							  <ul class="dropdown-menu">
-								<li><a class="dropdown-item small ps-4" href="#method1" data-target="item5">Oklahoma DMHSAS Dataset</a></li>
-								<li><a class="dropdown-item small ps-4" href="#method2" data-target="item5">Oklahoma DOC Dataset</a></li>
-								<li><a class="dropdown-item small ps-4" href="#method3" data-target="item5">Oklahoma EQA Dataset</a></li>
-								<li><a class="dropdown-item small ps-4" href="#method4" data-target="item5">Oklahoma Crime Dataset</a></li>
-							  </ul>
-							</li>
-						  </ul>
-						</li>
-
-						
-						<li class="nav-item">
-							<a class="nav-link" id="aboutNav" href="#">
-								About Us</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" id="contactNav" href="#">
-								Contact</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</header>
-
-	<main id="main" class="container-lg pt-0 pb-4">
-	  
-	  	<!-- HOMEPAGE ONLY CONTENT -->
-		<!-- <div id="home" class="content text-start active">
-		
-			<!-- Hero Section -- >
-			<section class="hero-banner position-relative text-center">
-				<img src="img/us-map-background.png" alt="Oklahoma Map" class="img-fluid w-100 hero-banner-img" />
-		
-				<div class="hero-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white px-3">
-					<h1 class="display-4 fw-bold mb-3">Public data is broken.</h1>
-					<p class="fs-5 mb-2">It’s scattered across old data systems, trapped in PDFs, dashboards, & websites.</p>
-					<p class="fs-5 mb-4">We turn fragmented public data into usable infrastructure.</p>
-					<a href="#" id="commonsLink" data-target="commons" class="btn btn-blue-to-orange btn-lg">Learn about the DataWorks Commons</a>
-				</div>
-			</section>
-
-			<p class="fs-6 mb-4 text-start">
-				Whether you're a non-profit organization, a for-profit company, or a research team, trying to use public data at scale means lost time, inconsistent results, and missed opportunities.</p>
-			<p class="fs-6 mb-4 text-start">
-				DataWorks turns fragmented public data into usable infrastructure. We unify, validate, and structure data from courts, health agencies, schools, social services, and more—so it’s clean, current, and ready to power the tools and insights that matter.</p>
-			<p class="fs-6 mb-4 text-start">
-		    	Our platform, <strong>DataWorks&nbsp;Commons</strong>, offers validated, cross-agency datasets ready for use. And our custom solutions solve harder problems: like pulling structured information from PDFs, tracking outcomes across counties, or building real-time alerts from state data feeds.</p>
-				
-			<section class="impact-banner text-center my-5 py-5 px-3">
-				<div class="container">
-					<hr class="divider mb-4">
-					<p class="fs-4 fw-semibold mb-4">
-						<i class="bi bi-lightbulb"></i>  
-						We partner with public institutions, mission-driven orgs, and private companies. Explore a handful of our current solutions.</p>
-		
-					<!-- 🔗 Solution Buttons -- >
-					<div class="d-flex flex-wrap justify-content-center gap-3">
-						<a href="#" data-target="item1" class="btn btn-outline-orangeblue">AI Powered Document Extraction</a>
-						<a href="#" data-target="item2" class="btn btn-outline-orangeblue">Structured Event Tracking</a>
-						<a href="#" data-target="item3" class="btn btn-outline-orangeblue">Comprehensive Case Modeling</a>
-						<a href="#" data-target="item4" class="btn btn-outline-orangeblue">Civil Case Intelligence</a>
-					</div>
-				</div>
-			</section>
-
-			<!-- Call-to-Action Banner -- >
-			<section class="elegant-cta text-center py-5 px-3">
-				<div class="container">
-					<h2 class="elegant-cta-heading mb-3">
-						Are you struggling to unlock important data? <br />
-						<span class="highlight">Need help getting to it?</span> <br />
-						<span class="highlight">Want to make it more accessible?</span> <br />
-						<span class="highlight">Need State, County, City, or Neighborhood data?</span> <br />
-					</h2>
-			
-					<button class="btn btn-blue-to-orange btn-lg px-4" onclick="sendEmail()">Get in Touch</button>
-				</div>
-			</section>
-		</div> -->
-		
-		<div id="home" class="content text-start active">
-		
-		  <!-- Hero Section -->
-		  <section class="hero-banner position-relative text-center">
-			<img src="img/us-map-background.png" alt="Oklahoma Map" class="img-fluid w-100 hero-banner-img" />
-		
-			<div class="hero-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white px-3">
-			  <h1 class="display-4 fw-bold mb-3">Public data is broken.</h1>
-			  <p class="fs-5 mb-2">It’s scattered across old data systems, trapped in PDFs, dashboards, & websites.</p>
-			  <p class="fs-5 mb-4">We turn fragmented public data into usable infrastructure.</p>
-			  <a href="#" id="commonsLink" data-target="commons" class="btn btn-blue-to-orange btn-lg">Learn About The DataWorks Commons</a>
-			</div>
-		  </section>
-		
-		  <!-- Intro Paragraphs -->
-		  <div class="container my-5 px-3 px-md-5">
-			<p class="fs-6 mb-4">
-			  Whether you're a non-profit organization, a for-profit company, or a research team, trying to use public data at scale means lost time, inconsistent results, and missed opportunities.
-			</p>
-			<p class="fs-6 mb-4">
-			  DataWorks turns fragmented public data into usable infrastructure.  
-			  We handle the heavy lifting—extracting, cleaning, structuring, and validating messy datasets from courts, health agencies, schools, social services, and more—so what you get is clean, current, reliable, and ready to use.  
-			  Every dataset we deliver comes with clear, rigorous documentation—so you know exactly what it contains, where it came from, and how it was processed.
-			</p>
-			<p class="fs-6 mb-4">
-			  Our platform, <strong>DataWorks&nbsp;Commons</strong>, offers validated, cross-agency datasets ready for use. And our custom solutions solve harder problems: like pulling structured information from PDFs, implementing custom AI technology solutions, tracking outcomes across geographies, or building real-time alerts from state data feeds.
-			</p>
-		  </div>
-
-		
-		  <!-- Impact Section -->
-		  <section class="impact-banner text-center my-5 py-5 px-3">
-			<div class="container">
-			  <hr class="divider mb-4">
-			  <p class="fs-4 fw-semibold mb-4">
-				<i class="bi bi-lightbulb"></i>  
-				We partner with public institutions, mission-driven orgs, and private companies.<br />
-				Explore a handful of our current solutions.
-			  </p>
-			  <div class="d-flex flex-wrap justify-content-center gap-3">
-				<a href="#" data-target="item1" class="btn btn-outline-orangeblue">AI Powered Document Extraction</a>
-				<a href="#" data-target="item2" class="btn btn-outline-orangeblue">Structured Event Tracking</a>
-				<a href="#" data-target="item3" class="btn btn-outline-orangeblue">Comprehensive Case Modeling</a>
-				<a href="#" data-target="item4" class="btn btn-outline-orangeblue">Civil Case Intelligence</a>
-			  </div>
-			</div>
-		  </section>
-		
-		  <!-- Call-to-Action -->
-		  <section class="elegant-cta text-center py-5 px-3">
-			<div class="container">
-			  <h2 class="elegant-cta-heading mb-3">
-				Are you struggling to unlock important data? <br />
-				<span class="highlight">Need help getting to it?</span> <br />
-				<span class="highlight">Want to make it more accessible?</span> <br />
-				<span class="highlight">Need State, County, City, or Neighborhood data?</span>
-			  </h2>
-			  <button class="btn btn-blue-to-orange btn-lg px-4" onclick="sendEmail()">Get in Touch</button>
-			</div>
-		  </section>
-		
-		</div>
-	
-		<div id="commons" class="content">
-			<h1>
-			  <a href="https://data-dev-datacommons-web-service-558994267226.us-central1.run.app/" target="_blank" rel="noopener noreferrer">
-				The DataWorks Commons
-			  </a>
-			</h1>
-			<p class="commons-text">
-				We’ve built <a href="https://data-dev-datacommons-web-service-558994267226.us-central1.run.app/" target="_blank" rel="noopener noreferrer">The DataWorks Commons</a>, a unified, intelligent platform that aggregates and standardizes fragmented state and local datasets across key areas like <a href="https://data-dev-datacommons-web-service-558994267226.us-central1.run.app/explore#q=Oklahoma+secondary+education+metrics+including+test+scores%2C+Post-Secondary%2C+Demographics&client=ui_query" target="_blank" rel="noopener noreferrer">education</a>, <a href="https://data-dev-datacommons-web-service-558994267226.us-central1.run.app/explore#q=Oklahoma+court+system+metrics+including+All+Filed+%26+Disposed+Cases%2C+Civil+Cases%2C+Family+Cases%2C+Probate+Cases%2C+Juvenile+Cases%2C+Criminal+Cases%2C+Traffic+Cases&client=ui_query" target="_blank" rel="noopener noreferrer">courts</a>, <a href="https://data-dev-datacommons-web-service-558994267226.us-central1.run.app/explore#q=Oklahoma+Monthly+Average+of+Total+SNAP+Cases+TANF+cases+Poverty&client=ui_query" target="_blank" rel="noopener noreferrer">social services</a>, <a href="https://data-dev-datacommons-web-service-558994267226.us-central1.run.app/explore#q=Oklahoma+Health%2C+OKDMHSAS%2C+Rate+Mental+Health+Services+in+Counties+of+Oklahoma%2C+Rate+Substance+Abuse+Services+in+Counties+of+Oklahoma&client=ui_query" target="_blank" rel="noopener noreferrer">health</a>, <a href="https://data-dev-datacommons-web-service-558994267226.us-central1.run.app/explore#q=Oklahoma+Economy+unemployment+rate%2CAverage+Weekly+Wage+-+Yearly+Average+in+Counties+of+Oklahoma+%282024%29&client=ui_query" target="_blank" rel="noopener noreferrer">economy</a>, and <a href="https://data-dev-datacommons-web-service-558994267226.us-central1.run.app/explore#q=property+crime+in+Counties+of+Oklahoma%2C+violent+crime+in+Counties+of+Oklahoma%2C+Prison+Sentences+in+Counties+of+Oklahoma%2C+Prison+Sentences+Per+100K+in+Counties+of+Oklahoma&client=ui_query" target="_blank" rel="noopener noreferrer">community safety</a>. This dramatically reduces the time and cost of data acquisition for businesses, nonprofits, and researchers, allowing them to focus on their mission and drive impact. </p>
-			<hr>
-			
-			<!-- Section 1 -->
-			<div class="clearfix">
-				<div class="chart-float-left">
-					<div style="width:100%;">
-						<datacommons-line
-							id="timeline"
-							header="Female Prison Sentences"
-							   places="geoId/40109 geoId/40143"
-							colors="#c47f42 #3d5a78"
-							variables="Count_of_Persons_F"
-							apiRoot="https://data-dev-datacommons-web-service-a6wrkh5rha-uc.a.run.app/"
-						></datacommons-line>
-					</div>
-				</div>
-				<p class="pt-adjust">
-					<strong>Oklahoma once had the highest rate of female incarceration in the United States.</strong>
-					Today, its two largest counties tell a story of change. <a href="https://data-dev-datacommons-web-service-558994267226.us-central1.run.app/explore#q=Oklahoma+County+female+prison+sentences&client=ui_query" target="_blank" rel="noopener noreferrer">Oklahoma County</a> has seen a 76% drop in female prison sentences since the mid-2010s, reaching record lows in 2024. <a href="https://data-dev-datacommons-web-service-558994267226.us-central1.run.app/explore#q=Tulsa+County+female+prison+sentences&client=ui_query" target="_blank" rel="noopener noreferrer">Tulsa County</a> has cut sentences nearly 50% since 2010, but recent trends suggest progress has slowed.</p>
-				<p>
-					As Oklahoma County continues to decline and Tulsa’s numbers level off, these trends reflect the shifting landscape of justice reform and its role in breaking cycles of incarceration.</p>
-			</div>
-			
-			<hr/>
-						
-			<!-- Section 2 -->
-			<div class="clearfix">
-				<div class="chart-float-left">
-					<div style="width:100%;">
-						<datacommons-map
-							id="map"
-							header="% of Students Identified as Economically Disadvantaged"
-							parentPlace="geoId/40"
-							childPlaceType="County"
-							variable="PercentofStudentsEconomicallyDisadvantaged"
-							apiRoot="https://data-dev-datacommons-web-service-a6wrkh5rha-uc.a.run.app/"
-							colors="#3d5a78 #f3f3f3 #c47f42"
-						></datacommons-map>
-					</div>
-				</div>
-				<p class="pt-adjust">
-					<strong>Oklahoma has long struggled with high student poverty rates, but the divide across the state is striking.</strong></p>
-				<p>
-					In southeastern and rural counties, over 79% of students are economically disadvantaged, with <a href="https://data-dev-datacommons-web-service-558994267226.us-central1.run.app/explore#q=Choctaw+County+Oklahoma+%25+of+Students+Identified+as+Economically+Disadvantaged&client=ui_query" target="_blank" rel="noopener noreferrer">Choctaw</a>, <a href="https://data-dev-datacommons-web-service-558994267226.us-central1.run.app/explore#q=Hughes+County+Oklahoma+%25+of+Students+Identified+as+Economically+Disadvantaged&client=ui_query" target="_blank" rel="noopener noreferrer">Hughes</a>, and <a href="https://data-dev-datacommons-web-service-558994267226.us-central1.run.app/explore#q=Seminole+County+Oklahoma+%25+of+Students+Identified+as+Economically+Disadvantaged&client=ui_query" target="_blank" rel="noopener noreferrer">Seminole</a> counties among the highest. Meanwhile, northwestern counties, like <a href="https://data-dev-datacommons-web-service-558994267226.us-central1.run.app/explore#q=McClain+County+Oklahoma+%25+of+Students+Identified+as+Economically+Disadvantaged&client=ui_query" target="_blank" rel="noopener noreferrer">McClain</a> and <a href="https://data-dev-datacommons-web-service-558994267226.us-central1.run.app/explore#q=Woods+County+Oklahoma+%25+of+Students+Identified+as+Economically+Disadvantaged&client=ui_query" target="_blank" rel="noopener noreferrer">Woods</a>, report far lower rates, some below 42%.
-						These gaps reflect broader economic disparities, shaping access to resources and opportunities for students across the state.</p>
-			</div>
-			
-			<hr>
-			
-			<!-- Section 3 -->
-			<div class="clearfix">
-				<div class="chart-float-left">
-					<div style="width:100%;">
-						<datacommons-scatter
-							header="Property vs Violent Crime Rate per 100K"
-							variables="Property_Crime_Rate_per_100k Violent_Crime_Rate_per_100k"
-							parentPlace="geoId/40"
-							childPlaceType="County"
-							apiRoot="https://data-dev-datacommons-web-service-a6wrkh5rha-uc.a.run.app/"
-						></datacommons-scatter>
-					</div>
-				</div>
-				<p class="pt-adjust">
-					<strong>Crime in Oklahoma follows a clear pattern</strong>: counties with high violent crime rates also experience high property crime rates, though the extent varies widely.</p>
-				<p>
-					Urban centers like <a href="https://data-dev-datacommons-web-service-558994267226.us-central1.run.app/explore#q=Tulsa+County+Oklahoma+Property+Crime+per+100k+and+Violent+Crime++per+100k&client=ui_query" target="_blank" rel="noopener noreferrer">Tulsa</a> and <a href="https://data-dev-datacommons-web-service-558994267226.us-central1.run.app/explore#q=Oklahoma+County+Oklahoma+Property+Crime+per+100k+and+Violent+Crime++per+100k&client=ui_query" target="_blank" rel="noopener noreferrer">Oklahoma</a> counties consistently report some of the highest crime levels. Meanwhile, rural counties like <a href="https://data-dev-datacommons-web-service-558994267226.us-central1.run.app/explore#q=Osage+County+Oklahoma+Property+Crime+per+100k+and+Violent+Crime++per+100k&client=ui_query" target="_blank" rel="noopener noreferrer">Osage</a> and <a href="https://data-dev-datacommons-web-service-558994267226.us-central1.run.app/explore#q=Okfuskee+County+Oklahoma+Property+Crime+per+100k+and+Violent+Crime++per+100k&client=ui_query" target="_blank" rel="noopener noreferrer">Okfuskee</a> have crime rates that rival the state’s largest cities, with property crime exceeding 5,000 per 100K and violent crime above 2,500 per 100K. In contrast, counties like <a href="https://data-dev-datacommons-web-service-558994267226.us-central1.run.app/explore#q=McClain+County+Oklahoma+Property+Crime+per+100k+and+Violent+Crime++per+100k&client=ui_query" target="_blank" rel="noopener noreferrer">McClain</a> and <a href="https://data-dev-datacommons-web-service-558994267226.us-central1.run.app/explore#q=Washington+County+Oklahoma+Property+Crime+per+100k+and+Violent+Crime++per+100k&client=ui_query" target="_blank" rel="noopener noreferrer">Washington</a> have some of the lowest rates in both categories.
-						These disparities highlight the need for region-specific public safety strategies, as both urban and rural areas face unique crime challenges.</p>
-			</div>			
-		</div>
-		
-		<div id="item1" class="content-section container-lg py-4">
-			
-			<h1 class="fs-1 fw-bold mb-4">AI Powered Document Extraction</h1>
-			<!-- <h2 class="fs-3 fw-semibold mt-5 mb-3">The Challenge</h2> -->
-			<p class="mb-3">
-				What if the information you need most is buried in handwritten notes, scanned PDFs, or outdated systems—but you still need it structured, accurate, and scalable across tens of thousands of records?
-				
-				Whether you're analyzing court waivers, social services forms, licensing records, or housing applications, the raw materials are often the same: fragmented documents in inconsistent formats. Solving that bottleneck doesn’t just speed up workflow—it unlocks entirely new ways of understanding the data you already have.</p>
-			<h2 class="fs-3 fw-semibold mt-5 mb-3">Example Problem</h2>
-			<p class="mb-3">
-				Oklahoma’s HB 2259 was created to reduce court costs for indigent Oklahomans by assessing their ability to pay. But key questions remain:</p>
-			<ul>
-				<li>
-				Do these waivers result in meaningful financial relief?</li>
-				<li>
-				What is the total amount of court debt avoided?</li>
-				<li>
-				Does reduced debt lead to fewer failure-to-pay warrants or future charges?</li>
-			</ul>
-			<p class="mb-3">
-				Answering these questions requires structured, case-level data—yet the relevant details are buried in fragmented, scanned court documents with a mix of typed and handwritten text.</p>
-				<h2 class="fs-3 fw-semibold mt-5 mb-3">Our Solution</h2>
-			<p class="mb-3">
-				We’ve built a tightly controlled, AI-powered system that extracts and structures complex court data at scale.</p>
-			<ul>
-				<li>
-				We retrieve relevant records directly from Oklahoma’s public court system using automated search tools.</li>
-				<li>We use structured AI tools—guided by Pydantic schemas—to extract key information (balances, eligibility, court findings) from mixed-format documents.</li>
-				<li>We store data in a graph database, making it easy to query like a spreadsheet while also mapping deeper relationships across cases, individuals, and outcomes.</li>
-			</ul>
-			<figure class="text-center my-4">
-				<img src="img/cs1-image.png" alt="Example scanned court document" class="img-fluid d-block mx-auto">
-				<figcaption class="text-muted fst-italic small mt-2">Example of a scanned court document with both typed and handwritten sections.</figcaption>
-			</figure>
-			<h2 class="fs-3 fw-semibold mt-5 mb-3">Why This Matters</h2>
-			<p class="mb-3">
-			Beyond court records, this system offers a blueprint for structuring document-based data in any domain:</p>
-			<ul>
-				<li>
-				Health: Extract data from handwritten intake assessments or care plans</li>
-				<li>Education: Structure student-level records from scanned IEPs or counselor notes</li>
-				<li>Workforce: Parse job training documents, evaluations, or subsidy applications</li>
-			</ul>
-			<p class="mb-3">
-			If your data lives in messy PDFs, DataWorks can turn it into something you can search, analyze, and use—at scale, across systems, and with validation built in.</p>
-		</div>
-		
-		<div id="item2" class="content-section container-lg py-4">
-			
-			<h1 class="fs-1 fw-bold mb-4">Structured Event Tracking</h1>
-			<!-- <h2 class="fs-3 fw-semibold mt-5 mb-3">The Challenge</h2> -->
-			<p class="mb-3">
-				What if you could automatically track key dates—hearings, renewals, deadlines—across dozens of systems and locations, without waiting for someone to manually check a website or pick up the phone?
-				
-				In every sector, missed dates create consequences: court warrants, lapsed benefits, missed interviews, expired licenses. The information is often public—but fragmented, inconsistently formatted, and hard to access at scale.
-				
-				We built a system that solves this for courts, but the same approach can power automated monitoring across public records—keeping individuals, teams, and systems on track.</p>
-			<h2 class="fs-3 fw-semibold mt-5 mb-3">Example Problem</h2>
-			<p class="mb-3">
-				Thousands of people miss court dates every year—not because they’re evading justice, but because they never receive clear or timely reminders. These missed appearances (failure to appear, FTA) often lead to <strong>bench warrants, arrests, and jail stays that could have been avoided.</strong></p>
-			<p class="mb-3">
-				The information needed to prevent this—next court dates, times, locations—is public, but <strong>spread across dozens of counties in inconsistent formats.</strong> For many individuals, family members, and case managers, keeping up with court dates is nearly impossible.</p>
-			<hr/>
-			<h2 class="fs-3 fw-semibold mt-5 mb-3">Our Solution</h2>
-			<p class="mb-3">
-				We’ve developed an automated system to extract, structure, and monitor upcoming court events across Oklahoma’s 77 counties.</p>
-				<ul>
-					<li>
-					We pull next court events daily from public systems using custom-built tools that adapt to the format of each county’s data.</li>
-					<li>
-					Our AI structuring layer transforms raw, unstandardized listings into clean, queryable data—including defendant name, case number, hearing type, time, and location.</li>
-					<li>
-					All data is stored in a structured database, ready for integration into downstream tools such as <strong>text and email reminder systems.</strong></li>
-				</ul>
-			<p class="mb-3">
-				<strong>Our system takes unstructured court listings across counties and clerks like this…</strong></p>
-			<blockquote class="blockquote">
-				<p>
-					Monday, April 21, 2025 at 9:00 AM DISTRICT COURT ARRAIGNMENT DOE, JOHN CF Docket C</p>
-				<p>
-					04-21-2025 CTPASS JUDGE Jerry Moses: Defendant present, not in custody and represented by Julie Johnson.  State represented by John Johnson.  District Court Arraignment passed to 4/21/25 at 9:00 AM in Room 406. Bond to remain; defendant recognized back.</p>
-			</blockquote>
-			<p class="mb-3">
-				<strong>…and transforms them into a structured record that can be passed to any downstream CRM or court reminder system. </strong></p>
-			<pre><code class="language-json">
-				{
-				  "Defendant": "John Doe",
-				  "Case_Number": "CF-2025-XXXX",
-				  "Next_Court_Event_Date": "2025-04-21",
-				  "Next_Court_Event_Time": "09:00 AM",
-				  "Next_Court_Event_Reason": "District Court Arraignment",
-				  "Next_Court_Event_Docket": "Room 406",
-				  "Court_Location": "Tulsa County Courthouse",
-				  "Case_Status": "Pending" 
-				}
-			</code></pre>
-			<hr/>
-			<h2 class="fs-3 fw-semibold mt-5 mb-3">Why This Matters</h2>
-			Court reminders are just the start. This type of system can apply anywhere structured scheduling matters—but the source data is a mess.
-			<ul>
-				<li>
-					Justice: Reduce failure-to-appear rates, automate diversion program tracking, or monitor warrants across jurisdictions.</li>
-				<li>Workforce & Licensing: Track certification renewals, application deadlines, and compliance check-ins.</li>
-				<li>Health & Benefits: Monitor Medicaid recertifications, WIC appointments, or eligibility hearings.</li>
-				<li>Housing & Services: Keep clients and caseworkers informed about subsidy renewals, landlord hearings, or application windows.</li>
-
-			</ul>
-			Any organization that serves people navigating time-sensitive public systems can benefit from structured, real-time date tracking.
-		</div>
-		
-		<div id="item3" class="content-section container-lg py-4">
-			
-			<h1 class="fs-1 fw-bold mb-4">Comprehensive Case Modeling</h1>
-			<p class="mb-3">
-				Criminal court records hold the essential details that shape both individual outcomes and system-level insights—charges, sentencing, bond types, warrants, diversion participation, and more. But those elements live in many formats, scattered across scanned documents, docket minutes, and outdated court systems. There is no shared structure, no consistent language, and no reliable way to move this data across platforms or track it at scale—<strong>until now.</strong></p>
-			<p class="mb-3">
-				Support programs, researchers, and organizations investing in change can now access a stable foundation for service coordination, research evaluation, and insight analysis.</p>
-			<hr/>
-			<h2 class="fs-3 fw-semibold mt-5 mb-3">Our Solution</h2>
-			<p class="mb-3">
-				We’ve designed a legal data model that captures the full architecture of a criminal case—and built an AI-powered system to populate it automatically.</p>
-			<ul>
-				<li>
-				We extract and structure dozens of case elements: disposition, sentencing type, custody, bond type, fines & fees, issued warrants, diversion participation, and court events.</li>
-				<li>
-				Every output is validated against a strict schema to ensure consistency and integrity—enabling integration with dashboards, case management systems, and research pipelines.</li>
-				<li>
-				Stored in a graph database, this model supports both individual case tracking and cross-cutting queries about sentencing patterns, bond trends, or program outcomes.</li>
-			</ul>
-			<hr/>
-			
-			<h2 class="fs-3 fw-semibold mt-5 mb-3">Structured Criminal Case Index</h2>
-			
-			<div class="table-filter-group">
-				<input type="text" id="tSearch" placeholder="Search by any field...">
-				<select id="tCase">
-					<option value="">All Case Types</option>
-					</select>	
-				<select id="tCounty">
-					<option value="">All Counties</option>
-					</select>
-				<select id="tDisp">
-					<option value="">All Dispositions</option>
-					</select>
-				<select id="tWarrant">
-					<option value="">All Warrant Types</option>
-					</select>
-			</div>
-			<div class="table-container">
-				<table id="caseTable">
-					<thead>
-						<tr id="table-header"></tr>
-						</thead>
-					<tbody id="table-body"></tbody>
-				</table>
-			</div>
-			<p class="text-muted fst-italic small mt-2">
-				 Example 
-			 </p>
-			<hr/>
-			
-			<h2 class="fs-3 fw-semibold mt-5 mb-3">Why This Matters</h2>
-			<p class="mb-3">
-				This isn’t just about structuring data—it’s about building a durable layer of infrastructure for the justice system.</p>
-			<ul>
-				<li>
-				Programs can automate client case details, updates, and monitor legal events without manual follow-up.</li>
-				<li>
-				Funders and system leaders gain a unified view of how policies and interventions play out across populations and case types.</li>
-				<li>
-				Researchers get access to complete, clean data that enables evaluation far beyond what's possible with traditional court records.</li>
-			</ul>
-
-		</div>
-		<div id="item4" class="content-section container-lg py-4">
-			
-			<h1 class="fs-1 fw-bold mb-4">Civil Case Intelligence</h1>
-			<p class="mb-3">
-				In civil litigation, the advantage often lies in what you can find—quickly. But the data needed to build timelines, spot expert witness patterns, or anticipate judicial rulings is scattered across filings, motions, scanned documents, and fragmented court systems.</p>
-			<p class="mb-3">
-				Legal teams spend hours reviewing records just to answer basic strategic questions—and often outsource the work at high cost.</p>
-			<hr/>
-			<h2 class="fs-3 fw-semibold mt-5 mb-3">Our Solution</h2>
-			<p class="mb-3">
-				We’ve developed a system that extracts, structures, and organizes civil case data at scale—providing legal teams with the tools they need to work smarter, faster, and more strategically.</p>
-			<ul>
-				<li>
-				Our AI models parse filings, dockets, motions, orders, and trial verdicts into structured case records — capturing outcomes, rulings, expert witnesses, timelines, and more.</li>
-				<li>
-				Using structured prompts and schema validation, we generate reliable case summaries and event timelines directly from raw documents.</li>
-				<li>
-				All data is queryable by judge, outcome, jurisdiction, and issue—revealing patterns in rulings, motions, and judicial tendencies over time.</li>
-			</ul>
-			<h3 class="fs-5 fw-semibold mt-4 mb-2">Example Case Summary</h3>
-			<blockquote class="blockquote">
-				<p>
-					On March 14, 2018, the plaintiff took their vehicle to the defendant for scheduled maintenance. The services performed included an oil and filter change, fluid level check, tire pressure adjustments, and a multi-point inspection. The defendant’s technician found that the tread on the plaintiff’s right rear tire was low. However, the defendant did not inform the plaintiff that the tire was unsafe. The plaintiff's car was returned to them on March 15, 2018. On March 25, 2018, the plaintiff was involved in a single-vehicle accident when the car hydroplaned during a heavy rainstorm.</p>
-				<p>
-					The plaintiff contended that the accident occurred because the defendant failed to properly service the vehicle ten days earlier. Specifically, the plaintiff claimed the defendant was negligent in failing to inspect the tires and warn about the low tread. The plaintiff further alleged negligence in assigning the inspection to an employee who failed to properly notify them of the condition, and in not providing a written copy of the multi-point inspection results. The plaintiff also claimed breach of contract and breach of express and implied warranties, arguing that the maintenance and inspection services were not performed professionally. The plaintiff requested damages in excess of $75,000 for injuries, medical expenses, lost wages, and pain and suffering.</p>
-				<p>
-					The defendant argued that the multi-point inspection was a courtesy and not a required service. They also claimed the plaintiff was distracted and speeding at the time of the accident. The defendant asserted there was no contractual obligation to provide inspection documentation and denied that the low tire tread caused the accident. They maintained they were not negligent and not responsible for the plaintiff’s injuries or damages.</p>
-			</blockquote>
-			<h3 class="fs-5 fw-semibold mt-4 mb-2">Timeline of Events</h3>
-			<ul>
-				<li>
-					<strong>March 15, 2018</strong>: Plaintiff's vehicle undergoes maintenance at ABC Auto Services. Technician notes low tire tread.</li>
-				<li>
-					<strong>March 25, 2018</strong>: Plaintiff crashes due to hydroplaning. Plaintiff’s child was a passenger.</li>
-				<li>
-					<strong>2018–2022</strong>: Legal preparation and evidence gathering.</li>
-				<li>
-					<strong>Feb 25, 2020</strong>: Plaintiff files lawsuit against ABC Auto Services and XYZ Auto Management Group.</li>
-				<li>
-					<strong>May 20, 2020</strong>: Defendants file responses, denying most allegations.</li>
-				<li>
-					<strong>Feb 22, 2021</strong>: Subpoenas issued for plaintiff’s employment and business records.</li>
-				<li>
-					<strong>Apr 28, 2021 – Aug 2022</strong>: Discovery requests, including attempts to schedule tire inspections.</li>
-				<li>
-					<strong>Aug 30, 2022</strong>: Plaintiff’s attorney requests VIN-based vehicle records.</li>
-				<li>
-					<strong>Dec 6, 2022</strong>: Motion to compel full discovery responses.</li>
-				<li>
-					<strong>May 8, 2023</strong>: Court orders defendant to comply with discovery.</li>
-				<li>
-					<strong>May–Sep 2023</strong>: Depositions of multiple service employees and experts.</li>
-				<li>
-					<strong>Oct 2023–Feb 2024</strong>: Ongoing discovery and correspondence.</li>
-				<li>
-					<strong>Dec 2023 – Feb 2024</strong>: Motions filed for summary judgment and discovery enforcement.</li>
-				<li>
-					<strong>Apr 12, 2024</strong>: Court grants defendant’s motion for partial summary judgment.</li>
-				<li>
-					<strong>May–Sep 2024</strong>: Trial preparation and objections exchanged.</li>
-				<li>
-					<strong>Oct 2024</strong>: Motions in Limine filed by both parties.</li>
-				<li>
-					<strong>Nov 4–7, 2024</strong>: Jury trial held.</li>
-				<li>
-					<strong>Nov 26, 2024</strong>: Jury finds ABC Auto Services 80% negligent; plaintiff 20% negligent.</li>
-				<li>
-					<strong>Dec 2024</strong>: Designation for appeal filed; defendants file for attorney fees.</li>
-			</ul>
-			<h3 class="fs-5 fw-semibold mt-4 mb-2">Cast of Characters</h3>
-			<ul>
-				<li>
-					<strong>Alex Reynolds</strong>: Plaintiff, vehicle owner and driver at time of crash.</li>
-				<li>
-					<strong>Jamie Reynolds</strong>: Minor passenger in vehicle, child of plaintiff.</li>
-				<li>
-					<strong>ABC Auto Services</strong>: Main defendant, performed vehicle maintenance.</li>
-				<li>
-					<strong>XYZ Auto Management Group</strong>: Related business entity, co-defendant.</li>
-				<li>
-					<strong>Erin Matthews</strong>: Plaintiff’s lead attorney.</li>
-				<li>
-					<strong>Jordan Ellis</strong>: Co-counsel for plaintiff.</li>
-				<li>
-					<strong>Kai Walker</strong>: Defense attorney for ABC Auto Services.</li>
-				<li>
-					<strong>Taylor Brooks</strong>: Additional defense counsel.</li>
-				<li>
-					<strong>Casey Duran</strong>: Plaintiff’s engineering and tire expert.</li>
-				<li>
-					<strong>Robin Chen</strong>: Vehicle damage appraiser for plaintiff.</li>
-				<li>
-					<strong>Morgan Price</strong>: Technician who performed tire inspection.</li>
-				<li>
-					<strong>Drew Parker</strong>: Service department employee, trial witness.</li>
-				<li>
-					<strong>Jesse Lane</strong>: Auto technician, witness under subpoena.</li>
-				<li>
-					<strong>Sam Carter</strong>: Manager, witness under subpoena.</li>
-				<li>
-					<strong>Alexis Ford</strong>: Expert for plaintiff.</li>
-				<li>
-					<strong>Riley Kim</strong>: Additional service department employee and witness.</li>
-				<li>
-					<strong>Dana White</strong>: Former service advisor (no role in disputed appointment).</li>
-				<li>
-					<strong>Judge Morgan Bennett</strong>: Presiding judge over the case.</li>
-				<li>
-					<strong>Sydney Cross</strong>: Insurance adjuster for ABC Auto Services.</li>
-				<li>
-					<strong>RapidTech Solutions, Inc.</strong>: Third-party software vendor for repair tracking.</li>
-			</ul>
-			<h2 class="fs-3 fw-semibold mt-5 mb-3">Why This Matters</h2>
-			<ul>
-				<li>
-					For Law Firms: Reduce time spent on manual case review, improve strategy, and gain a competitive edge with deeper visibility into courts, experts, and patterns.</li>
-				<li>
-					For Attorneys: Speed up research, improve accuracy, and make case information easier to access—freeing up more time for high-value, billable work.</li>
-				<li>
-					For Firm Leadership: Bring key research functions in-house, lower reliance on outsourced services, and invest in tools that compound in value over time.</li>
-			</ul>
-		</div>
-		
-		
-		<div id="item5" class="content-section container-lg py-4">		
-		  <!-- Methodology Section 1 -->
-		  <div id="method1" class="methodology-section mb-5 d-none">
-			<h1 class="fs-1 fw-bold mb-4">Oklahoma DMHSAS Dataset</h1>		  
-			<!-- Section 1 -->
-			<h2 class="fs-5 fw-semibold mt-5 mb-3">1. Source Overview</h2>
-			<p class="small mb-2"><strong>Title:</strong><br>
-			Mental Health and/or Substance Abuse Clients Served – County-Level Counts and Rates</p>
-			<p class="small mb-2"><strong>Publisher:</strong><br>
-			Oklahoma Department of Mental Health and Substance Abuse Services (ODMHSAS)</p>
-			<p class="small mb-2"><strong>Original Format:</strong><br>
-			Online dashboard (web-based query system)</p>
-			<p class="small mb-2"><strong>Access URL:</strong><br>
-			<a href="http://www.odmhsas.org/eda/query.htm" target="_blank">http://www.odmhsas.org/eda/query.htm</a></p>
-			<p class="small mb-2"><strong>Date Accessed:</strong><br>
-			February 2025</p>
-			<p class="small mb-2"><strong>Geographic Scope:</strong><br>
-			Oklahoma – All 77 counties</p>
-			<p class="small mb-2"><strong>Time Period Covered:</strong><br>
-			FY2015 (July 1, 2014 – June 30, 2015) through FY2024 (July 1, 2023 – June 30, 2024)</p>
-			<p class="small mb-2"><strong>Quoted Methodology from Source:</strong></p>
-			<blockquote class="small mb-4">
-			  ODMHSAS Online Query System (OOnQueS)<br>
-			  Mental Health and/or Substance Abuse Client Served<br>
-			  Client Served by ODMHSAS/Medicaid Behavioral Health Providers (Most Recent 10 Years)<br>
-			  Client Counts by County of Residence (Most Recent 10 Years)<br><br>
-		  
-			  <strong>Who is counted in the system?</strong><br>
-			  The system includes individuals who have received a PAID behavioral health service for programs which ODMHSAS contracts with or operates. This includes behavioral health services paid for with Medicaid funding or behavioral health services paid for with state-appropriated, grant-supported, or federally-funded ODMHSAS monies. Includes substance residential, detox, and halfway house services contracted directly with ODMHSAS.<br><br>
-		  
-			  <strong>Who is not included?</strong><br>
-			  Non-outpatient Medicaid-funded behavioral health services, such as most inpatient. The only inpatient counts included are ODMHSAS state-operated inpatient facilities. Data from privately-funded, non-contracted American Indian programs or private insurance is NOT included.<br><br>
-		  
-			  <strong>What does ‘Not Reported’ mean?</strong><br>
-			  Some services (e.g., crisis or initial assessment) do not require providers to report detailed demographics.<br><br>
-		  
-			  <strong>Why can I only see county of residence in some queries?</strong><br>
-			  To protect confidentiality. For example, if a county has only two female Asians aged 0–6, and one received services, the identity may be inferred.<br><br>
-		  
-			  <strong>What is the difference between ‘Any Drug of Choice’ and ‘Primary Drug of Choice’?</strong><br>
-			  Clients may report up to three drugs of choice: primary, secondary, tertiary. 'Primary' only includes the first. 'Any' includes all three.<br><br>
-		  
-			  <strong>What is a Fiscal Year?</strong><br>
-			  Oklahoma’s fiscal year runs July 1 to June 30. E.g., FY22 = July 1, 2021 – June 30, 2022.<br><br>
-		  
-			  <strong>If you need more detail, contact:</strong> David.Wright@odmhsas.org<br><br>
-		  
-			  <strong>Source Documentation:</strong><br>
-			  No standalone downloadable documentation provided. All methodology is embedded within the FAQ and About sections of the dashboard.
-			</blockquote>
-		  
-			<!-- Section 2 -->
-			<h2 class="fs-5 fw-semibold mt-5 mb-3">2. Data Use in DataWorks Commons</h2>
-			<p class="small mb-2"><strong>Was the data transformed, estimated, or used raw?</strong><br>
-			Raw data was used. No values were estimated or altered during ingestion.</p>
-			<p class="small mb-2"><strong>How was the data used in DataWorks Commons?</strong><br>
-			The dataset powers the mental health and substance use metrics within the DataWorks Commons platform. It provides:<br>
-			Gender-specific and overall client rates per 100,000 by county<br>
-			Aggregated comparisons across metro, metro-adjacent, and non-metro county types<br>
-			Comparisons of 781 funded vs non-funded counties (as of February 2025).<br>
-			Trend analysis across FY2015–FY2024<br>
-			This enables researchers, local government, and community organizations to evaluate service reach, demographic disparities, and regional gaps in care.</p>
-		  
-			<!-- Section 3 -->
-			<h2 class="fs-5 fw-semibold mt-5 mb-3">3. Transformations & Processing</h2>
-			<p class="small mb-2"><strong>Transformations applied:</strong><br>
-			Standardized county names to align with geographic identifiers<br>
-			Mapped fiscal years to calendar years (e.g., FY15 → 2015)<br>
-			Grouped client counts by County, Gender, Fiscal Year, and MHSA category<br>
-			Merged with county-level population data (male/female) from DataWorks Commons for denominator calculations<br>
-			Computed rates per 100,000 population using the formula:<br>
-			<code>Rate = (Unique Clients / Population) × 100,000</code><br>
-			Aggregated values by:<br>
-			County Type (Metro, Metro-Adjacent, Non-Metro)<br>
-			Funding Status (Funding vs Non-Funding counties)<br>
-			Gender × County Type (e.g., Female in Non-Metro counties)</p>
-			<p class="small mb-2"><strong>Processing Tools:</strong><br>
-			Python + Pandas; population data pulled dynamically via the DataWorks Commons Python API</p>
-		  
-			<!-- Section 4 -->
-			<h2 class="fs-5 fw-semibold mt-5 mb-3">4. Estimates, Interpolation, Labeling</h2>
-			<p class="small mb-2"><strong>Were estimates or imputations made?</strong><br>
-			No</p>
-			<p class="small mb-2"><strong>Were any fields reclassified or grouped?</strong><br>
-			No — client-level attributes (gender, MHSA type) were used as-is from the source.</p>
-			<p class="small mb-2"><strong>Assumptions or estimation formulas used?</strong><br>
-			None — no assumptions were required.</p>
-		  
-			<!-- Section 5 -->
-			<h2 class="fs-5 fw-semibold mt-5 mb-3">5. Data Quality & Limitations</h2>
-			<p class="small mb-2"><strong>Coverage:</strong><br>
-			Full – 100% of paid behavioral health client services reported to ODMHSAS for contracted and state-operated providers.</p>
-			<p class="small mb-2"><strong>Limitations / Caveats:</strong><br>
-			Reflects only individuals who received paid services through ODMHSAS programs (Medicaid, state, or grant funded).<br>
-			Does not include individuals who may have needed services but did not receive them.<br>
-			Excludes services paid through private insurance, non-contracted providers, or tribal health programs.</p>
-			<p class="small mb-2"><strong>Suppressed or imputed values:</strong><br>
-			None — the dataset does not contain redacted or statistically masked entries.</p>
-		  
-			<!-- Section 6 -->
-			<h2 class="fs-5 fw-semibold mt-5 mb-3">6. Version History</h2>
-			<p class="small mb-2"><strong>Publication Date:</strong><br>
-			Currently published</p>
-			<p class="small mb-2"><strong>Update Frequency:</strong><br>
-			Annually</p>
-			<p class="small mb-2"><strong>Version Notes:</strong><br>
-			None</p>
-		  </div>
-
-		  
-		  <!-- Methodology Section 2 -->
-		  <div id="method2" class="methodology-section mb-5 d-none">
-			<h1 class="fs-1 fw-bold mb-4">Oklahoma DOC Dataset</h1>          
-		  
-			<!-- Section 1 -->
-			<h2 class="fs-5 fw-semibold mt-5 mb-3">1. Source Overview</h2>
-			<p class="small mb-2"><strong>Title:</strong><br>
-			Prison and Probation Sentences – County-Level Counts and Rates</p>
-			<p class="small mb-2"><strong>Publisher:</strong><br>
-			Oklahoma Department of Corrections (ODOC)</p>
-			<p class="small mb-2"><strong>Original Format:</strong><br>
-			Fixed-width data tables</p>
-			<p class="small mb-2"><strong>Access URL:</strong><br>
-			<a href="https://oklahoma.gov/doc/media-relations.html" target="_blank">https://oklahoma.gov/doc/media-relations.html</a></p>
-			<p class="small mb-2"><strong>Date Accessed:</strong><br>
-			February 2025</p>
-			<p class="small mb-2"><strong>Geographic Scope:</strong><br>
-			Oklahoma – All 77 counties</p>
-			<p class="small mb-2"><strong>Time Period Covered:</strong><br>
-			2000 to present (outputs filtered to 2010–2024)</p>
-			<p class="small mb-2"><strong>Quoted Methodology from Source:</strong></p>
-			<blockquote class="small mb-4">
-			  ODOC Data Extract Layout and Crosswalk Notes<br>
-			  The data files are fixed width text files. The sample files contain a subset of the data in the extract files and are useful for testing your import.<br><br>
-		  
-			  The primary foreign key constraints follow:<br>
-			  DOC_NUM(Profile Data) ← DOC_NUM(Alias Data)<br>
-			  DOC_NUM(Profile Data) ← DOC_NUM(Sentence Data)<br>
-			  STATUTE_CODE(Offense Codes) ← STATUTE_CODE(Sentence Data)<br>
-			  SENTENCE_ID(Sentence Data) ← SENTENCE_ID(Consecutive Sentence Data)<br>
-			  SENTENCE_ID(Sentence Data) ← CONSECUTIVE_TO_ID(Consecutive Sentence Data)<br><br>
-		  
-			  Special values for sentence types:<br>
-			  9999 = death sentence<br>
-			  8888 = life without parole<br>
-			  7777 = life sentence
-			</blockquote>
-			<p class="small mb-2"><strong>Source Documentation:</strong><br>
-			No standalone documentation provided. All methodology is embedded in the data layout tables and descriptions available at the access URL.</p>
-		  
-			<!-- Section 2 -->
-			<h2 class="fs-5 fw-semibold mt-5 mb-3">2. Data Use in DataWorks Commons</h2>
-			<p class="small mb-2"><strong>Was the data transformed, estimated, or used raw?</strong><br>
-			Raw data was used. Records were aggregated using straightforward counts; no values were estimated or imputed.</p>
-			<p class="small mb-2"><strong>How was the data used in DataWorks Commons?</strong><br>
-			The dataset powers incarceration metrics within the DataWorks Commons platform. It provides:<br>
-			- Counts and per capita rates of prison sentences and offense records by county<br>
-			- Demographic breakdowns (race and gender) for both sentence and offense measures<br>
-			- Offense-type categorization using UCCS coding<br>
-			- Comparative trends by county type (Metro, Metro-Adjacent, Non-Metro)<br>
-			- Aggregated trends from 2010 through 2024<br>
-			This supports community organizations, researchers, and public officials in monitoring sentencing patterns and disparities across Oklahoma.</p>
-		  
-			<!-- Section 3 -->
-			<h2 class="fs-5 fw-semibold mt-5 mb-3">3. Transformations & Processing</h2>
-			<p class="small mb-2"><strong>Transformations applied:</strong><br>
-			- Parsed fixed-width text into structured CSV format<br>
-			- Cleaned and standardized column names<br>
-			- Converted JS_DATE to datetime and extracted year<br>
-			- Recoded “American Indian” and “Alaskan Native” into a unified race category<br>
-			- Mapped each county to a Metro, Metro-Adjacent, or Non-Metro type<br>
-			- Applied UCCS coding system to group offenses by type (e.g., Violent, Property, Drug)<br>
-			- Merged with population data by county, race, and gender using DataWorks Commons API<br>
-			- Computed metrics:<br>
-			  <code>Sentence Count = Unique DOC_NUM per county per year</code><br>
-			  <code>Offense Count = All offense rows (multiple per person possible)</code><br>
-			  <code>Rate = (Count / Population) × 100,000</code><br>
-			  (Population year chosen as closest available prior to or equal to the event year)<br>
-			- Aggregated values by:<br>
-			  County × Year<br>
-			  Race × County × Year<br>
-			  Gender × County × Year<br>
-			  Offense Type × County × Year<br>
-			  County Type (Metro, Metro-Adjacent, Non-Metro)</p>
-			<p class="small mb-2"><strong>Processing Tools:</strong><br>
-			Python + Pandas; population data retrieved via DataWorks Commons Python API</p>
-		  
-			<!-- Section 4 -->
-			<h2 class="fs-5 fw-semibold mt-5 mb-3">4. Estimates, Interpolation, Labeling</h2>
-			<p class="small mb-2"><strong>Were estimates or imputations made?</strong><br>
-			No</p>
-			<p class="small mb-2"><strong>Were any fields reclassified or grouped?</strong><br>
-			Yes<br>
-			- Offense Type: Classified using UCCS schema developed by CJARS (e.g., 1 = Violent, 2 = Property, etc.)<br>
-			- Race: “American Indian” and “Alaskan Native” grouped together<br>
-			- County Type: Each county labeled as Metro, Metro-Adjacent, or Non-Metro</p>
-			<p class="small mb-2"><strong>Assumptions or estimation formulas used?</strong><br>
-			None — counts are based on direct aggregations of raw records. Population rates are calculated using observed values only.</p>
-		  
-			<!-- Section 5 -->
-			<h2 class="fs-5 fw-semibold mt-5 mb-3">5. Data Quality & Limitations</h2>
-			<p class="small mb-2"><strong>Coverage:</strong><br>
-			Full – dataset includes all prison and probation sentence records reported by ODOC statewide</p>
-			<p class="small mb-2"><strong>Limitations / Caveats:</strong><br>
-			- Data only includes individuals for whom sentence or offense-level records exist<br>
-			- No information is included on unsentenced individuals, pretrial, or those released without a formal sentence<br>
-			- Population denominators limited to years 2016–2023; nearest available year used for each event</p>
-			<p class="small mb-2"><strong>Suppressed or imputed values:</strong><br>
-			None — no data masking, suppression, or imputation applied</p>
-		  
-			<!-- Section 6 -->
-			<h2 class="fs-5 fw-semibold mt-5 mb-3">6. Version History</h2>
-			<p class="small mb-2"><strong>Publication Date:</strong><br>
-			Quarterly, as data becomes available</p>
-			<p class="small mb-2"><strong>Update Frequency:</strong><br>
-			Quarterly</p>
-			<p class="small mb-2"><strong>Version Notes:</strong><br>
-			None</p>
-		  </div>
-
-		  
-		  <!-- Methodology Section 3 -->
-		  <div id="method3" class="methodology-section mb-5 d-none">
-			<h1 class="fs-1 fw-bold mb-4">Oklahoma EQA Dataset</h1>
-		  
-			<!-- Section 1 -->
-			<h2 class="fs-5 fw-semibold mt-5 mb-3">1. Source Overview</h2>
-			<p class="small mb-2"><strong>Title:</strong><br>
-			Oklahoma Educational Indicators Program - Profiles State Report</p>
-			<p class="small mb-2"><strong>Publisher:</strong><br>
-			Oklahoma Office of Educational Quality and Accountability</p>
-			<p class="small mb-2"><strong>Original Format:</strong><br>
-			PDF reports</p>
-			<p class="small mb-2"><strong>Access URL:</strong><br>
-			<a href="https://www.edprofiles.info/state-report" target="_blank">https://www.edprofiles.info/state-report</a></p>
-			<p class="small mb-2"><strong>Date Accessed:</strong><br>
-			February 2025</p>
-			<p class="small mb-2"><strong>Geographic Scope:</strong><br>
-			Oklahoma – All 77 counties</p>
-			<p class="small mb-2"><strong>Time Period Covered:</strong><br>
-			2017–2023</p>
-			<p class="small mb-2"><strong>Quoted Methodology from Source:</strong></p>
-			<blockquote class="small mb-4">
-			  The information presented in the “Profiles Report” is divided into three major reporting categories: (1) Community Characteristics, (2) Educational Process, and (3) Student Performance. This is meant to mirror the real-world educational process. Students have a given home and community life. They attend schools comprised of a diverse makeup of teachers who deliver education through different programs and a variety of teaching styles. And in the end, all of these factors come to bear on each student’s academic performance.<br><br>
-			  The “State Profiles” deals with state-level common education issues. It examines the “big picture” of Oklahoma education and it is meant to set the stage for examining education in your part of the state, or within your local community. It contains many tables, graphs, and maps, all with accompanying text. Wherever possible, tables and graphs cover multiple years so that trends may be observed. National comparisons are added where comparable data exists.
-			</blockquote>
-		  
-			<!-- Section 2 -->
-			<h2 class="fs-5 fw-semibold mt-5 mb-3">2. Data Use in DataWorks Commons</h2>
-			<p class="small mb-2"><strong>Was the data transformed, estimated, or used raw?</strong><br>
-			Data was extracted using AI-based visual document processing. Values were not estimated or transformed.</p>
-			<p class="small mb-2"><strong>How was the data used in DataWorks Commons?</strong><br>
-			The dataset was used to populate the "Oklahoma Education" section in DataWorks Commons. Variables were grouped into categories including Test Scores, Post-Secondary Outcomes, Demographics, and District Revenue. All data is county-level and supports time series comparisons across 2017–2023.</p>
-		  
-			<!-- Section 3 -->
-			<h2 class="fs-5 fw-semibold mt-5 mb-3">3. Transformations & Processing</h2>
-			<p class="small mb-2"><strong>Transformations applied:</strong><br>
-			None applied. Data was extracted as-is from maps embedded in PDFs.</p>
-			<p class="small mb-2"><strong>Processing Logic:</strong><br>
-			- PDF pages were converted into images.<br>
-			- Each image was analyzed by an AI-powered tool using a structured prompt.<br>
-			- Values for all 77 Oklahoma counties (plus State Average) were extracted.<br>
-			- Missing or unreadable values were recorded as "N/A".<br>
-			- Values were not modified after extraction.<br>
-			- Output was saved in a structured CSV format with metadata (map title, county, page number).</p>
-		  
-			<!-- Section 4 -->
-			<h2 class="fs-5 fw-semibold mt-5 mb-3">4. Estimates, Interpolation, Labeling</h2>
-			<p class="small mb-2"><strong>Were estimates or imputations made?</strong><br>
-			No</p>
-			<p class="small mb-2"><strong>Were any fields reclassified or grouped?</strong><br>
-			No</p>
-			<p class="small mb-2"><strong>Assumptions or estimation formulas used?</strong><br>
-			None</p>
-		  
-			<!-- Section 5 -->
-			<h2 class="fs-5 fw-semibold mt-5 mb-3">5. Data Quality & Limitations</h2>
-			<p class="small mb-2"><strong>Coverage:</strong><br>
-			Mostly full. Some variables are partial due to not being published in all years.</p>
-			<p class="small mb-2"><strong>Limitations / Caveats:</strong><br>
-			Rare errors may occur in extracted values due to visual interpretation limits of the AI tool.</p>
-			<p class="small mb-2"><strong>Suppressed or imputed values:</strong><br>
-			None</p>
-			<p class="small mb-2"><strong>Other concerns:</strong><br>
-			None</p>
-		  
-			<!-- Section 6 -->
-			<h2 class="fs-5 fw-semibold mt-5 mb-3">6. Version History</h2>
-			<p class="small mb-2"><strong>Publication Date:</strong><br>
-			Annually</p>
-			<p class="small mb-2"><strong>Update Frequency:</strong><br>
-			Annual</p>
-			<p class="small mb-2"><strong>Version Notes:</strong><br>
-			None</p>
-		  </div>
-		  
-		  <!-- Methodology Section 4 -->
-		<div id="method4" class="methodology-section mb-5">
-		  <h1 class="fs-1 fw-bold mb-4">Oklahoma Crime Dataset</h1>
-		
-		  <!-- Section 1 -->
-		  <h2 class="fs-5 fw-semibold mt-5 mb-3">1. Source Overview</h2>
-		  <p class="small mb-2"><strong>Title:</strong><br>County-level crime rates</p>
-		  <p class="small mb-2"><strong>Publisher:</strong><br>Bureau of Justice Statistics</p>
-		  <p class="small mb-2"><strong>Original Format:</strong><br>Tableau dashboard</p>
-		  <p class="small mb-2"><strong>Access URL:</strong><br><a href="https://learcat.bjs.ojp.gov/IncidentsCrime?Data+Year=2023&Unit+of+Analysis=Count" target="_blank">LEARCAT Dashboard</a></p>
-		  <p class="small mb-2"><strong>Date Accessed:</strong><br>February 2025</p>
-		  <p class="small mb-2"><strong>Geographic Scope:</strong><br>Oklahoma – All 77 counties</p>
-		  <p class="small mb-2"><strong>Time Period Covered:</strong><br>2016–2023</p>
-		  <p class="small mb-2"><strong>Quoted Methodology from Source:</strong></p>
-		  <blockquote class="small mb-4">
-			“The Law Enforcement Agency Reported Crime Analysis Tool (LEARCAT) dashboard enables you to examine crime information reported by participating law enforcement agencies to the FBI’s National Incident-Based Reporting System (NIBRS)… LEARCAT presents NIBRS data from 2016 to 2023 on crimes reported by law enforcement to the FBI at both the incident and victimization levels… Rates of incidents or victimizations are calculated by dividing the total number of incidents or victimizations by the associated population for the relevant year and then multiplying by 100,000... Please note that while LEARCAT and the FBI’s Crime Data Explorer (CDE) both present NIBRS data, the two tools use different definitions for some of the offense categories…”
-		  </blockquote>
-		
-		  <!-- Section 2 -->
-		  <h2 class="fs-5 fw-semibold mt-5 mb-3">2. Data Use in DataWorks Commons</h2>
-		  <p class="small mb-2"><strong>Was the data transformed, estimated, or used raw?</strong><br>
-		  ☑ Raw (2021–2023 from LEARCAT) <br>☑ Estimated (2016–2020)</p>
-		  <p class="small mb-2"><strong>How was the data used in DataWorks Commons?</strong><br>
-		  Published as "Oklahoma Crime" on DataWorks Commons.<br>
-		  Data is grouped by county, county type (Metro, Metro-Adjacent, Non-metro), and 781 funding status.<br>
-		  Used for trend analysis from 2016–2023.</p>
-		
-		  <!-- Section 3 -->
-		  <h2 class="fs-5 fw-semibold mt-5 mb-3">3. Transformations & Processing</h2>
-		  <p class="small mb-2"><strong>Transformations applied:</strong><br>
-		  - Pulled city-level population and property crime data (2016–2020) from DataWorks Commons<br>
-		  - Allocated city-level crime counts to counties using population-based overlaps from StatsAmerica<br>
-		  - Aggregated city-level values to compute county totals<br>
-		  - Replaced city population estimates with official county-level population data from DataWorks Commons<br>
-		  - Calculated rates per 100,000 using county population<br>
-		  - Removed known anomalies and flagged city-years with fewer than 6 crimes as "Insufficient Size"<br>
-		  - Used LEARCAT values for 2021–2023 without modification<br>
-		  - Developed and applied scaling factors to estimate 2016–2020 county totals based on LEARCAT-calibrated differences
-		  </p>
-		  <p class="small mb-2"><strong>Mathematical formulas:</strong><br>
-			Let <code>c</code> = county, <code>y</code> = year<br>
-			<code>EstimatedCrimes[c,y]</code> = city-level total crimes allocated to county <code>c</code><br>
-			<code>AvgScalingFactor[c]</code> = mean of (<code>LEARCATCrimes[c,y]</code> / <code>EstimatedCrimes[c,y]</code>) for y in 2021–2023<br>
-			<br>
-			Final estimates:<br>
-			<code>AdjustedCrimes[c,y] = EstimatedCrimes[c,y] × AvgScalingFactor[c]</code><br>
-			<code>Rate[c,y] = (AdjustedCrimes[c,y] / Population[c,y]) × 100,000</code>
-		  </p>
-		  <p class="small mb-2"><strong>Assumptions:</strong><br>
-		  - Crime allocated by residential population shares, not incident location<br>
-		  - Patterns of underreporting in 2021–2023 assumed stable back to 2016<br>
-		  - County-level population estimates assumed accurate
-		  </p>
-		
-		  <!-- Section 4 -->
-		  <h2 class="fs-5 fw-semibold mt-5 mb-3">4. Estimates, Interpolation, and Labeling</h2>
-		  <p class="small mb-2"><strong>Estimation rationale:</strong><br>
-		  LEARCAT data prior to 2021 lacks full county coverage due to NIBRS adoption gaps. Estimates were needed to enable longitudinal analysis.</p>
-		  <p class="small mb-2"><strong>Estimation method (plain language):</strong><br>
-		  County-level estimates for 2016–2020 were derived from city-level NIBRS crime counts reported in DataWorks Commons. Cities overlapping multiple counties were allocated based on population shares from StatsAmerica. Aggregated county totals were then scaled using an average correction factor derived from LEARCAT county totals in 2021–2023.</p>
-		  <p class="small mb-2"><strong>Mathematical equation:</strong><br>
-		  <code>AdjustedCrimes[c,y] = EstimatedCrimes[c,y] × AvgScalingFactor[c]</code></p>
-		  <p class="small mb-2"><strong>Reclassification / Grouping:</strong><br>
-		  - Counties grouped by <em>CountyType</em>: Metro, Metro-Adjacent, Non-metro<br>
-		  - Counties flagged by <em>781 Funding Status</em>: 781 Recipient, Potential Recipient</p>
-		
-		  <!-- Section 5 -->
-		  <h2 class="fs-5 fw-semibold mt-5 mb-3">5. Data Quality & Limitations</h2>
-		  <p class="small mb-2"><strong>Completeness:</strong><br>
-		  Full from 2021 onward, partial before 2021 due to estimation</p>
-		  <p class="small mb-2"><strong>Limitations / Caveats:</strong><br>
-		  - All caveats from BJS LEARCAT documentation apply<br>
-		  - Differences may exist between LEARCAT and CDE offense definitions<br>
-		  - Crime counts reflect agency of report, not necessarily incident location<br>
-		  - Rate values only valid for full-reporter states</p>
-		  <p class="small mb-2"><strong>Suppressed or imputed values:</strong><br>
-		  - Missing values replaced with zeros<br>
-		  - Unknowns excluded<br>
-		  - City-years with &lt;6 crimes flagged as "Insufficient Size" and removed from county estimates</p>
-		  <p class="small mb-2"><strong>Additional flags:</strong><br>
-		  - Multi-county city allocations may introduce small error<br>
-		  - "Insufficient Size" entries are unreliable and excluded from rate calcs</p>
-		
-		  <!-- Section 6 -->
-		  <h2 class="fs-5 fw-semibold mt-5 mb-3">6. Version History</h2>
-		  <p class="small mb-2"><strong>Publication Date:</strong><br>
-		  Already published</p>
-		  <p class="small mb-2"><strong>Update Frequency:</strong><br>
-		  Annual</p>
-		  <p class="small mb-2"><strong>Version Notes:</strong><br>
-		  Updated to LEARCAT 2023 release</p>
-		</div>
-
-		  
-		</div>
-
-		
-		
-		<div id="about" class="content-section container-lg py-4">
-			
-			<h1 class="fs-1 fw-bold mb-4">About Us</h1>
-			<p class="mb-3">
-				At <strong>DataWorks</strong>, we believe that trustworthy, well-structured data is foundational to meaningful and lasting solutions. We design technology solutions specifically for complex data challenges—helping businesses, nonprofits, and public institutions alike turn messy, fragmented information into clear, actionable insight.</p>
-			<p class="mb-3">
-				At the heart of our mission lies the <strong>DataWorks Commons</strong>—a growing initiative to make rigorously validated, high-impact datasets more accessible to the public. We envision the Commons as a shared resource for communities, researchers, advocates, and institutions working toward positive change.</p>
-			<p class="mb-3">
-				Though still in development, the Commons reflects our deep commitment to accessible data and the public good—and we are actively seeking underwriters and partners who share our belief in its promise and potential.</p>
-			<p class="mb-3">
-				Our work is grounded in values that drive both innovation and impact:</p>
-			<ul>
-				<li>
-				<strong>Accessibility</strong> – We design tools and experiences that are intuitive, inclusive, and easy to navigate.</li>
-				<li>
-				<strong>Rigor</strong> – We validate every dataset to ensure accuracy, clarity, and real-world utility.</li>
-				<li>
-				<strong>Justice</strong> – We use data to illuminate disparities, support reform, and elevate community knowledge.</li>
-				<li>
-				<strong>Sustainability</strong> – We pair public benefit with durable infrastructure and responsible business models that support long-term stewardship.</li>
-			</ul>
-			<p class="mb-3">
-				At <strong>DataWorks</strong>, we’re building more than just tools—we’re building a trusted ecosystem where data works for everyone.</p>
-
-			<h2 class="fs-3 fw-semibold mt-5 mb-3">Brek Wilkins, Ph.D.</h2>
-			<p class="mb-3">
-				Brek has over 15 years of data analytics, technology development, operations, and leadership experience in higher education, the health tech industry, community non-profits, and grantmaking organizations.  Brek obtained his PhD from OSU Center for Health Sciences and then served as Chief Technology Officer for a predictive analytics healthcare company, AmbreHealth Technologies.  He supported operations, data analytics, and program evaluation projects at a Family & Children’s Services before serving as VP at Sway Medical, an innovative health technology company, where he built numerous consumer-facing data products.  He most recently served as the Director of Analytics at ProsperOK where he provided data and technology support for partner investments and leadership at the George Kaiser Family Foundation.</p>
-		
-			<h2 class="fs-3 fw-semibold mt-5 mb-3">Sam Johnson</h2> 	
-			<p class="mb-3">
-				Sam has over 30 years of experience designing large-scale technical architectures, building products, and managing teams. He graduated from Rice University with a Computer Science degree and worked with a systems integration consulting company for 5 years. He also was a VP at Goldman Sachs, during which time he co-chaired a global industry committee overseeing a developing standard for real-time securities trading, and then subsequently built an enterprise software company in that same space which he grew for 8 years before selling to NYSE.</p>
-
-		</div> 
-	</main>
-
-	<!-- Dark Sticky Footer -->
-	<footer class="bg-white border-top text-center py-3 mt-auto">
-		© 2025 DataWorks LLC. All rights reserved.
-	</footer>
-
-	<!-- Bootstrap JS -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-	<script type="module" src="script.js?v=20250319"></script>
-	<script>
-	  function trackVirtualPage(path) {
-		if (typeof gtag === 'function') {
-		  gtag('event', 'page_view', {
-			page_path: path
-		  });
-		}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DataWorks | Structured Intelligence</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+	:root {
+	  --dw-blue: #005596;
+	  --dw-blue-dark: #003a66;
+	  --dw-orange: #f58220;
+	}
+  
+	@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+  
+	body {
+	  font-family: 'Inter', sans-serif;
+	  overflow-x: hidden;
+	}
+  
+	/* Flowing background animation */
+	.flowing-bg {
+	  background: linear-gradient(-45deg, var(--dw-blue), var(--dw-blue-dark), #004d80, var(--dw-blue));
+	  background-size: 400% 400%;
+	  animation: gradientShift 15s ease infinite;
+	}
+  
+	@keyframes gradientShift {
+	  0% { background-position: 0% 50%; }
+	  50% { background-position: 100% 50%; }
+	  100% { background-position: 0% 50%; }
+	}
+  
+	/* Floating particles */
+	.particle {
+	  position: absolute;
+	  border-radius: 50%;
+	  background: rgba(245, 130, 32, 0.1);
+	  animation: float 6s ease-in-out infinite;
+	}
+  
+	@keyframes float {
+	  0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+	  50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+	}
+  
+	/* Fade-in reveal group */
+	.fade-group {
+	  opacity: 0;
+	  transform: translateY(10px);
+	  transition: opacity 0.8s ease, transform 0.8s ease;
+	}
+  
+	.fade-group.visible {
+	  opacity: 1;
+	  transform: translateY(0);
+	}
+  
+	/* Reveal animation */
+	.reveal-item {
+	  opacity: 0;
+	  transform: translateY(10px);
+	  animation: revealUp 0.8s ease forwards;
+	  animation-fill-mode: both; /* ⬅️ Add this line */
+	}
+  
+	@keyframes revealUp {
+	  to {
+		opacity: 1;
+		transform: translateY(0);
 	  }
+	}
+  
+	.reveal-delay-1 { animation-delay: 0.2s; }
+	.reveal-delay-2 { animation-delay: 0.4s; }
+	.reveal-delay-3 { animation-delay: 0.6s; }
+	.reveal-delay-4 { animation-delay: 0.8s; }
+	.reveal-delay-5 { animation-delay: 1s; }
+  
+	/* Morphing cards */
+	.morph-card {
+	  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+	  backdrop-filter: blur(10px);
+	  border: 1px solid rgba(255,255,255,0.2);
+	  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+  
+	.morph-card:hover {
+	  transform: translateY(-8px) scale(1.02);
+	  background: linear-gradient(135deg, rgba(245, 130, 32, 0.15), rgba(255,255,255,0.1));
+	  box-shadow: 0 20px 40px rgba(0, 85, 150, 0.3);
+	}
+  
+	/* Feature Icon (orange glow circle) */
+	.feature-icon {
+	  background: linear-gradient(135deg, var(--dw-orange), #ff9500);
+	  border-radius: 50%;
+	  width: 60px;
+	  height: 60px;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  margin: 0 auto 1rem;
+	  animation: pulse-glow 3s ease-in-out infinite;
+	}
+  
+	@keyframes pulse-glow {
+	  0%, 100% { box-shadow: 0 0 20px rgba(245, 130, 32, 0.3); }
+	  50% { box-shadow: 0 0 30px rgba(245, 130, 32, 0.6), 0 0 40px rgba(245, 130, 32, 0.2); }
+	}
+  
+	/* Diagonal card grid layout */
+	.diagonal-flowtop {
+	  display: grid;
+	  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	  gap: 2rem;
+	  transform: perspective(1000px) rotateX(5deg);
+	}
+  
+	.diagonal-item {
+	  background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
+	  border-radius: 20px;
+	  padding: 2rem;
+	  transform: translateZ(0);
+	  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+	  border: 1px solid rgba(0, 85, 150, 0.1);
+	}
+  
+	.diagonal-item:hover {
+	  transform: translateZ(20px) translateY(-10px);
+	  box-shadow: 0 25px 50px rgba(0, 85, 150, 0.15);
+	}
 	
-	  // Track nav clicks
-	  document.addEventListener("DOMContentLoaded", () => {
-		const navMap = {
-		  homeNav: "/home",
-		  commonsNav: "/commons",
-		  aboutNav: "/about",
-		  contactNav: "/contact",
-		  item1Nav: "/solutions/document-extraction",
-		  item2Nav: "/solutions/court-date-retrieval",
-		  item3Nav: "/solutions/case-modeling",
-		  item4Nav: "/solutions/civil-case-intelligence",
-		  method1Nav: "/commons/methodology/odmhsas",
-		  method2Nav: "/commons/methodology/juvenile",
-		  method3Nav: "/commons/methodology/education",
+	.liquid-btn {
+	  position: relative;
+	  display: inline-block;
+	  overflow: hidden;
+	  background: linear-gradient(135deg, var(--dw-orange), #ff9500);
+	  color: #fff;
+	  text-align: center;
+	  transition: all 0.4s ease;
+	  z-index: 0;
+	  box-shadow: 0 8px 20px rgba(245, 130, 32, 0.3);
+	}
+	
+	.liquid-btn::before {
+	  content: '';
+	  position: absolute;
+	  top: 0;
+	  left: -75%;
+	  width: 50%;
+	  height: 100%;
+	  background: linear-gradient(
+		120deg,
+		transparent,
+		rgba(255, 255, 255, 0.3),
+		transparent
+	  );
+	  transform: skewX(-20deg);
+	  animation: shimmer 2.5s infinite;
+	  z-index: 1;
+	}
+	
+	@keyframes shimmer {
+	  0% {
+		left: -75%;
+	  }
+	  100% {
+		left: 125%;
+	  }
+	}
+	
+	.liquid-blue-card {
+	  position: relative;
+	  cursor: pointer; /* 👈 New */
+	  background: linear-gradient(135deg, rgba(0, 85, 150, 0.25), rgba(0, 85, 150, 0.15));
+	  border: 1px solid rgba(255, 255, 255, 0.12);
+	  border-radius: 20px;
+	  color: white;
+	  overflow: hidden;
+	  backdrop-filter: blur(4px);
+	  box-shadow: 0 8px 24px rgba(0, 85, 150, 0.12);
+	  transition: all 0.4s ease;
+	}
+	
+	.liquid-blue-card:hover {
+	  transform: translateY(-6px) scale(1.03); /* 👈 Enhanced movement */
+	  box-shadow: 0 24px 48px rgba(0, 85, 150, 0.25); /* 👈 Deeper shadow */
+	  background: linear-gradient(135deg, rgba(0, 85, 150, 0.35), rgba(0, 85, 150, 0.2));
+	  border-color: rgba(245, 130, 32, 0.5); /* 👈 Optional glow */
+	  outline: 2px solid rgba(245, 130, 32, 0.3); /* 👈 Optional glow */
+	  outline-offset: 2px;
+	}
 
-		};
 	
-		for (const [id, path] of Object.entries(navMap)) {
-		  const el = document.getElementById(id);
-		  if (el) {
-			el.addEventListener("click", () => trackVirtualPage(path));
-		  }
-		}
+	.liquid-blue-card::before {
+	  content: '';
+	  position: absolute;
+	  top: 0;
+	  left: -75%;
+	  width: 50%;
+	  height: 100%;
+	  background: linear-gradient(
+		120deg,
+		transparent,
+		rgba(255, 255, 255, 0.08),
+		transparent
+	  );
+	  transform: skewX(-20deg);
+	  animation: shimmer-soft 4s ease-in-out infinite;
+	  z-index: 1;
+	  pointer-events: none;
+	}
 	
-		// Track initial load via anchor
-		const hash = window.location.hash;
-		const hashMap = {
-		  "#commons": "/commons",
-		  "#about": "/about",
-		  "#contact": "/contact",
-		  "#item1": "/solutions/document-extraction",
-		  "#item2": "/solutions/court-date-retrieval",
-		  "#item3": "/solutions/case-modeling",
-		  "#item4": "/solutions/civil-case-intelligence"
-		};
+	@keyframes shimmer-soft {
+	  0% {
+		left: -75%;
+	  }
+	  100% {
+		left: 125%;
+	  }
+	}
 	
-		if (hashMap[hash]) {
-		  trackVirtualPage(hashMap[hash]);
-		} else {
-		  trackVirtualPage("/home");
-		}
-	  });
-	</script>
-<div id="contactOverlay" class="contact-overlay d-none">
-	  <div class="contact-box">
-		<button class="close-btn" onclick="hideContactOverlay()">×</button>
-		<h5 class="mb-3">Email us at:</h5>
-		<p class="fw-bold text-break">info@thedataworks.org</p>
-		<div class="d-flex justify-content-center gap-2 mt-3">
-		  <button class="btn btn-sm btn-outline-primary" onclick="copyEmail()">Copy Email</button>
-		  <a class="btn btn-sm btn-primary" href="mailto:info@thedataworks.org" onclick="hideContactOverlay()">Open in Mail App</a>
+	.liquid-blue-card:hover {
+	  transform: translateY(-4px);
+	  box-shadow: 0 18px 38px rgba(0, 85, 150, 0.2);
+	}
+
+
+	.contact-overlay {
+	  position: fixed;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  background-color: rgba(0,0,0,0.6);
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  z-index: 9999;
+	}
+	
+	.contact-box {
+	  background: #fff;
+	  padding: 2rem;
+	  border-radius: 0.5rem;
+	  text-align: center;
+	  max-width: 400px;
+	  width: 90%;
+	}
+	
+	.custom-toast {
+	  position: fixed;
+	  bottom: 2rem;
+	  left: 50%;
+	  transform: translateX(-50%);
+	  background: #333;
+	  color: #fff;
+	  padding: 0.75rem 1.25rem;
+	  border-radius: 5px;
+	  z-index: 10000;
+	}
+
+
+  </style>
+
+</head>
+<body class="text-zinc-800 bg-gradient-to-br from-slate-50 to-blue-50 selection:bg-[--dw-orange]/60">
+
+  <!-- Accordion Toggle (Top Right, no fill, orange lines) -->
+  <div class="fixed top-6 right-6 z-50 fade-group" id="accordionWrapper">
+	<button id="menuToggle" class="group p-1 focus:outline-none">
+	  <div class="w-6 h-0.5 bg-[--dw-orange] mb-1 transition-all duration-300 group-hover:scale-x-110"></div>
+	  <div class="w-6 h-0.5 bg-[--dw-orange] mb-1 transition-all duration-300 group-hover:scale-x-110"></div>
+	  <div class="w-6 h-0.5 bg-[--dw-orange] transition-all duration-300 group-hover:scale-x-110"></div>
+	</button>
+  </div>
+
+
+  <!-- HERO SECTION WITHOUT WAVE OR KNOWLEDGE GRAPH -->
+  <section class="flowing-bg text-white pt-32 pb-0 text-center px-6 relative overflow-hidden">
+	<!-- Particles -->
+	<div class="particle" style="top: 10%; left: 10%; width: 4px; height: 4px; animation-delay: 0s;"></div>
+	<div class="particle" style="top: 20%; right: 15%; width: 6px; height: 6px; animation-delay: 2s;"></div>
+	<div class="particle" style="bottom: 30%; left: 20%; width: 3px; height: 3px; animation-delay: 4s;"></div>
+	<div class="particle" style="top: 40%; right: 30%; width: 5px; height: 5px; animation-delay: 1s;"></div>
+	<div class="particle" style="bottom: 20%; right: 10%; width: 4px; height: 4px; animation-delay: 3s;"></div>
+  
+	<img src="img/logo-graph-bigorange-white.png"
+		 alt="DataWorks Logo"
+		 class="mx-auto w-80 md:w-[28rem] mb-8 drop-shadow-2xl reveal-item reveal-delay-1" />
+  
+	<p class="text-2xl md:text-3xl max-w-2xl mx-auto mb-10 text-[--dw-orange] font-light reveal-item reveal-delay-2">
+	  Structured Intelligence for Complex Data.
+	</p>
+  
+	<p class="text-lg md:text-1xl max-w-3xl mx-auto mb-10 text-[--dw-white] font-light reveal-item reveal-delay-3">
+	  We unify documents, dashboards, and databases into structured knowledge graphs<br class="hidden sm:inline" />
+	  — ready for querying, analysis, and trustworthy AI.
+	</p>
+
+  
+	<div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6 justify-center mt-8 px-4">
+	  <a href="/commons" rel="noopener noreferrer"
+		 class="liquid-blue-card block p-6 rounded-2xl transition-all duration-300 group reveal-item reveal-delay-4">
+		<div class="flex items-center justify-center mb-3">
+		  <div class="w-10 h-10 bg-[--dw-orange] rounded-lg flex items-center justify-center mr-3 group-hover:rotate-12 transition-transform">
+			<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+				d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+			</svg>
+		  </div>
+		  <div class="group-hover:translate-x-1 transition-transform duration-300">
+			<h3 class="text-xl font-bold text-white">DataWorks Commons</h3>
+		  </div>
+
+		</div>
+		<p class="text-white/80 text-sm">An open-access platform of public datasets across key areas like education, social services, health, economy, and community safety.</p>
+	  </a>
+  
+	  <a href="https://spitball.legal" rel="noopener noreferrer"
+		 class="liquid-blue-card block p-6 rounded-2xl transition-all duration-300 group reveal-item reveal-delay-4">
+		<!-- 👆 Using the SAME delay as Commons -->
+		<div class="flex items-center justify-center mb-3">
+		  <div class="w-10 h-10 bg-[--dw-orange] rounded-lg flex items-center justify-center mr-3 group-hover:rotate-12 transition-transform">
+			<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+				d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+			</svg>
+		  </div>
+		  <div class="group-hover:translate-x-1 transition-transform duration-300">
+			<h3 class="text-xl font-bold text-white">DataWorks Legal</h3>
+		  </div>
+
+		</div>
+		<p class="text-white/80 text-sm">Modern legal infrastructure that combines structured court data and artificial intelligence to deliver fast, referenceable insight.</p>
+	  </a>
+	</div>
+  
+	<div class="text-center mt-10 mb-[-12px] reveal-item reveal-delay-5">
+	  <a href="#features"
+		 class="inline-flex flex-col items-center text-[--dw-orange] font-semibold text-sm tracking-wide hover:text-white transition-all duration-300 group">
+		<span class="group-hover:scale-110 transition-transform">      </span>
+		<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mt-2 animate-bounce group-hover:animate-pulse"
+			 fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+		  <path d="M6 9l6 6 6-6" />
+		</svg>
+	  </a>
+	</div>
+  </section>
+
+
+  <!-- WHY IT MATTERS -->
+  <section id="features" class="pt-4 pb-26 px-6 bg-white text-center relative overflow-hidden">
+	<div class="organic-bg" style="top: 5%; right: 10%; width: 200px; height: 90px; animation-delay: 2s;"></div>
+  
+	<div class="max-w-6xl mx-auto">
+	  <h2 class="text-2xl md:text-3xl font-medium text-[--dw-blue] mb-6 leading-snug max-w-4xl mx-auto animate-fade-in-slow">
+		Turn disconnected data into
+		<span class="text-[--dw-orange] font-semibold"> structured intelligence</span>,
+		designed for
+		<span class="text-[--dw-orange] font-semibold"> scale</span>,
+		<span class="text-[--dw-orange] font-semibold"> transparency</span>, and
+		<span class="text-[--dw-orange] font-semibold"> advanced AI workflows</span>.
+	  </h2>
+
+
+
+	 
+  
+	  <div class="diagonal-flowtop grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-8">
+		<div class="diagonal-item reveal-item">
+		  <div class="feature-icon">
+			<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+			</svg>
+		  </div>
+		  <h3 class="font-bold text-[--dw-blue] mb-3">Multi-Format Extraction</h3>
+		  <p class="text-zinc-600">Extract data from PDFs, dashboards, websites, and more — no wrangling required.</p>
+		</div>
+  
+		<div class="diagonal-item reveal-item">
+		  <div class="feature-icon">
+			<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
+			</svg>
+		  </div>
+		  <h3 class="font-bold text-[--dw-blue] mb-3">Database Integration</h3>
+		  <p class="text-zinc-600">Link structured data and unstructured content without losing relational context.</p>
+		</div>
+  
+		<div class="diagonal-item reveal-item">
+		  <div class="feature-icon">
+			<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+			</svg>
+		  </div>
+		  <h3 class="font-bold text-[--dw-blue] mb-3">Entity Mapping</h3>
+		  <p class="text-zinc-600">Identify and connect entities, events, and facts across datasets and documents.</p>
+		</div>
+  
+		<div class="diagonal-item reveal-item">
+		  <div class="feature-icon">
+			<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+			</svg>
+		  </div>
+		  <h3 class="font-bold text-[--dw-blue] mb-3">Provenance Tracking</h3>
+		  <p class="text-zinc-600">Every data point includes traceable source metadata — built for audit and trust.</p>
+		</div>
+  
+		<div class="diagonal-item reveal-item">
+		  <div class="feature-icon">
+			<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+			</svg>
+		  </div>
+		  <h3 class="font-bold text-[--dw-blue] mb-3">Semantic Querying</h3>
+		  <p class="text-zinc-600">Ask questions in natural language — get back structured, relevant answers.</p>
+		</div>
+  
+		<div class="diagonal-item reveal-item">
+		  <div class="feature-icon">
+			<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+			</svg>
+		  </div>
+		  <h3 class="font-bold text-[--dw-blue] mb-3">AI Optimized</h3>
+		  <p class="text-zinc-600">Clean, compressed, schema-linked output for AI models and agents.</p>
 		</div>
 	  </div>
 	</div>
-<div id="toast" class="custom-toast d-none">Email copied to clipboard!</div>
+  </section>
 
 
-</body>
-</html>
+  <!-- USE CASES + CTA -->
+  <section class="pt-2 pb-16 px-6 bg-gradient-to-br from-[--dw-blue] via-[--dw-blue-dark] to-slate-800 text-white text-center relative overflow-hidden wave-divider">
+
+	<!-- Animated particles for this section -->
+	<div class="particle" style="top: 15%; left: 5%; width: 3px; height: 3px; animation-delay: 1s;"></div>
+	<div class="particle" style="top: 30%; right: 10%; width: 5px; height: 5px; animation-delay: 3s;"></div>
+	<div class="particle" style="bottom: 25%; left: 15%; width: 4px; height: 4px; animation-delay: 2s;"></div>
+	<div class="particle" style="top: 50%; right: 20%; width: 6px; height: 6px; animation-delay: 4s;"></div>
+
+	<div class="organic-bg" style="top: 10%; left: -5%; width: 250px; height: 180px; animation-delay: 6s;"></div>
+	
+	<div class="max-w-4xl mx-auto relative z-10">
+	  <h2 class="text-4xl font-bold mb-8 text-[--dw-orange]">Built for Complex Domains</h2>
+	  <p class="text-xl/relaxed opacity-90 mb-6 max-w-2xl mx-auto">
+		The DataWorks platform powers multiple applications, each built on the same graph-native foundation.
+	  </p>
+	  <p class="text-lg/relaxed opacity-90 mb-6 max-w-4xl mx-auto">
+		Whether you're analyzing legal documents, tracking title records, or connecting public data across agencies — DataWorks provides you a unified structure to build on.
+	  </p>
+	  
+	  <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+		<a href="/contact" class="liquid-btn text-white px-8 py-4 rounded-full font-semibold text-lg shadow-2xl inline-block">
+		  Schedule a Demo
+		</a>
+	  </div>
+
+	</div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center text-zinc-500 text-sm py-0 bg-gradient-to-br from-slate-50 to-white relative overflow-hidden">
+	<div class="organic-bg" style="bottom: -10%; right: -5%; width: 200px; height: 120px; animation-delay: 10s;"></div>
+	<div class="relative z-10">
+	  <div class="max-w-4xl mx-auto">
+		<div class="flex justify-center items-center mb-2">
+			<img src="img/logo.png" alt="DataWorks Icon" class="w-10 h-10 object-contain" />
+		</div>
+		<p class="text-lg font-semibold text-[--dw-blue] mb-2">DataWorks</p>
+		<p class="mb-8">Structured Intelligence for Complex Data</p>
+		<div class="border-t border-zinc-200 pt-8">
+		  <p>&copy; 2025 DataWorks LLC — All rights reserved.</p>
+		</div>
+	  </div>
+	</div>
+  </footer>
+
+<!-- Slide-Out Menu -->
+	<div id="accordionMenu" class="fixed top-0 right-0 h-full w-80 max-w-full bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-40">
+	  <div class="p-4 border-b border-zinc-200 flex justify-between items-center">
+		<h2 class="text-lg font-bold text-[--dw-blue]">Navigation</h2>
+		<button id="menuClose" class="text-zinc-500 hover:text-zinc-800">&times;</button>
+	  </div>
+	  <nav class="p-4 space-y-2 text-sm">
+		<a href="#" data-load="legal.html" class="block text-[--dw-blue] hover:text-[--dw-orange]">DataWorks Legal</a>
+		<a href="#" data-load="commons.html" class="block text-[--dw-blue] hover:text-[--dw-orange]">DataWorks Commons</a>
+		<a href="#" data-load="solutions/item1.html" class="block text-[--dw-blue] hover:text-[--dw-orange]">Custom Solutions</a>
+		<a href="#" id="contactNav" class="block text-[--dw-blue] hover:text-[--dw-orange]">Contact</a>
+	  </nav>
+	</div>
+  
+	<div id="externalContent" class="max-w-6xl mx-auto px-6 py-12 hidden"></div>
+  
+  <div id="contactOverlay" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-[9999]">
+	<div class="bg-[--dw-orange] text-white p-6 rounded-lg max-w-md w-full text-center shadow-xl border border-white/20 relative">
+	  <button onclick="hideContactOverlay()" class="absolute top-2 right-3 text-xl text-gray-500 hover:text-black">&times;</button>
+	  <h5 class="mb-2">Email us at:</h5>
+	  <p class="font-semibold break-words">info@thedataworks.org</p>
+	  <div class="flex justify-center gap-3 mt-4">
+		<button class="text-[--dw-blue] border border-[--dw-blue] px-3 py-1 text-sm rounded hover:bg-white hover:text-[--dw-blue-dark] transition" onclick="copyEmail()">Copy Email</button>
+		<a href="mailto:info@thedataworks.org"
+		   onclick="hideContactOverlay()"
+		   class="text-[--dw-blue] border border-[--dw-blue] px-3 py-1 text-sm rounded hover:bg-white hover:text-[--dw-blue-dark] transition">
+		  Open in Mail App
+		</a>
+	  </div>
+	</div>
+  </div>
+  <div id="toast" class="hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-sm px-4 py-2 rounded">Email copied to clipboard!</div>
 
 
+	<!-- Scripts -->
+	<script>
+	  document.addEventListener('DOMContentLoaded', () => {
+		const menu = document.getElementById("accordionMenu");
+		const menuToggle = document.getElementById("menuToggle");
+		const menuClose = document.getElementById("menuClose");
+		const externalContent = document.getElementById("externalContent");
+  
+		// Fade in Commons, Legal, and Accordion
+		setTimeout(() => {
+		  document.querySelectorAll('.fade-group').forEach(el => el.classList.add('visible'));
+		}, 1600);
+  
+		// Toggle Menu
+		menuToggle.addEventListener("click", () => {
+		  menu.classList.remove("translate-x-full");
+		});
+  
+		menuClose.addEventListener("click", () => {
+		  menu.classList.add("translate-x-full");
+		});
+  
+		// Auto-close menu on internal section scroll
+		document.querySelectorAll('a[href^="#"]').forEach(link => {
+		  link.addEventListener('click', () => {
+			menu.classList.add("translate-x-full");
+		  });
+		});
+  
+		// Auto-close on dynamic page loads
+		document.querySelectorAll('[data-load]').forEach(link => {
+		  link.addEventListener('click', async (e) => {
+			e.preventDefault();
+			const page = e.target.getAttribute('data-load');
+			const response = await fetch(page);
+			const html = await response.text();
+			externalContent.innerHTML = html;
+			externalContent.classList.remove('hidden');
+			window.scrollTo({ top: externalContent.offsetTop, behavior: 'smooth' });
+			menu.classList.add("translate-x-full");
+  
+			if (typeof gtag === 'function') {
+			  gtag('event', 'page_view', { page_path: '/' + page.replace('.html', '') });
+			}
+		  });
+		});
+	  });
+	</script>
+  
+	  <script>
+		function showContactOverlay() {
+		  document.getElementById("contactOverlay").classList.remove("hidden");
+		}
+	  
+		function hideContactOverlay() {
+		  document.getElementById("contactOverlay").classList.add("hidden");
+		}
+	  
+		function copyEmail() {
+		  navigator.clipboard.writeText("info@thedataworks.org");
+		  const toast = document.getElementById("toast");
+		  toast.classList.remove("hidden");
+		  setTimeout(() => toast.classList.add("hidden"), 2000);
+		}
+	  
+		document.addEventListener("DOMContentLoaded", () => {
+		  // Contact in nav accordion
+		  document.getElementById("contactNav")?.addEventListener("click", e => {
+			e.preventDefault();
+			showContactOverlay();
+		  });
+
+	  
+		  // Schedule a Demo
+		  document.querySelectorAll('a.liquid-btn').forEach(el =>
+			el.addEventListener("click", e => {
+			  e.preventDefault();
+			  showContactOverlay();
+			})
+		  );
+		});
+	  </script>
+
+
+  
+  </body>
+  </html>

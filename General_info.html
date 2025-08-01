@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DataWorks | Legal Intelligence & Public Data Infrastructure</title>
+
+  <!-- Styling frameworks -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+	:root {
+	  --dw-blue:  #005596;
+	  --dw-orange:#f58220;
+	  --dw-gray:  #eef2f7;
+	}
+
+	body           { font-family:'Poppins',sans-serif; background:#f8f9fa; color:#212529; }
+	.header        { background:var(--dw-blue); color:#fff; text-align:center; padding:5rem 2rem 4rem; }
+	.header h1     { font-weight:600; }
+	.section       { padding:3.5rem 2rem; }
+	.section h2    { font-weight:600; color:var(--dw-blue); margin-bottom:1.25rem; }
+	.section-dark  { background:var(--dw-gray); }
+	.product-card  { background:#fff; border-left:4px solid var(--dw-orange); border-radius:8px;
+					 box-shadow:0 1px 4px rgba(0,0,0,0.05); padding:1.75rem 1.25rem; transition:transform .25s;}
+	.product-card:hover{ transform:translateY(-4px); }
+	.product-card h4{ margin-bottom:.65rem; }
+	footer         { background:#f1f1f1; text-align:center; padding:2.5rem 1rem; font-size:.9rem; color:#666; }
+	a.btn-primary  { background:var(--dw-orange); border:none; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== HERO / MISSION ===== -->
+  <header class="header">
+	<img src="/static/img/logo-graph-bigorange-white.png" alt="DataWorks Logo" style="max-width:22rem;" class="mb-4"/>
+	<h1 class="mb-3">DataWorks</h1>
+	<p class="lead">Building transparent legal intelligence&nbsp;<em>and</em>&nbsp;open civic‑data infrastructure.</p>
+  </header>
+
+  <main class="container">
+
+	<!-- ===== OUR MISSION ===== -->
+	<section class="section">
+	  <h2>Our Mission & Values</h2>
+	  <p>
+		We believe reliable data is the cornerstone of justice and good governance.  
+		DataWorks turns fragmented legal filings and public datasets into <strong>structured, source‑cited intelligence</strong> that anyone can verify—
+		then delivers it through tools that serve both <em>commercial</em> legal professionals and <em>public</em> institutions.
+	  </p>
+	  <ul>
+		<li><strong>Transparency&nbsp;First</strong> – every insight links back to its source.</li>
+		<li><strong>Rigor&nbsp;&amp;&nbsp;Validation</strong> – data pipelines are documented and testable.</li>
+		<li><strong>Public&nbsp;Benefit</strong> – our Commons initiative keeps vital civic data open and accessible.</li>
+	  </ul>
+	</section>
+
+	<!-- ===== BREAKTHROUGH TECH ===== -->
+	<section class="section section-dark">
+	  <h2>The Breakthrough</h2>
+	  <p>
+		At the core of every DataWorks offering is a <strong>graph‑based engine</strong> that maps people, filings, rulings, statutes, 
+		agencies, and outcomes—automatically linking each fact to primary documents.  
+		It’s the same infrastructure that powers citation‑grounded AI answers for attorneys and fuels statewide data portals for governments.
+	  </p>
+	</section>
+
+	<!-- ===== OFFERINGS OVERVIEW ===== -->
+	<section class="section">
+	  <h2>Explore Our Offerings</h2>
+	  <p class="mb-4">Click a card to see detailed capabilities, pricing, or partnership options.</p>
+
+	  <div class="row gy-4">
+
+		<!-- AtlasLaw -->
+		<div class="col-md-6">
+		  <a href="/atlaslaw" class="text-decoration-none text-reset">
+			<div class="product-card">
+			  <h4>AtlasLaw <small class="text-muted">(Legal Intelligence)</small></h4>
+			  <p>Graph‑powered search, document chat, and judge analytics—for law firms and litigators.</p>
+			</div>
+		  </a>
+		</div>
+
+		<!-- SummaryCite -->
+		<div class="col-md-6">
+		  <a href="/summarycite" class="text-decoration-none text-reset">
+			<div class="product-card">
+			  <h4>SummaryCite <small class="text-muted">(Legal Intelligence)</small></h4>
+			  <p>Turns dense PDFs into citation‑backed timelines and fact sheets.</p>
+			</div>
+		  </a>
+		</div>
+
+		<!-- TrialWire -->
+		<div class="col-md-6">
+		  <a href="/trialwire" class="text-decoration-none text-reset">
+			<div class="product-card">
+			  <h4>TrialWire <small class="text-muted">(Legal Intelligence)</small></h4>
+			  <p>Automated monthly digest of civil trial outcomes, damages, and trends.</p>
+			</div>
+		  </a>
+		</div>
+
+		<!-- DataWorks Commons -->
+		<div class="col-md-6">
+		  <a href="/commons" class="text-decoration-none text-reset">
+			<div class="product-card">
+			  <h4>DataWorks&nbsp;Commons <small class="text-muted">(Public Infrastructure)</small></h4>
+			  <p>Open civic‑data platform funded by governments &amp; philanthropy—secure APIs, natural‑language queries, downloadable datasets.</p>
+			</div>
+		  </a>
+		</div>
+
+	  </div>
+	</section>
+
+	<!-- ===== CTA ===== -->
+	<section class="section text-center">
+	  <h2>Let’s Talk</h2>
+	  <p class="lead">Whether you’re a legal professional seeking smarter research tools or an agency improving public‑data access, we’d love to hear from you.</p>
+
+	  <div class="d-flex justify-content-center gap-3 flex-wrap mt-3">
+		<a href="mailto:hello@thedataworks.org?subject=Legal%20Product%20Inquiry" class="btn btn-primary btn-lg">Legal Tools Demo</a>
+		<a href="mailto:hello@thedataworks.org?subject=Commons%20Partnership"  class="btn btn-outline-secondary btn-lg">Discuss Commons</a>
+	  </div>
+	</section>
+
+  </main>
+
+  <footer>
+	&copy; 2025 DataWorks. All rights reserved.
+  </footer>
+
+</body>
+</html>
