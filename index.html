@@ -521,6 +521,14 @@
 	  </div>
 	</div>
   </div>
+  <div id="commonsOverlay" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-[9999]">
+	<div class="bg-[--dw-orange] text-white p-6 rounded-lg max-w-md w-full text-center shadow-xl border border-white/20 relative">
+	  <button onclick="hideCommonsOverlay()" class="absolute top-2 right-3 text-xl text-gray-500 hover:text-black">&times;</button>
+	  <h5 class="mb-2 font-bold">DataWorks Commons is Upgrading</h5>
+	  <p class="text-sm">The Commons is currently migrating to a new version and will be available within 24 hours.</p>
+	  <p class="text-sm mt-2">We apologize for the delay — thank you for your patience!</p>
+	</div>
+  </div>
   <div id="toast" class="hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-sm px-4 py-2 rounded">Email copied to clipboard!</div>
 
 
@@ -581,6 +589,14 @@
 		function hideContactOverlay() {
 		  document.getElementById("contactOverlay").classList.add("hidden");
 		}
+
+		function showCommonsOverlay() {
+		  document.getElementById("commonsOverlay").classList.remove("hidden");
+		}
+
+		function hideCommonsOverlay() {
+		  document.getElementById("commonsOverlay").classList.add("hidden");
+		}
 	  
 		function copyEmail() {
 		  navigator.clipboard.writeText("info@thedataworks.org");
@@ -594,6 +610,19 @@
 		  document.getElementById("contactNav")?.addEventListener("click", e => {
 			e.preventDefault();
 			showContactOverlay();
+		  });
+
+		  // Commons migration notice — remove once the new Commons is live
+		  document.querySelectorAll('a[href="/commons"]').forEach(el =>
+			el.addEventListener("click", e => {
+			  e.preventDefault();
+			  showCommonsOverlay();
+			})
+		  );
+
+		  // Close Commons overlay when clicking outside the card
+		  document.getElementById("commonsOverlay")?.addEventListener("click", e => {
+			if (e.target.id === "commonsOverlay") hideCommonsOverlay();
 		  });
 
 	  
