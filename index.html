@@ -312,7 +312,7 @@
 
   
 	<div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6 justify-center mt-8 px-4">
-	  <a href="/commons" rel="noopener noreferrer"
+	  <a href="https://dataworkscommons.org" rel="noopener noreferrer"
 		 class="liquid-blue-card block p-6 rounded-2xl transition-all duration-300 group reveal-item reveal-delay-4">
 		<div class="flex items-center justify-center mb-3">
 		  <div class="w-10 h-10 bg-[--dw-orange] rounded-lg flex items-center justify-center mr-3 group-hover:rotate-12 transition-transform">
@@ -498,7 +498,7 @@
 	  </div>
 	  <nav class="p-4 space-y-2 text-sm">
 		<a href="https://dataworkslegal.com" rel="noopener noreferrer" class="block text-[--dw-blue] hover:text-[--dw-orange]">DataWorks Legal</a>
-		<a href="/commons" rel="noopener noreferrer" class="block text-[--dw-blue] hover:text-[--dw-orange]">DataWorks Commons</a>
+		<a href="https://dataworkscommons.org" rel="noopener noreferrer" class="block text-[--dw-blue] hover:text-[--dw-orange]">DataWorks Commons</a>
 		<!-- <a href="#" data-load="solutions/item1.html" class="block text-[--dw-blue] hover:text-[--dw-orange]">Custom Solutions</a> -->
 		<a href="#" id="contactNav" class="block text-[--dw-blue] hover:text-[--dw-orange]">Contact</a>
 	  </nav>
@@ -519,14 +519,6 @@
 		  Open in Mail App
 		</a>
 	  </div>
-	</div>
-  </div>
-  <div id="commonsOverlay" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-[9999]">
-	<div class="bg-[--dw-orange] text-white p-6 rounded-lg max-w-md w-full text-center shadow-xl border border-white/20 relative">
-	  <button onclick="hideCommonsOverlay()" class="absolute top-2 right-3 text-xl text-gray-500 hover:text-black">&times;</button>
-	  <h5 class="mb-2 font-bold">DataWorks Commons is Upgrading</h5>
-	  <p class="text-sm">The Commons is currently migrating to a new version and will be available within 24 hours.</p>
-	  <p class="text-sm mt-2">We apologize for the delay — thank you for your patience!</p>
 	</div>
   </div>
   <div id="toast" class="hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-sm px-4 py-2 rounded">Email copied to clipboard!</div>
@@ -589,14 +581,6 @@
 		function hideContactOverlay() {
 		  document.getElementById("contactOverlay").classList.add("hidden");
 		}
-
-		function showCommonsOverlay() {
-		  document.getElementById("commonsOverlay").classList.remove("hidden");
-		}
-
-		function hideCommonsOverlay() {
-		  document.getElementById("commonsOverlay").classList.add("hidden");
-		}
 	  
 		function copyEmail() {
 		  navigator.clipboard.writeText("info@thedataworks.org");
@@ -610,19 +594,6 @@
 		  document.getElementById("contactNav")?.addEventListener("click", e => {
 			e.preventDefault();
 			showContactOverlay();
-		  });
-
-		  // Commons migration notice — remove once the new Commons is live
-		  document.querySelectorAll('a[href="/commons"]').forEach(el =>
-			el.addEventListener("click", e => {
-			  e.preventDefault();
-			  showCommonsOverlay();
-			})
-		  );
-
-		  // Close Commons overlay when clicking outside the card
-		  document.getElementById("commonsOverlay")?.addEventListener("click", e => {
-			if (e.target.id === "commonsOverlay") hideCommonsOverlay();
 		  });
 
 	  
